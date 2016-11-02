@@ -1,7 +1,7 @@
 --Total child tickets on peak days
 MONTHS   TOTAL_TICKETS
 ------   -------------
-	null    80
+null            80
 JUN-2016	9
 MAY-2016	2108
 APR-2016	354
@@ -10,7 +10,7 @@ JUL-2016	2
 --Total Adult tickets on peak days
 MONTHS   TOTAL_TICKETS
 ------   -------------
-	null    189
+null            189
 JUN-2016	22
 MAY-2016	3193
 APR-2016	10931
@@ -19,7 +19,7 @@ JUL-2016	12
 --Total child tickets on week days 
 MONTHS   TOTAL_TICKETS
 ------   -------------
-	null    88
+null            88
 JUN-2016	22
 MAY-2016	4761
 APR-2016	794
@@ -27,7 +27,7 @@ APR-2016	794
 --Total Adult tickets on week days
 MONTHS   TOTAL_TICKETS
 ------   -------------
-	null    244
+null            244
 JUN-2016	37
 MAY-2016	6351
 APR-2016	2161
