@@ -1,0 +1,60 @@
+/ sidebar menu
+#sidebar-menu.main_menu_side.hidden-print.main_menu
+  .menu_section
+    %h3 Dashboard
+    %ul.nav.side-menu
+      %li
+        %a
+          %i.fa.fa-home
+          Tickets
+          %span.fa.fa-chevron-down
+        %ul.nav.child_menu
+          %li
+            %a{:href => "/#"} Yearly
+          %li
+            %a{:href => "/#"} Monthly
+          %li
+            %a{:href => "/#"} Weekly
+          %li
+            %a{:href => "/#"} Daily
+          %li
+            %a{:href => "/#"} Peak Days and Week Days
+      %li
+        %a
+          %i.fa.fa-edit
+          F & B
+          %span.fa.fa-chevron-down
+        %ul.nav.child_menu
+          %li
+            %a{:href => "/#"} F & B
+      %li
+        %a
+          %i.fa.fa-desktop
+          Retail Shop
+          %span.fa.fa-chevron-down
+        %ul.nav.child_menu
+          %li
+            %a{:href => "/#"} Retail Shop Wise
+
+      %li
+        %a
+          %i.fa.fa-table
+          Group wise
+          %span.fa.fa-chevron-down
+        %ul.nav.child_menu
+          %li
+            %a{:href => "/#"} Child
+          %li
+            %a{:href => "/#"} Adult
+
+/ /menu footer buttons
+.sidebar-footer.hidden-small
+  %a{"data-placement" => "top", "data-toggle" => "tooltip", :title => "Settings"}
+    %span.glyphicon.glyphicon-cog{"aria-hidden" => "true"}
+  %a{"data-placement" => "top", "data-toggle" => "tooltip", :title => "FullScreen"}
+    %span.glyphicon.glyphicon-fullscreen{"aria-hidden" => "true"}
+  %a{"data-placement" => "top", "data-toggle" => "tooltip", :title => "Lock"}
+    %span.glyphicon.glyphicon-eye-close{"aria-hidden" => "true"}
+  %a{"data-placement" => "top", "data-toggle" => "tooltip", :title => "Logout"}
+    %span.glyphicon.glyphicon-off{"aria-hidden" => "true"}
+/ /menu footer buttons

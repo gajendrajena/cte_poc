@@ -1,0 +1,77 @@
+!!!
+%html{:lang => "en"}
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{:charset => "utf-8"}/
+    %meta{:content => "IE=edge", "http-equiv" => "X-UA-Compatible"}/
+    %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}/
+    %title CTE POC
+    %link{:href => "/assets/bootstrap/dist/css/bootstrap.min.css", :rel => "stylesheet"}/
+    %link{:href => "/assets/font-awesome/css/font-awesome.min.css", :rel => "stylesheet"}/
+    %link{:href => "/assets/nprogress/nprogress.css", :rel => "stylesheet"}/
+    %link{:href => "/assets/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css", :rel => "stylesheet"}/
+    %link{:href => "/assets/bootstrap-daterangepicker/daterangepicker.css", :rel => "stylesheet"}/
+    %link{:href => "/assets/custom.css", :rel => "stylesheet"}/
+  %body.nav-md
+    .container.body
+      .main_container
+        .col-md-3.left_col
+          .left_col.scroll-view
+            .navbar.nav_title{:style => ""}
+              %a.site_title{:href => "/"}
+                -# %i.fa.fa-paw
+                -# %span CTE POC
+            .clearfix
+            %br/
+            = render 'layouts/left_menu'
+        = render 'layouts/top_nav'
+        / page content
+        .right_col{:role => "main"}
+          = yield
+        / /page content
+        / footer content
+        %footer
+          .pull-right
+            CTE
+            %a{:href => "/"} POC
+          .clearfix
+        / /footer content
+    / jQuery
+    %script{:src => "/assets/jquery/dist/jquery.min.js"}
+    / Bootstrap
+    %script{:src => "/assets/bootstrap/dist/js/bootstrap.min.js"}
+    / FastClick
+    %script{:src => "/assets/fastclick/lib/fastclick.js"}
+    / NProgress
+    %script{:src => "/assets/nprogress/nprogress.js"}
+    / Chart.js
+    %script{:src => "/assets/Chart.js/dist/Chart.min.js"}
+    / jQuery Sparklines
+    %script{:src => "/assets/jquery-sparkline/dist/jquery.sparkline.min.js"}
+    / morris.js
+    %script{:src => "/assets/raphael/raphael.min.js"}
+    %script{:src => "/assets/morris.js/morris.min.js"}
+    / gauge.js
+    %script{:src => "/assets/gauge.js/dist/gauge.min.js"}
+    / bootstrap-progressbar
+    %script{:src => "/assets/bootstrap-progressbar/bootstrap-progressbar.min.js"}
+    / Skycons
+    %script{:src => "/assets/skycons/skycons.js"}
+    / Flot
+    %script{:src => "/assets/Flot/jquery.flot.js"}
+    %script{:src => "/assets/Flot/jquery.flot.pie.js"}
+    %script{:src => "/assets/Flot/jquery.flot.time.js"}
+    %script{:src => "/assets/Flot/jquery.flot.stack.js"}
+    %script{:src => "/assets/Flot/jquery.flot.resize.js"}
+    / Flot plugins
+    %script{:src => "/assets/flot.orderbars/js/jquery.flot.orderBars.js"}
+    %script{:src => "/assets/flot-spline/js/jquery.flot.spline.min.js"}
+    %script{:src => "/assets/flot.curvedlines/curvedLines.js"}
+    / DateJS
+    %script{:src => "/assets/DateJS/build/date.js"}
+    / bootstrap-daterangepicker
+    %script{:src => "/assets/moment/min/moment.min.js"}
+    %script{:src => "/assets/bootstrap-daterangepicker/daterangepicker.js"}
+    / Custom Theme Scripts
+    %script{:src => "/assets/custom.js"}
+    %script{:src => "/assets/dashboard.js"}
