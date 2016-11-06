@@ -7,7 +7,7 @@ Rails.application.config.assets.version = '1.0'
 # Rails.application.config.assets.paths << Emoji.images_path
 # Enable the asset pipeline
 	Rails.application.config.assets.enabled = true
-	Rails.application.config.assets.paths << "#{Rails.root}/app/assets/fonts"
+	Rails.application.config.assets.paths << "/assets/fonts"
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
 # Rails.application.config.assets.precompile += %w( search.js )
