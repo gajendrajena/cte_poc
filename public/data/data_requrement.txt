@@ -1,0 +1,24 @@
+1. yearly no of tickets booked
+{
+	2016: 98098098,
+	2015: 8908908,
+	...
+}
+2. monthly data for all these years
+{
+	2016: {
+
+		total: 98098098,
+		january: 8098,
+		february: 09808,
+		.....
+	}
+	2015: {
+		total: 98098098,
+		january: 8098,
+		february: 09808,
+		.....
+		}
+	...
+}
+3.
