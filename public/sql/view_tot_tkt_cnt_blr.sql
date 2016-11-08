@@ -18,7 +18,7 @@ order by b.fin_year;
 ===================================
 create or replace view v_tkt_cnt_monthwise
 as
-select b.fin_year "Financial Year",to_char(b.trans_dt,'MON') Months,count(a.no_pers) "Total Tickets" 
+select b.fin_year "Financial Year",to_char(b.trans_dt,'MON') Monthly,count(a.no_pers) "Total Tickets" 
 from tkt_dtl a,tkt_hdr b
 where a.FIN_YEAR=b.FIN_YEAR and
 a.BRANCH_CD=b.BRANCH_CD and
@@ -34,7 +34,7 @@ order by b.fin_year,to_char(b.trans_dt,'MON');
 ====================================
 create or replace view v_tkt_cnt_weekly
 as
-select b.fin_year as YEAR,to_char(b.trans_dt,'MON') Months,to_char(b.trans_dt,'W') "WEEK",count(a.no_pers) "Total Tickets"
+select b.fin_year as YEAR,to_char(b.trans_dt,'MON') Months,to_char(b.trans_dt,'W') "Weekly",count(a.no_pers) "Total Tickets"
 from tkt_dtl a,tkt_hdr b
 where a.FIN_YEAR=b.FIN_YEAR and
 a.BRANCH_CD=b.BRANCH_CD and
