@@ -1,0 +1,39 @@
+--Total child tickets on peak days
+Year    Months  TOTAL_TICKETS
+----    ------  ------------
+20162017	APR	14575
+20162017	AUG	2227
+20162017	JUL	2766
+20162017	JUN	2742
+20162017	MAY	23084
+20162017	OCT	6015
+20162017	SEP	1447
+
+--Total Adult tickets on peak days
+Year    Months  TOTAL_TICKETS
+----    ------  ------------
+20162017	APR	37270
+20162017	AUG	7889
+20162017	JUL	9579
+20162017	JUN	8279
+20162017	MAY	57048
+20162017	OCT	17161
+20162017	SEP	5628
+
+--Total child tickets on week days 
+Year    Months  TOTAL_TICKETS
+----    ------  ------------
+20162017	AUG	6852
+20162017	JUL	6861
+20162017	JUN	10945
+20162017	SEP	3708
+
+--Total Adult tickets on week days
+Year    Months  TOTAL_TICKETS
+----    ------  ------------
+20152016	FEB	8713
+20152016	MAR	14416
+20162017	AUG	7254
+20162017	JUL	7656
+20162017	JUN	11998
+20162017	SEP	3909
