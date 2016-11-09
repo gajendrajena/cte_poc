@@ -19,6 +19,9 @@ var yearly_data = [
   {name: '2015-2016', y:  300262, drilldown: '2015-2016'},
   {name: '2016-2017', y:  174588, drilldown: '2016-2017'}
 ];
+
+
+
 var drilldown_series = [{
       name: 'Microsoft Internet Explorer',
       id: 'Microsoft Internet Explorer',
@@ -41,7 +44,7 @@ var drilldown_series = [{
       data: opera_data
     }]
 
-$('#container').highcharts({
+$('#yearly_chart').highcharts({
   chart: {
     type: 'column'
   },
@@ -88,6 +91,62 @@ $('#container').highcharts({
   // drilldown: {
   //   series: drilldown_series
   // }
+});
+
+var peakday_weekday_monthly_data = [
+  {name:  'APR', y: 14575},
+  {name:  'AUG', y: 2227},
+  {name:  'JUL', y: 2766},
+  {name:  'JUN', y: 2742},
+  {name:  'MAY', y: 23084},
+  {name:  'OCT', y: 6015},
+  {name:  'SEP', y: 1447}
+];
+
+$('#peakday_weekday_chart').highcharts({
+  chart: {
+    type: 'column'
+  },
+  title: {
+    text: 'Peak Day - Week Day (No. Of Child/Adult)'
+  },
+  subtitle: {
+    text: 'Click the columns to view for each year.'
+  },
+  xAxis: {
+    type: 'category',
+    title: {
+      text: 'Financial Year -> 2016-2017'
+    }
+  },
+  yAxis: {
+    title: {
+      text: 'Tickets Sold ->'
+    }
+  },
+  legend: {
+    enabled: false
+  },
+  plotOptions: {
+    series: {
+      borderWidth: 0,
+      dataLabels: {
+        enabled: true,
+        format: '{point.y}'
+      }
+    }
+  },
+
+  tooltip: {
+    headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
+    pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y}</b><br/>'
+  },
+
+  series: [{
+    name: 'Month',
+    colorByPoint: true,
+    data: peakday_weekday_monthly_data
+  }]
 });
 
 
@@ -242,19 +301,6 @@ $('#container').highcharts({
     $('#reportrange').data('daterangepicker').remove();
   });
 
-  //bootstrap-daterangepicker
-  // morris.js
-  Morris.Bar({
-    element: 'graph_bar',
-    data: [{ "period": "Jan", "Hours worked": 80 },{ "period": "Feb", "Hours worked": 125 },{ "period": "Mar", "Hours worked": 176 },{ "period": "Apr", "Hours worked": 224 },{ "period": "May", "Hours worked": 265 },{ "period": "Jun", "Hours worked": 314 },{ "period": "Jul", "Hours worked": 347 },{ "period": "Aug", "Hours worked": 287 },{ "period": "Sep", "Hours worked": 240 },{ "period": "Oct", "Hours worked": 211 }],
-    xkey: 'period',
-    hideHover: 'auto',
-    barColors: ['#26B99A', '#34495E', '#ACADAC', '#3498DB'],
-    ykeys: ['Hours worked', 'sorned'],
-    labels: ['Hours worked', 'SORN'],
-    xLabelAngle: 60,
-    resize: true
-  });
 
   $MENU_TOGGLE.on('click', function() {
     $(window).resize();
