@@ -1,5 +1,5 @@
 GIT
-  remote: git://github.com/seyhunak/twitter-bootstrap-rails.git
+  remote: https://github.com/seyhunak/twitter-bootstrap-rails.git
   revision: d3776ddd0b89d28fdebfd6e1c1541348cc90e5cc
   specs:
     twitter-bootstrap-rails (3.2.2)
@@ -226,4 +226,4 @@ DEPENDENCIES
   web-console
 
 BUNDLED WITH
-   1.13.1
+   1.13.6

@@ -32,5 +32,8 @@
 //= require DateJS/build/date
 //= require moment/min/moment.min
 //= require bootstrap-daterangepicker/daterangepicker
+//= require highcharts
+//= require data
+//= require drilldown
 //= require custom
 //= require dashboard
