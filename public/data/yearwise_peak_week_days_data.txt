@@ -1,11 +1,21 @@
 --total child tickets on peak days
 year      total_tickets
 -------   -------------
-20162017	 52856
+20112012	65364
+20122013	79526
+20132014	77846
+20142015	83854
+20152016	63247
+20162017	52856
 
 --total Adult tickets on peak days
 year      total_tickets
 -------   -------------
+20112012	64472
+20122013	79526
+20132014	76240
+20142015	78252
+20152016	93089
 20162017	142854
 
 --total child tickets on week days
