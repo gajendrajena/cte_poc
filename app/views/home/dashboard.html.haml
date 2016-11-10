@@ -21,18 +21,18 @@
       %span.sparkline_one{:style => "height: 160px;"}
         %canvas.sparkline{:height => "60", :width => "200"}
   %br/
-  .row
-    .col-md-8.col-xs-12
+  .row.clearfix
+    .col-md-8.col-sm-12.col-xs-12
       #yearly_chart
-    .col-md-4.col-xs-12
+    .col-md-4.col-sm-12.col-xs-12
       #yearly_pie_chart
-  .row
+  .row.clearfix
     .col-md-6.col-sm-6.col-xs-12.peakday_weekday_container
       .col-xs-12.peakday_weekday_header
         = select_tag "peak_week_day_filter", options_for_select(['Yearly', '2016-2017',  '2015-2016',  '2015-2014',  '2014-2013',  '2013-2012' ])
       .col-md-6.col-sm-6.col-xs-12.peakday_weekday_content
       #peakday_weekday_chart
-  .row
+  .row.clearfix
     .col-md-6.col-sm-6.col-xs-12
       .x_panel.fixed_height_320
         .x_title
