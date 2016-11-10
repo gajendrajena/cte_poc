@@ -37,4 +37,4 @@
 //= require drilldown
 //= require custom
 //= require dashboard
-//= require reports/peakdayWeakdayChart
+//= require reports/wonderla/peakdayWeakdayChart
