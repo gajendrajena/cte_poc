@@ -33,8 +33,10 @@
 //= require moment/min/moment.min
 //= require bootstrap-daterangepicker/daterangepicker
 //= require highcharts
+//= require underscore-min
 //= require data
 //= require drilldown
 //= require custom
 //= require dashboard
 //= require reports/wonderla/peakdayWeakdayChart
+//= require reports/wonderla/tickets_sold_vs_time
