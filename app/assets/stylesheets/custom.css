@@ -4827,3 +4827,11 @@ ul.project_files li a i {
   }
 
   /** /Dropzone.js **/
+
+
+    .peakday_weekday_header {
+      text-align: right;
+      select {
+        float: right;
+      }
+    }

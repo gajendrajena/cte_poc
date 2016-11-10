@@ -1,4 +1,4 @@
-%div
+%div.dashboard_container
   .row.top_tiles{:style => "margin: 10px 0;"}
     .col-md-3.col-sm-3.col-xs-6.tile
       %span Total Sessions
@@ -25,7 +25,10 @@
     .col-md-12
       #yearly_chart
   .row
-    .col-md-12.col-sm-12.col-xs-12.widget_tally_box
+    .col-md-6.col-sm-6.col-xs-12.peakday_weekday_container
+      .col-xs-12.peakday_weekday_header
+        = select_tag "peak_week_day_filter", options_for_select(['Yearly', '2016-2017',  '2015-2016',  '2015-2014',  '2014-2013',  '2013-2012' ])
+      .col-md-6.col-sm-6.col-xs-12.peakday_weekday_content
       #peakday_weekday_chart
   .row
     .col-md-6.col-sm-6.col-xs-12

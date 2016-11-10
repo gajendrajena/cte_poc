@@ -93,61 +93,15 @@ $('#yearly_chart').highcharts({
   // }
 });
 
-var peakday_weekday_monthly_data = [
-  {name:  'APR', y: 14575},
-  {name:  'AUG', y: 2227},
-  {name:  'JUL', y: 2766},
-  {name:  'JUN', y: 2742},
-  {name:  'MAY', y: 23084},
-  {name:  'OCT', y: 6015},
-  {name:  'SEP', y: 1447}
-];
 
-$('#peakday_weekday_chart').highcharts({
-  chart: {
-    type: 'column'
-  },
-  title: {
-    text: 'Peak Day - Week Day (No. Of Child/Adult)'
-  },
-  subtitle: {
-    text: 'Click the columns to view for each year.'
-  },
-  xAxis: {
-    type: 'category',
-    title: {
-      text: 'Financial Year -> 2016-2017'
-    }
-  },
-  yAxis: {
-    title: {
-      text: 'Tickets Sold ->'
-    }
-  },
-  legend: {
-    enabled: false
-  },
-  plotOptions: {
-    series: {
-      borderWidth: 0,
-      dataLabels: {
-        enabled: true,
-        format: '{point.y}'
-      }
-    }
-  },
+// Peakday - Weekday Chart, grouped by Child/Adult
 
-  tooltip: {
-    headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
-    pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y}</b><br/>'
-  },
-
-  series: [{
-    name: 'Month',
-    colorByPoint: true,
-    data: peakday_weekday_monthly_data
-  }]
-});
+// var peakday_weekday_monthly_data = [
+//   {name:  'Peakday', data: [142854, 0], stack: 'Adult'},
+//   {name:  'Weakday', data: [30817, 23129], stack: 'Adult'},
+//   {name:  'Peakday', data: [52856, 0], stack: 'Child'},
+//   {name:  'Weakday', data: [28366, 0], stack: 'Child'}
+// ];
 
 
   //random data

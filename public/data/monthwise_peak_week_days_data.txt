@@ -323,3 +323,21 @@ Year    Months  TOTAL_TICKETS
 20162017	JUL	7656
 20162017	JUN	11998
 20162017	SEP	3909
+
+     							=============================================================
+
+
+Total tickets on peak days (By Child/Adult)
+-------------------------------------------------------------
+Year       Total_Adult_Tickets   Total_Child_Tickets
+----       -------------------   -------------------
+20162017        142854               52856
+
+
+
+Total tickets on weak days (By Child/Adult)
+-------------------------------------------------------------
+Year       Total_Adult_Tickets   Total_Child_Tickets
+----       -------------------   -------------------
+20162017        30817               28366
+20152016        23129               0
