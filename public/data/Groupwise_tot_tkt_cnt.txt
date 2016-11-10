@@ -1,4 +1,4 @@
-Yearly Groupwise data 
+Yearly Groupwise data
 ============================
 Year        Group Name                                  Total_tickets
 --------    ----------                                  -------------
@@ -10,7 +10,7 @@ Year        Group Name                                  Total_tickets
 20162017	College                                 	3354
 20162017	Corporate                               	4416
 20162017	General                                 	321366
-20162017	School                                  	828 
+20162017	School                                  	828
 
 Monthly Groupwise data
 =============================
@@ -25,6 +25,7 @@ Year        Month    Group Name                            Total_tickets
 20152016	MAR	Corporate                               	322
 20152016	MAR	General                                 	53484
 20152016	MAR	School                                  	346
+
 20162017	APR	College                                 	334
 20162017	APR	Corporate                               	1566
 20162017	APR	General                                 	70716
