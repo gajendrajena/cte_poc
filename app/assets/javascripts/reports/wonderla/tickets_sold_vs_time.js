@@ -26,34 +26,67 @@ $(document).ready(function() {
     drilldown_series.push(monthly_year_data_hash);
   });
 
-$('#yearly_chart').highcharts({
-  chart: {type: 'column'},
-  title: {text: 'Yearly Tickets Sold'},
-  subtitle: {text: 'Click the columns to view for each year.'},
-  xAxis: {type: 'category',title: {  text: 'Financial Years ->'}},
-  yAxis: {title: {  text: 'Tickets Sold ->'}},
-  legend: {enabled: false},
-  plotOptions: {
-    series: {
-      borderWidth: 0,
-      dataLabels: { enabled: true, format: '{point.y}'}
+  $('#yearly_chart').highcharts({
+    chart: {type: 'column'},
+    title: {text: 'Yearly Tickets Sold'},
+    subtitle: {text: 'Click the columns to view for each year.'},
+    xAxis: {type: 'category',title: {  text: 'Financial Years ->'}},
+    yAxis: {title: {  text: 'Tickets Sold ->'}},
+    legend: {enabled: false},
+    plotOptions: {
+      series: {
+        borderWidth: 0,
+        dataLabels: { enabled: true, format: '{point.y}'}
+      }
+    },
+
+    tooltip: {
+      headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
+      pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y}</b><br/>'
+    },
+
+    series: [{
+      name: 'Financial year',
+      colorByPoint: true,
+      data: yearly_data
+    }],
+    drilldown: {
+      series: drilldown_series
     }
-  },
+  });
 
-  tooltip: {
-    headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
-    pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y}</b><br/>'
-  },
-
-  series: [{
-    name: 'Financial year',
+  var yearly_pie_chart_data = [{
+    name: 'Tickets Sold',
     colorByPoint: true,
-    data: yearly_data
-  }],
-  drilldown: {
-    series: drilldown_series
-  }
-});
+    data: _.map(yearly_data, function(e){ return {name: e.name , y: e.y};})
+  }];
+
+  $('#yearly_pie_chart').highcharts({
+    chart: {
+      plotShadow: false,
+      type: 'pie'
+    },
+    title: {
+      text: 'Tickets Sold per year'
+    },
+    tooltip: {
+      pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+    },
+    plotOptions: {
+      pie: {
+        allowPointSelect: true,
+        cursor: 'pointer',
+        dataLabels: {
+          enabled: true,
+          format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+          style: {
+            color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+          }
+        }
+      }
+    },
+    series: yearly_pie_chart_data
+  });
 });
 
 
