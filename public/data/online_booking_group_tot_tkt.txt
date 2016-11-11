@@ -1,0 +1,181 @@
+Yearly online booking data 
+===========================
+
+year        Group									Tickets
+----        -------									-------
+20152016	College                                 	4
+20152016	General                                 	2998
+20152016	Other Institutions                      	4
+20162017	College                                 	4
+20162017	General                                 	2466
+
+monthly online booking data 
+=============================
+
+year        months 	Group								Tickets
+-----       ------  ----- 								--------
+20152016	FEB	College                                 	4
+20152016	FEB	General                                 	844
+20152016	MAR	General                                 	2154
+20152016	FEB	Other Institutions                      	4
+20162017	APR	College                                 	4
+20162017	APR	General                                 	1648
+20162017	AUG	General                                 	72
+20162017	JUL	General                                 	98
+20162017	JUN	General                                 	2
+20162017	MAY	General                                 	596
+20162017	OCT	General                                 	10
+20162017	SEP	General                                 	40
+
+weekly online booking data 
+==========================
+
+year        months weeks 	Group							Tickets
+-----       ------ ----- 	-----							-------
+20152016	FEB	4	College                                 	4
+20152016	FEB	1	General                                 	168
+20152016	FEB	2	General                                 	322
+20152016	FEB	3	General                                 	178
+20152016	FEB	4	General                                 	172
+20152016	FEB	5	General                                 	4
+20152016	MAR	1	General                                 	240
+20152016	MAR	2	General                                 	276
+20152016	MAR	3	General                                 	346
+20152016	MAR	4	General                                 	1156
+20152016	MAR	5	General                                 	136
+20152016	FEB	4	Other Institutions                      	4
+20162017	APR	1	College                                 	4
+20162017	APR	1	General                                 	548
+20162017	APR	2	General                                 	992
+20162017	APR	3	General                                 	106
+20162017	APR	4	General                                 	2
+20162017	AUG	1	General                                 	38
+20162017	AUG	2	General                                 	14
+20162017	AUG	3	General                                 	4
+20162017	AUG	5	General                                 	16
+20162017	JUL	4	General                                 	4
+20162017	JUL	5	General                                 	94
+20162017	JUN	3	General                                 	2
+20162017	MAY	2	General                                 	582
+20162017	MAY	3	General                                 	8
+20162017	MAY	4	General                                 	6
+20162017	OCT	2	General                                 	10
+20162017	SEP	1	General                                 	12
+20162017	SEP	2	General                                 	6
+20162017	SEP	3	General                                 	8
+20162017	SEP	4	General                                 	14
+
+Daily online booking data 
+==========================
+
+year       months Daily Group								Tickets
+-----      ------ ----- -----								-------
+20152016	FEB	26	College                                 	4
+20152016	FEB	02	General                                 	10
+20152016	FEB	03	General                                 	6
+20152016	FEB	04	General                                 	4
+20152016	FEB	05	General                                 	6
+20152016	FEB	06	General                                 	74
+20152016	FEB	07	General                                 	68
+20152016	FEB	08	General                                 	10
+20152016	FEB	09	General                                 	20
+20152016	FEB	10	General                                 	10
+20152016	FEB	11	General                                 	8
+20152016	FEB	12	General                                 	32
+20152016	FEB	13	General                                 	108
+20152016	FEB	14	General                                 	134
+20152016	FEB	15	General                                 	22
+20152016	FEB	16	General                                 	10
+20152016	FEB	17	General                                 	8
+20152016	FEB	18	General                                 	16
+20152016	FEB	19	General                                 	20
+20152016	FEB	20	General                                 	56
+20152016	FEB	21	General                                 	46
+20152016	FEB	22	General                                 	6
+20152016	FEB	23	General                                 	10
+20152016	FEB	24	General                                 	4
+20152016	FEB	25	General                                 	10
+20152016	FEB	26	General                                 	14
+20152016	FEB	27	General                                 	76
+20152016	FEB	28	General                                 	52
+20152016	FEB	29	General                                 	4
+20152016	MAR	01	General                                 	8
+20152016	MAR	02	General                                 	12
+20152016	MAR	03	General                                 	20
+20152016	MAR	04	General                                 	32
+20152016	MAR	05	General                                 	70
+20152016	MAR	06	General                                 	80
+20152016	MAR	07	General                                 	18
+20152016	MAR	08	General                                 	22
+20152016	MAR	09	General                                 	10
+20152016	MAR	10	General                                 	12
+20152016	MAR	11	General                                 	42
+20152016	MAR	12	General                                 	106
+20152016	MAR	13	General                                 	60
+20152016	MAR	14	General                                 	24
+20152016	MAR	15	General                                 	8
+20152016	MAR	16	General                                 	16
+20152016	MAR	17	General                                 	18
+20152016	MAR	18	General                                 	72
+20152016	MAR	19	General                                 	100
+20152016	MAR	20	General                                 	88
+20152016	MAR	21	General                                 	44
+20152016	MAR	22	General                                 	28
+20152016	MAR	23	General                                 	44
+20152016	MAR	24	General                                 	160
+20152016	MAR	25	General                                 	380
+20152016	MAR	26	General                                 	340
+20152016	MAR	27	General                                 	134
+20152016	MAR	28	General                                 	70
+20152016	MAR	29	General                                 	26
+20152016	MAR	30	General                                 	32
+20152016	MAR	31	General                                 	78
+20152016	FEB	26	Other Institutions                      	4
+20162017	APR	04	College                                 	4
+20162017	APR	01	General                                 	64
+20162017	APR	02	General                                 	160
+20162017	APR	03	General                                 	224
+20162017	APR	04	General                                 	26
+20162017	APR	05	General                                 	24
+20162017	APR	06	General                                 	20
+20162017	APR	07	General                                 	30
+20162017	APR	08	General                                 	320
+20162017	APR	09	General                                 	360
+20162017	APR	10	General                                 	146
+20162017	APR	11	General                                 	44
+20162017	APR	12	General                                 	38
+20162017	APR	13	General                                 	14
+20162017	APR	14	General                                 	70
+20162017	APR	15	General                                 	88
+20162017	APR	16	General                                 	16
+20162017	APR	17	General                                 	2
+20162017	APR	26	General                                 	2
+20162017	AUG	01	General                                 	4
+20162017	AUG	02	General                                 	2
+20162017	AUG	06	General                                 	24
+20162017	AUG	07	General                                 	8
+20162017	AUG	13	General                                 	8
+20162017	AUG	14	General                                 	6
+20162017	AUG	20	General                                 	4
+20162017	AUG	29	General                                 	16
+20162017	JUL	22	General                                 	4
+20162017	JUL	31	General                                 	94
+20162017	JUN	20	General                                 	2
+20162017	MAY	13	General                                 	4
+20162017	MAY	14	General                                 	578
+20162017	MAY	17	General                                 	6
+20162017	MAY	21	General                                 	2
+20162017	MAY	22	General                                 	2
+20162017	MAY	23	General                                 	2
+20162017	MAY	24	General                                 	2
+20162017	OCT	10	General                                 	6
+20162017	OCT	11	General                                 	2
+20162017	OCT	14	General                                 	2
+20162017	SEP	03	General                                 	12
+20162017	SEP	10	General                                 	4
+20162017	SEP	11	General                                 	2
+20162017	SEP	15	General                                 	4
+20162017	SEP	17	General                                 	4
+20162017	SEP	24	General                                 	10
+20162017	SEP	25	General                                 	2
+20162017	SEP	26	General                                 	2

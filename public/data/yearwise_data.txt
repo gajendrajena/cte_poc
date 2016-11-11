@@ -1,5 +1,0 @@
---categorywise total tickets on peak/week days for financial year 20162017
-Total child tickets on peak days - 2553
-Total Adult tickets on peak days - 14347
-Total child tickets on week days - 5665
-Total Adult tickets on week days - 8794

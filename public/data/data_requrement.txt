@@ -22,3 +22,17 @@
 	...
 }
 3.
+
+=================================10/11/16
+
+1.child/adult tickets on peak/week days for yealy, monthly
+
+2.
+Groupwise Data
+---------------
+
+Year			Month  	Week   	day 			GroupName		TicketCount
+
+
+2016-2017		Jan		Week1	01/01/2017
+
