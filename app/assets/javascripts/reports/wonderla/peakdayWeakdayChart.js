@@ -11,134 +11,127 @@ $(document).ready(function() {
       name: 'Child (Peekday)',
       data: peakday_child_data,
       stack: 'Peekday'
-    }, 
+    },
     {
       name: 'Adult (Peekday)',
       data: peakday_adult_data,
       stack: 'Peekday'
-    }, 
+    },
     {
       name: 'Child (Weekday)',
       data: weekday_child_data,
       stack: 'Weekday'
-    }, 
+    },
     {
       name: 'Adult (Weekday)',
       data: weekday_adult_data,
       stack: 'Weekday'
     }
   ];
-  $('#peakday_weekday_chart').highcharts({
-    chart: {
-      type: 'column'
-    },
-    title: {
-      text: 'Peakday - Weekday Report, grouped by Child/Adult'
-    },
-    subtitle: {
-      text: 'Stack 1: Peekday , Stack 2:  Weekday'
-    },
-    xAxis: {
-      categories: category_names
-    },
-    yAxis: {
-      allowDecimals: false,
-      min: 0,
+
+  var peakday_weekday_chart = function(yearly_data, category_names) {
+
+    $('#peakday_weekday_chart').html('');
+    $('#peakday_weekday_chart').highcharts({
+      chart: {
+        type: 'column'
+      },
       title: {
-        text: 'Number of Tickets'
-      }
-    },
-    tooltip: {
-      formatter: function () {
-        return '<b>' + this.x + '</b><br/>' +
-          this.series.name + ': ' + this.y + '<br/>' +
-          'Total: ' + this.point.stackTotal;
-      }
-    },
-    plotOptions: {
-      column: {
-        stacking: 'normal'
-      }
-    },
-    series: yearly_data
-  });
+        text: 'Peakday - Weekday Report, grouped by Child/Adult'
+      },
+      subtitle: {
+        text: 'Stack 1: Peekday , Stack 2:  Weekday'
+      },
+      xAxis: {
+        categories: category_names
+      },
+      yAxis: {
+        allowDecimals: false,
+        min: 0,
+        title: {
+          text: 'Number of Tickets'
+        }
+      },
+      tooltip: {
+        formatter: function () {
+          return '<b>' + this.x + '</b><br/>' +
+            this.series.name + ': ' + this.y + '<br/>' +
+            'Total: ' + this.point.stackTotal;
+        }
+      },
+      plotOptions: {
+        column: {
+          stacking: 'normal'
+        }
+      },
+      series: yearly_data
+    });
+  }
+  peakday_weekday_chart(yearly_data, category_names);
   // Chart End
 
 
   $('#peak_week_day_filter').change(function(){
-    if (this.value) {
-      peakday_child_data = [];
-      peakday_adult_data = [];
-      weekday_child_data = [];
-      weekday_adult_data = [];
-      var monthwise_data = _.where(peak_week_day_data.peakday.child, { financial_year: this.value});
-      months_array.forEach(function(mon){
-        month_data = _.filter(monthwise_data, function(obj){ return obj.month == mon; });
-        if (month_data.lenght > 0) {
-          peakday_child_data.push(month_data)[0].tickets_sold  
-        }
-        else {
-          peakday_child_data.push(0);  
-        }
+    if (this.value === '0') {
+      alert('here');
+      peakday_weekday_chart(yearly_data, category_names);
+    } else {
+      var monthwise_data;
+      monthwise_data = _.where(peak_week_day_data.peakday.child, { financial_year: this.value});
+      var peakday_child_data = _.map(months_array, function(mon){
+        month_data = _.where(monthwise_data, {month: mon});
+        return month_data.length > 0 ? month_data[0].tickets_sold : 0;
       });
 
-      var monthwise_data = _.where(peak_week_day_data.peakday.adult, { financial_year: this.value});
-      months_array.forEach(function(mon){
-        month_data = _.filter(monthwise_data, function(obj){ return obj.month == mon; });
-        if (month_data.lenght > 0) {
-          peakday_adult_data.push(month_data)[0].tickets_sold  
-        }
-        else {
-          peakday_adult_data.push(0);  
-        }
+      monthwise_data = _.where(peak_week_day_data.peakday.adult, { financial_year: this.value});
+      console.log(monthwise_data);
+      var peakday_adult_data = _.map(months_array, function(mon){
+        month_data = _.where(monthwise_data, {month: mon});
+        console.log(month_data);
+        return month_data.length > 0 ? month_data[0].tickets_sold : 0;
       });
 
-      var monthwise_data = _.where(peak_week_day_data.weekday.child, { financial_year: this.value});
-      months_array.forEach(function(mon){
-        month_data = _.filter(monthwise_data, function(obj){ return obj.month == mon; });
-        if (month_data.lenght > 0) {
-          weekday_child_data.push(month_data)[0].tickets_sold  
-        }
-        else {
-          weekday_child_data.push(0);  
-        }
+      monthwise_data = _.where(peak_week_day_data.weekday.child, { financial_year: this.value});
+      var weekday_child_data = _.map(months_array, function(mon){
+        month_data = _.where(monthwise_data, {month: mon});
+        return month_data.length > 0 ? month_data[0].tickets_sold : 0;
       });
 
-      var monthwise_data = _.where(peak_week_day_data.weekday.adult, { financial_year: this.value});
-      months_array.forEach(function(mon){
-        month_data = _.filter(monthwise_data, function(obj){ return obj.month == mon; });
-        if (month_data.lenght > 0) {
-          weekday_adult_data.push(month_data)[0].tickets_sold  
-        }
-        else {
-          weekday_adult_data.push(0);  
-        }
+      monthwise_data = _.where(peak_week_day_data.weekday.adult, { financial_year: this.value});
+      var weekday_adult_data = _.map(months_array, function(mon){
+        month_data = _.where(monthwise_data, {month: mon});
+        return month_data.length > 0 ? month_data[0].tickets_sold : 0;
       });
+      // console.log(peakday_child_data);
+      // console.log(peakday_adult_data);
+      // console.log(weekday_child_data);
+      // console.log(weekday_adult_data);
 
       var updatedData = [
         {
           name: 'Child (Peekday)',
           data: peakday_child_data,
           stack: 'Peekday'
-        }, 
+        },
         {
           name: 'Adult (Peekday)',
           data: peakday_adult_data,
           stack: 'Peekday'
-        }, 
+        },
         {
           name: 'Child (Weekday)',
           data: weekday_child_data,
           stack: 'Weekday'
-        }, 
+        },
         {
           name: 'Adult (Weekday)',
           data: weekday_adult_data,
           stack: 'Weekday'
         }
       ];
-      $('#peakday_weekday_chart').series[0].setData(updatedData,true);
-      
+      peakday_weekday_chart(updatedData, months_array);
+      // $('#peakday_weekday_chart').series[0].setData(updatedData,true);
+
     }
   });
 
@@ -147,9 +140,9 @@ $(document).ready(function() {
 
 
 
-var peak_week_day_data = { 
+var peak_week_day_data = {
   peakday: {
-    child: [  
+    child: [
       {financial_year: '20142015', month: 'DEC', tickets_sold: 9308},
       {financial_year: '20112012', month: 'APR', tickets_sold: 3},
       {financial_year: '20112012', month: 'AUG', tickets_sold: 1},

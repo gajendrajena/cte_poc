@@ -29,7 +29,7 @@
   .row.margin-top-15
     .col-md-12.col-sm-12.col-xs-12.peakday_weekday_container
       .col-xs-12.peakday_weekday_header
-        = select_tag "peak_week_day_filter", options_for_select([['Yearly', nil], ['2016-2017', '20162017'], [ '2015-2016', '20152016'], [ '2015-2014', '20152014'], [ '2014-2013', '20142013'], [ '2013-2012', '20132012'] ])
+        = select_tag "peak_week_day_filter", options_for_select([['Yearly', '0'], ['2016-2017', '20162017'], [ '2015-2016', '20152016'], [ '2015-2014', '20152014'], [ '2014-2013', '20142013'], [ '2013-2012', '20132012'] ])
       .col-md-6.col-sm-6.col-xs-12.peakday_weekday_content
       #peakday_weekday_chart
 
