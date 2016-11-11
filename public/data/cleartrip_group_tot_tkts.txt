@@ -1,8 +1,8 @@
 Yearly cleartrip booking data 
 =============================
 
-year        Group									                Tickets
-----        -----									                -------
+year        Group									        Tickets
+----        -----									        -------
 20152016	College                                   1456
 20152016	Corporate                               	384
 20152016	General                                 	83580
@@ -16,8 +16,8 @@ year        Group									                Tickets
 Monthly cleartrip booking data 
 =============================
 
-year        Months 	 Group									        Tickets
-----        ------   ----- 								          -------
+year        Months 	 Group									  Tickets
+----        ------   ----- 								    -------
 20152016	FEB	College                                 	684
 20152016	FEB	Corporate                               	62
 20152016	FEB	General                                 	30130
@@ -59,8 +59,8 @@ year        Months 	 Group									        Tickets
 
 Weekly cleartrip booking data 
 =============================
-year        Months week  Group								        Tickets
-----        ------ ----  -----							          -------
+year        Months week  Group								  Tickets
+----        ------ ----  -----							    -------
 20152016	FEB	1	College                                 	166
 20152016	FEB	1	Corporate                               	2
 20152016	FEB	1	General                                 	6104
@@ -232,8 +232,8 @@ year        Months week  Group								        Tickets
 Daily cleartrip booking data 
 =============================
 
-year        Months Days  Group								        Tickets
-----        ------ ----  -----								         -------
+year        Months Days  Group								   Tickets
+----        ------ ----  -----								   -------
 20152016	FEB	02	College                                 	22
 20152016	FEB	02	General                                 	770
 20152016	FEB	02	School                                  	26
