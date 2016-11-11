@@ -1,0 +1,58 @@
+%div.dashboard_container
+  .row.top_tiles{:style => "margin: 10px 0;"}
+    .col-md-3.col-sm-3.col-xs-6.tile
+      %span Total Sessions
+      %h2 231,809
+      %span.sparkline_one{:style => "height: 160px;"}
+        %canvas.sparkline{:height => "60", :width => "200"}
+    .col-md-3.col-sm-3.col-xs-6.tile
+      %span Total Revenue
+      %h2 $ 231,809
+      %span.sparkline_one{:style => "height: 160px;"}
+        %canvas.sparkline{:height => "60", :width => "200"}
+    .col-md-3.col-sm-3.col-xs-6.tile
+      %span Total Sessions
+      %h2 231,809
+      %span.sparkline_two{:style => "height: 160px;"}
+        %canvas.sparkline{:height => "60", :width => "200"}
+    .col-md-3.col-sm-3.col-xs-6.tile
+      %span Total Sessions
+      %h2 231,809
+      %span.sparkline_one{:style => "height: 160px;"}
+        %canvas.sparkline{:height => "60", :width => "200"}
+  %br/
+  .row.margin-top-15
+    .col-md-8.col-sm-12.col-xs-12
+      #yearly_chart
+    .col-md-4.col-sm-12.col-xs-12
+      #yearly_pie_chart
+  .row.margin-top-15
+    .col-md-12.col-sm-12.col-xs-12.peakday_weekday_container
+      .col-xs-12.peakday_weekday_header
+        = select_tag "peak_week_day_filter", options_for_select([['Yearly', '0'], ['2016-2017', '20162017'], [ '2015-2016', '20152016'], [ '2015-2014', '20152014'], [ '2014-2013', '20142013'], [ '2013-2012', '20132012'] ])
+      .col-md-6.col-sm-6.col-xs-12.peakday_weekday_content
+      #peakday_weekday_chart
+
+  .row.margin-top-15
+    .col-md-8.col-sm-8.col-xs-12
+      #group_wise_users
+    .col-md-4.col-sm-12.col-xs-12
+      #group_wise_users_pie_chart
+
+  .row
+    .col-md-12.col-sm-12.col-xs-12
+      .dashboard_graph.x_panel
+        .row.x_title
+          .col-md-6
+            %h3
+              Tickets Sold
+              %small Graph title sub-title
+          .col-md-6
+            #reportrange.pull-right{:style => "background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc"}
+              %i.glyphicon.glyphicon-calendar.fa.fa-calendar
+              %span December 30, 2014 - January 28, 2015
+              %b.caret
+        .x_content
+          .demo-container{:style => "height:250px"}
+            #placeholder3xx3.demo-placeholder{:style => "width: 100%; height:250px;"}
+

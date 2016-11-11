@@ -1,0 +1,1 @@
+//= require reports/red_apple/dashboard

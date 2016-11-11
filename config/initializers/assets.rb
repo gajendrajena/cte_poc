@@ -8,6 +8,8 @@ Rails.application.config.assets.version = '1.0'
 # Enable the asset pipeline
 	Rails.application.config.assets.enabled = true
 	Rails.application.config.assets.paths << "/assets/fonts"
+	Rails.application.config.assets.precompile += %w(wonderla.js red_apple.js)
+
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
 # Rails.application.config.assets.precompile += %w( search.js )

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   get 'home/index'
+  get 'wonderla' => "home#wonderla"
+  get 'red_apple' => "home#red_apple"
   get 'home/show'
   root to: 'home#index'
 
