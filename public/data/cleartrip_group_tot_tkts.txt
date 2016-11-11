@@ -3,7 +3,7 @@ Yearly cleartrip booking data
 
 year        Group									                Tickets
 ----        -----									                -------
-20152016	College                                  1456
+20152016	College                                   1456
 20152016	Corporate                               	384
 20152016	General                                 	83580
 20152016	Other Institutions                      	4
