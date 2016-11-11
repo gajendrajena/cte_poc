@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
   def index
-  	render 'dashboard'
+  	render 'poc_dashboard'
   end
 end

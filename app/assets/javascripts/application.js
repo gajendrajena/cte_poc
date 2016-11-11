@@ -34,3 +34,4 @@
 //= require bootstrap-daterangepicker/daterangepicker
 //= require custom
 //= require dashboard
+//= require poc_dashboard
