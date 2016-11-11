@@ -1,0 +1,118 @@
+** City Wise Data
+  ----------------
+
+Country  City	    			No. Of Bookins
+-------  ----	    			--------------
+
+1		 '6'						1
+1		 '4'						1
+1		'Sydney'        			2
+1         'NA'						5
+
+2		'Vienna'					1
+
+11		'Cavtat'					1
+
+13		'Prague'					2
+
+14		'Copenhagen'				1
+
+19		'Paris'						13
+
+21		'Duesseldorf'				4
+21		'Berlin'					1
+
+23		'Athens'					1
+
+26		'Budapest'					1
+
+28		'BALI - DENPASAR'			2
+28		'Bali - jimbaran bay'		7
+28		'BALI - KUTA BEACH'			113
+28		'Bali - nusa dua'			46
+28		'Bali - seminyak'			45
+28		'Bali - Ubud'				24					
+28		'Bandung (java west)'		1
+28		'Batam'						1
+28		'Bintan'					1
+28		'BSM'						21
+28		'Jakarta'					5
+28		'KUTA'						92
+28		'Lombok'					2
+28		'NA'						331
+
+31		'Florence'					1
+31		'Rome'						2
+31		'Venice - mestre'			2					
+31		'Turin'						1
+31		'Milan'						4
+31		'Napoli'					1
+
+39		'Cameron highlands'			1
+39		'Genting highlands'			19
+39		'Ipoh'						1
+39		'Johor Bahru'				4
+39		'Kota Kinabalu'				1
+39		'Kuala lumpur'				202					
+39		'Kuala terengganu'			1
+39		'LANGKAWI'					46
+39		'Melaka (ex. malacca)'		1
+39		'Pangkor'					1
+39		'Penang'					5
+39		'Port dickson'				1
+39		'NA'						601
+
+53		'Moscow'					2
+
+55		'SENT'						1
+55		'Sentosa'					12					
+55		'Singapore'					495
+55		'NA'						887
+
+58		'Madrid'					3
+58		'Barcelona'					1							
+58		'Ibiza'						1
+
+59		'Kandy'						2
+59		'Colombo'					4					
+59		'Nuwara eliya'				1
+
+61		'Interlaken'				2
+61		'Zurich'					1
+61		'Lucerne'					1					
+61		'Geneva'					1
+
+64		'Bangkok'					231
+64		'Chiang mai'				1
+64		'Hua hin'					4
+64		'Koh phangan'				1
+64		'Krabi'						39					
+64		'Pattaya'					202
+64		'Phi phi island'			1
+64		'Phuket'					146
+64		'Samui island'				13
+64		'NA'						1009
+
+65		'Istanbul'					1
+
+67		'Abu dhabi'					5
+67		'Al Ain'					1
+67		'Dubai'						83
+67		'Sharjah'					1
+67		'NA'						176
+
+68		'London'					9
+68		'Edinburgh'					1
+
+94		'Bratislava'				3
+
+118		'Tbilisi'					1
+
+NA 		'NA'						539
+NA 		'Hong kong'					22
+NA 		'Kowloon'					3
+NA 		'Macau'						3
+NA 		'NA'						539	
+
+
+
