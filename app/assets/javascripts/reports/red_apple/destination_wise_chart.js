@@ -1,29 +1,29 @@
 $(document).ready(function() {
   var destinationWiseData = [
-    {name: '28', y:  719,   drilldown: '28'},
-    {name: '67', y:  338,   drilldown: '67'},
-    {name: '64', y:  1930,  drilldown: '64'},
-    {name: '39', y:  1065,  drilldown: '39'},
-    {name: '55', y:  1856,  drilldown: '55'},
-    {name: '68', y:  10,    drilldown: '68'},
-    {name: '65', y:  1,     drilldown: '65'},
-    {name: '19', y:  13,    drilldown: '19'},
-    {name: '1',  y:  9,     drilldown: '1'},
-    {name: '61', y:  6,     drilldown: '61'},
-    {name: '31', y:  14,    drilldown: '31'},
-    {name: '21', y:  5,     drilldown: '21'},
-    {name: '53', y:  2,     drilldown: '53'},
-    {name: '94', y:  3,     drilldown: '94'},
-    {name: '59', y:  7,     drilldown: '59'},
-    {name: '58', y:  5,     drilldown: '58'},
-    {name: '13', y:  2,     drilldown: '13'},
-    {name: '2',  y:  1,     drilldown: '2'},
-    {name: '11', y:  1,     drilldown: '11'},
-    {name: '23', y:  1,     drilldown: '23'},
-    {name: '26', y:  1,     drilldown: '26'},
-    {name: '118',y:  1,     drilldown: '118'},
-    {name: '14', y:  1,     drilldown: '14'},
-    {name: 'NA', y:  567,   drilldown: 'NA'}
+  {name: '28', y:  719,   drilldown: '28'},
+  {name: '67', y:  338,   drilldown: '67'},
+  {name: '64', y:  1930,  drilldown: '64'},
+  {name: '39', y:  1065,  drilldown: '39'},
+  {name: '55', y:  1856,  drilldown: '55'},
+  {name: '68', y:  10,    drilldown: '68'},
+  {name: '65', y:  1,     drilldown: '65'},
+  {name: '19', y:  13,    drilldown: '19'},
+  {name: '1',  y:  9,     drilldown: '1'},
+  {name: '61', y:  6,     drilldown: '61'},
+  {name: '31', y:  14,    drilldown: '31'},
+  {name: '21', y:  5,     drilldown: '21'},
+  {name: '53', y:  2,     drilldown: '53'},
+  {name: '94', y:  3,     drilldown: '94'},
+  {name: '59', y:  7,     drilldown: '59'},
+  {name: '58', y:  5,     drilldown: '58'},
+  {name: '13', y:  2,     drilldown: '13'},
+  {name: '2',  y:  1,     drilldown: '2'},
+  {name: '11', y:  1,     drilldown: '11'},
+  {name: '23', y:  1,     drilldown: '23'},
+  {name: '26', y:  1,     drilldown: '26'},
+  {name: '118',y:  1,     drilldown: '118'},
+  {name: '14', y:  1,     drilldown: '14'},
+  {name: 'NA', y:  567,   drilldown: 'NA'}
   ];
 
   var drilldown_series = [] ;
@@ -66,6 +66,51 @@ $(document).ready(function() {
       series: drilldown_series
     }
   });
+  //  ================================    END OF BAR CHART   ===============================
+
+
+
+  //  ================================    START PIE CHART   ===============================
+
+    // Destination Pie Chart with drilldown
+
+    $(function () {
+    // Create the chart
+    $('#destination_wise_pie_chart').highcharts({
+      chart: {
+        type: 'pie'
+      },
+      title: {
+        text: 'Country wise Booking Chart'
+      },
+      subtitle: {
+        text: 'Click the slices to view versions. Source: netmarketshare.com.'
+      },
+      plotOptions: {
+        series: {
+          dataLabels: {
+            enabled: true,
+            format: '{point.name}: {point.y}'
+          }
+        }
+      },
+
+      tooltip: {
+        pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y}</b>'
+      },
+      series: [{
+        name: 'Sales',
+        colorByPoint: true,
+        data: destinationWiseData
+      }],
+      drilldown: {
+        series: drilldown_series
+      }
+    });
+  });
+
+  //  ================================    END PIE CHART   ===============================
+
 
 });
 

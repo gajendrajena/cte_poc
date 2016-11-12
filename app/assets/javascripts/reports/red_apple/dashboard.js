@@ -106,25 +106,6 @@ $(document).ready(function() {
     $('#reportrange').data('daterangepicker').remove();
   });
 
-  //bootstrap-daterangepicker
-  // morris.js
-  Morris.Bar({
-    element: 'graph_bar',
-    data: [{"agent_name":"LUCKY TOURS","sales":120135282.1},{"agent_name":"BIMATAMA TOUR","sales":21135913.62},{"agent_name":"visto tour","sales":16912436.75},{"agent_name":"MW TOUR","sales":16841352.25},{"agent_name":"HAPPY TOUR","sales":13596525},{"agent_name":"DITA TOUR","sales":8903129},{"agent_name":"EC TOURS & TRAVEL","sales":8829669.62},{"agent_name":"SKY OCEAN TRAVEL","sales":7059086.06},{"agent_name":"JETA TRAVEL","sales":5372123.5},{"agent_name":"PANEN TOUR","sales":3075691.75},{"agent_name":"LAVENDER BOUTIQUE TRAVEL SOLUTION","sales":2942107.5},{"agent_name":"PT BNT TOUR & TRAVEL","sales":1751000},{"agent_name":"KERALA TOUR MART INDIA PVT LTD","sales":1319217.13},{"agent_name":"EZIHOLIDAY","sales":1106438.1},{"agent_name":"ANUGA TRAVEL & TOURS","sales":1032028.25},{"agent_name":"Konasth E-Services Ltd.","sales":935929.55},{"agent_name":"UNIVERSAL TOUR","sales":840728.06},{"agent_name":"Pugmarks - The Nature Club","sales":727412.04},{"agent_name":"RITS HOLIDAYS","sales":702317.17}],
-    xkey: 'agent_name',
-    hideHover: 'auto',
-    barColors: ['#26B99A', '#34495E', '#ACADAC', '#3498DB'],
-    ykeys: ['sales', 'sorned'],
-    labels: ['sales', 'SORN'],
-    xLabelAngle: 60,
-    resize: true
-  });
-
-  $MENU_TOGGLE.on('click', function() {
-    $(window).resize();
-  });
-  //morris.js
-  //Skycons
   var icons = new Skycons({
     "color": "#73879C"
   }),
@@ -165,4 +146,5 @@ $(document).ready(function() {
   gauge.animationSpeed = 32;
   gauge.set(4200);
   gauge.setTextField(document.getElementById("gauge-text2"));
+
 });
