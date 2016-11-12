@@ -35,52 +35,8 @@ $(document).ready(function() {
     }
   }], options);
 
-  //Flot
-  //jQuery Sparklines
-  $(".sparkline_one").sparkline([2, 4, 3, 4, 5, 4, 5, 4, 3, 4, 5, 6, 7, 5, 4, 3, 5, 6], {
-    type: 'bar',
-    height: '40',
-    barWidth: 9,
-    colorMap: {
-      '7': '#a1a1a1'
-    },
-    barSpacing: 2,
-    barColor: '#26B99A'
-  });
 
-  $(".sparkline_two").sparkline([2, 4, 3, 4, 5, 4, 5, 4, 3, 4, 5, 6, 7, 5, 4, 3, 5, 6], {
-    type: 'line',
-    width: '200',
-    height: '40',
-    lineColor: '#26B99A',
-    fillColor: 'rgba(223, 223, 223, 0.57)',
-    lineWidth: 2,
-    spotColor: '#26B99A',
-    minSpotColor: '#26B99A'
-  });
 
-  //jQuery Sparklines
-  //Doughnut Chart
-  var options = {
-    legend: false,
-    responsive: false
-  };
-
-  new Chart(document.getElementById("canvas1"), {
-    type: 'doughnut',
-    tooltipFillColor: "rgba(51, 51, 51, 0.55)",
-    data: {
-      labels: ["Symbian","Blackberry","Other","Android","IOS"],
-      datasets: [{
-        data: [15, 20, 30, 10, 30],
-        backgroundColor: ["#BDC3C7","#9B59B6","#E74C3C","#26B99A","#3498DB"],
-        hoverBackgroundColor: ["#CFD4D8","#B370CF","#E95E4F","#36CAAB","#49A9EA"]
-      }]
-    },
-    options: options
-  });
-
-  //Doughnut Chart
   //bootstrap-daterangepicker
   var cb = function(start, end, label) {
     console.log(start.toISOString(), end.toISOString(), label);

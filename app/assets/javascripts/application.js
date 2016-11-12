@@ -38,6 +38,9 @@
 //= require drilldown
 //= require custom
 //= require dashboard
+//= require exporting
+//= require funnel
+
 
 //= require poc_dashboard
 
