@@ -13,11 +13,6 @@ class HomeController < ApplicationController
   end
 
   def look_books
-  	@look_books = Costsheet.select("COUNT(booking_id) as boookings, COUNT(*) as quotations, agent_id").group(:agent_id).to_json
 
-	  	render json: @look_books
-  	# respond_to do |format|
-	  # 	format.json {@look_books}
-	  # end
   end
 end
