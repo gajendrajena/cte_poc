@@ -2,6 +2,9 @@
 $(document).ready(function() {
   var month_names = [ 'JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC' ];
   var fy_month_names = [ 'APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC', 'JAN','FEB','MAR'];
+  $('#total-tickets').html(_.reduce(yearly_data, function(memo, num){ return memo + num.y; }, 0));
+  $('#cur-yr-total-tickets').html('' + yearly_data[0].y);
+
 
   var weekCount = function(year, month_number) {
     // month_number is in the range 1..12
@@ -120,7 +123,7 @@ $(document).ready(function() {
 });
 
 
-var yearly_data = [
+window.yearly_data = [
 {name: '2016-2017', y:  174588, drilldown: '2016-2017'},
 {name: '2015-2016', y:  300262, drilldown: '2015-2016'},
 {name: '2014-2015', y:  285590, drilldown: '2014-2015'},
@@ -134,6 +137,8 @@ var yearly_data = [
 {name: '2006-2007', y:  278601, drilldown: '2006-2007'},
 {name: '2005-2006', y:  101983, drilldown: '2005-2006'}
 ];
+$('#total-tickets').html(_.reduce(yearly_data, function(memo, num){ return memo + num.y; }, 0));
+$('#cur-yr-total-tickets').html('' + yearly_data[0].y);
 
 var monthly_data = [
 {fy: '2005-2006', m: 'DEC', t:  '18691'},
