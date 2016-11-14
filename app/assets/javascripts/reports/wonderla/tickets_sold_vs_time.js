@@ -11,64 +11,6 @@ $(document).ready(function() {
     return Math.ceil( used / 7);
   };
 
-  $('#multi_dd').highcharts({
-    chart: { type: 'column' },
-    title: { text: 'Basic drilldown' },
-    xAxis: { type: 'category' },
-    legend: { enabled: false },
-    plotOptions: {
-      series: {
-        borderWidth: 0,
-        dataLabels: {
-          enabled: true,
-        }
-      }
-    },
-
-    series: [{
-      name: 'Things',
-      colorByPoint: true,
-      data: [{
-        name: 'Animals',
-        y: 5,
-        drilldown: 'animals'
-      }]
-    }],
-    drilldown: {
-      series: [
-      {
-        id: 'animals',
-        name: 'Animals',
-        data: [
-        {name: 'Cats', y: 4, drilldown: 'cats'},
-        {name: 'Dogs', y: 2, drilldown: 'dogs'},
-        {name: 'Cows', y: 1},
-        {name: 'Sheep', y: 2},
-        {name: 'Pigs', y: 1}
-        ]
-      },
-      {
-        id: 'cats',
-        name: 'cat groups',
-        data: [
-        {name: 'group 1', y: 1},
-        {name: 'group 2', y: 2},
-        {name: 'group 3', y: 3}
-        ]
-      },
-      {
-        id: 'dogs',
-        name: 'dog groups',
-        data: [
-        {name: 'group 1', y: 15},
-        {name: 'group 2', y: 50},
-        {name: 'group 3', y: 25}
-        ]
-      }
-      ]
-    }
-  })
-
   var drilldown_series = [], weekly_drilldown_series = [];
   _.map(yearly_data, function(year_data){
     var fy_data = _.where(monthly_data, { fy: year_data.name});
