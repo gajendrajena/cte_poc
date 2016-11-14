@@ -105,7 +105,7 @@ $(document).ready(function() {
 
     // ratio chart highest_ratio bookings
 
-    var categories = _.map(highest_ratio, function(e){return 'agent: '+ e.agent_id});;
+    var categories = _.map(highest_ratio, function(e){return e.agency_name});;
     var series_data = [{
       name: 'Bookings',
       data: _.map(highest_ratio, function(e){return e.bookings})
@@ -150,7 +150,7 @@ $(document).ready(function() {
       series: series_data
     });
 
-    var l_categories = _.map(lowest_ratio, function(e){return 'agent: '+ e.agent_id});;
+    var l_categories = _.map(lowest_ratio, function(e){return e.agency_name});;
     var l_series_data = [{
       name: 'Bookings',
       data: _.map(lowest_ratio, function(e){return e.bookings})
@@ -198,7 +198,7 @@ $(document).ready(function() {
 
     var top_bookings = _.last(_.sortBy(look_books, 'bookings'), top).reverse();
 
-    var top_categories = _.map(top_bookings, function(e){return 'agent: '+ e.agent_id});;
+    var top_categories = _.map(top_bookings, function(e){return e.agency_name});;
     var top_series_data = [{
       name: 'Bookings',
       data: _.map(top_bookings, function(e){return e.bookings})
@@ -244,7 +244,7 @@ $(document).ready(function() {
     });
 
     var top_quotations = _.last(_.sortBy(look_books, 'quotations'), top).reverse();
-    var top_categories = _.map(top_quotations, function(e){return 'agent: '+ e.agent_id});;
+    var top_categories = _.map(top_quotations, function(e){return e.agency_name});;
     var top_series_data = [{
       name: 'Bookings',
       data: _.map(top_quotations, function(e){return e.bookings})
