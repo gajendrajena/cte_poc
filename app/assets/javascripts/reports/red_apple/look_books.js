@@ -108,7 +108,7 @@ $(document).ready(function() {
     });
 
     var sorted_by_ratio = _.sortBy(look_books, 'ratio');
-    var top = 50;
+    var top = 5;
     if(parseInt(location.href.split('top=')[1])){
       top = parseInt(location.href.split('top=')[1]);
     }
