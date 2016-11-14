@@ -1,18 +1,15 @@
 class HomeController < ApplicationController
-	require 'json'
+  require 'json'
+
   def index
-  	render 'dashboard'
+    render 'dashboard'
   end
 
   def wonderla
-  	render 'wonderla_dashboard'
+    render 'wonderla_dashboard'
   end
 
   def red_apple
-  	render 'red_apple_dashboard'
-  end
-
-  def look_books
-
+    render 'red_apple_dashboard'
   end
 end

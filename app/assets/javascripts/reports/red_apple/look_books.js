@@ -7,29 +7,21 @@ $(document).ready(function() {
     }
   });
 
-  var renderStackChart = function(data){
-    var look_books = data;
-
+  var renderStackChart = function(look_books){
     var bookings = _.reject(look_books, function(e){return e.bookings == 0});
-
     var bookings_number_wise = [];
-    var series_numbers = [0, 1, 2, 3, 4, 5, 6, 8, 10, 15, 20, 30, 40, 50, 60, 70, 80, 90, 100];
-
-    var bookings_series_data = [], quotations_series_data = [], bookings_drilldown_data = {series: []}, quotations_drilldown_data = {series: []};
+    var series_numbers = [0, 1, 2, 3, 4, 5, 10, 15, 20, 30, 40, 50, 60, 70, 80, 90, 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000];
+    var bookings_series_data = [], quotations_series_data = [];
+    var bookings_drilldown_data = {series: []}, quotations_drilldown_data = {series: []};
 
     for (var i = 1; i <= series_numbers.length - 1; i++) {
+      var current_series = series_numbers[i-1] + "-" + series_numbers[i];
+      if(i <= 5) { current_series = series_numbers[i]; }
       bookings_number_wise[i-1] = _.filter(bookings, function(e){return (e.bookings > series_numbers[i - 1] && e.bookings <= series_numbers[i])})
       bookings_series_data[i-1] = {};
-      bookings_series_data[i-1].name = bookings_series_data[i-1].drilldown = series_numbers[i-1] + "-" + series_numbers[i];
+      bookings_series_data[i-1].name = bookings_series_data[i-1].drilldown = current_series;
       bookings_series_data[i-1].y = _.map(bookings_number_wise[i-1], function(e){return e.bookings}).length;
-
-      bookings_drilldown_data.series[i - 1] = {};
-      bookings_drilldown_data.series[i - 1].name = bookings_series_data[i-1].drilldown = series_numbers[i-1] + "-" + series_numbers[i];
-      bookings_drilldown_data.series[i - 1].id = bookings_series_data[i-1].drilldown = series_numbers[i-1] + "-" + series_numbers[i];
-      bookings_drilldown_data.series[i - 1].data = _.map(bookings_number_wise[i-1], function(e){return ['Agent id:' + e.agent_id, e.bookings]});
-
     }
-
 
     var only_quotations = _.reject(look_books, function(e){return e.bookings !== 0});
 
@@ -59,23 +51,19 @@ $(document).ready(function() {
         name: 'Bookings Range',
         colorByPoint: true,
         data: bookings_series_data
-      }],
-      drilldown: bookings_drilldown_data
+      }]
     });
 
     var quotations_number_wise = []
     var quotations = _.reject(look_books, function(e){return e.bookings !== 0});
 
     for (var i = 1; i <= series_numbers.length - 1; i++) {
+      var current_series = series_numbers[i-1] + "-" + series_numbers[i];
+      if(i <= 5) { current_series = series_numbers[i]; }
       quotations_number_wise[i-1] = _.filter(quotations, function(e){return (e.quotations > series_numbers[i - 1] && e.quotations <= series_numbers[i])})
       quotations_series_data[i-1] = {};
-      quotations_series_data[i-1].name = quotations_series_data[i-1].drilldown = series_numbers[i-1] + "-" + series_numbers[i];
+      quotations_series_data[i-1].name = quotations_series_data[i-1].drilldown = current_series;
       quotations_series_data[i-1].y = _.map(quotations_number_wise[i-1], function(e){return e.quotations}).length;
-
-      quotations_drilldown_data.series[i - 1] = {};
-      quotations_drilldown_data.series[i - 1].name = quotations_series_data[i-1].drilldown = series_numbers[i-1] + "-" + series_numbers[i];
-      quotations_drilldown_data.series[i - 1].id = quotations_series_data[i-1].drilldown = series_numbers[i-1] + "-" + series_numbers[i];
-      quotations_drilldown_data.series[i - 1].data = _.map(quotations_number_wise[i-1], function(e){return ['Agent id:' + e.agent_id, e.quotations]});
     }
     $('#look_quotations').highcharts({
       chart: {type: 'column'},
@@ -103,8 +91,7 @@ $(document).ready(function() {
         name: 'Quotations Range',
         colorByPoint: true,
         data: quotations_series_data
-      }],
-      drilldown: quotations_drilldown_data
+      }]
     });
 
     var sorted_by_ratio = _.sortBy(look_books, 'ratio');
@@ -116,8 +103,7 @@ $(document).ready(function() {
     var lowest_ratio = _.sortBy(_.first(sorted_by_ratio, top), 'bookings');
     var highest_ratio = _.sortBy(_.last(sorted_by_ratio, top), 'bookings');
 
-    // ratio chart
-    // highest_ratio bookings
+    // ratio chart highest_ratio bookings
 
     var categories = _.map(highest_ratio, function(e){return 'agent: '+ e.agent_id});;
     var series_data = [{
