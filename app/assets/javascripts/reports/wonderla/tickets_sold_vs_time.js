@@ -2,8 +2,10 @@
 $(document).ready(function() {
   var month_names = [ 'JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC' ];
   var fy_month_names = [ 'APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC', 'JAN','FEB','MAR'];
-  $('#total-tickets').html(_.reduce(yearly_data, function(memo, num){ return memo + num.y; }, 0));
-  $('#cur-yr-total-tickets').html('' + yearly_data[0].y);
+  // var total_tickets = numeral(_.reduce(yearly_data, function(memo, num){ return memo + num.y; }, 0));
+  // $('#total-tickets').html(total_tickets.format());
+  // var cur_yr_total_tickets = numeral(yearly_data[0].y);
+  // $('#cur-yr-total-tickets').html(cur_yr_total_tickets.format());
 
 
   var weekCount = function(year, month_number) {
