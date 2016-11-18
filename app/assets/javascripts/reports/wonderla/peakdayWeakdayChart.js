@@ -9,14 +9,14 @@ $(document).ready(function() {
   var weekday_adult_data = [29528, 109910, 91220, 54338, 66251, 91121, 75504, 84132, 86236, 101172, 90011, 31278];
   var yearly_data = [
   {
-    name: 'Child (Peekday)',
+    name: 'Child (Peakday)',
     data: peakday_child_data,
-    stack: 'Peekday'
+    stack: 'Peakday'
   },
   {
-    name: 'Adult (Peekday)',
+    name: 'Adult (Peakday)',
     data: peakday_adult_data,
-    stack: 'Peekday'
+    stack: 'Peakday'
   },
   {
     name: 'Child (Weekday)',
@@ -41,7 +41,7 @@ $(document).ready(function() {
         text: 'Peakday - Weekday Report, grouped by Child/Adult'
       },
       subtitle: {
-        text: 'Stack 1: Peekday , Stack 2:  Weekday'
+        text: 'Stack 1: Peakday , Stack 2:  Weekday'
       },
       xAxis: {
         categories: category_names
@@ -130,14 +130,14 @@ $(document).ready(function() {
 
       var updatedData = [
       {
-        name: 'Child (Peekday)',
+        name: 'Child (Peakday)',
         data: peakday_child_data,
-        stack: 'Peekday'
+        stack: 'Peakday'
       },
       {
-        name: 'Adult (Peekday)',
+        name: 'Adult (Peakday)',
         data: peakday_adult_data,
-        stack: 'Peekday'
+        stack: 'Peakday'
       },
       {
         name: 'Child (Weekday)',
