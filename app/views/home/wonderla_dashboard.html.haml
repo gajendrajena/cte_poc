@@ -39,19 +39,12 @@
     .col-md-4.col-sm-12.col-xs-12
       #group_wise_users_pie_chart
 
-  .row
+  %h2 Bookings vs Booking Sources
+  .row.margin-top-15
     .col-md-12.col-sm-12.col-xs-12
-      .dashboard_graph.x_panel
-        .row.x_title
-          .col-md-6
-            %h3
-              Tickets Sold
-              %small Graph title sub-title
-          .col-md-6
-            #reportrange.pull-right{:style => "background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc"}
-              %i.glyphicon.glyphicon-calendar.fa.fa-calendar
-              %span December 30, 2014 - January 28, 2015
-              %b.caret
-        .x_content
-          .demo-container{:style => "height:250px"}
-            #placeholder3xx3.demo-placeholder{:style => "width: 100%; height:250px;"}
+      #booking_source_chart Hello
+
+  %h2 Bookings Percentage vs Booking Sources
+  .row.margin-top-15
+    .col-md-12.col-sm-12.col-xs-12
+      #stacked_source Hello

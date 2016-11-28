@@ -1,24 +1,22 @@
-# README
+- scope
+  - dashboard
+    - charts
+    - reports
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Technology Stack for Red Apple
+  Backend
+    - json/excel/postgres (Database)
+    - Ruby
+    - Rails
 
-Things you may want to cover:
+  Front End
+    - HAML
+    - HTML5
+    - CSS3
+    - jquery
+    - HighChart.js
+    - underscorejs
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+schenider
+- tableu
+- click sense

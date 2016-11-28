@@ -124,7 +124,6 @@ $(document).ready(function() {
   });
 });
 
-
 window.yearly_data = [
 {name: '2016-2017', y:  174588, drilldown: '2016-2017'},
 {name: '2015-2016', y:  300262, drilldown: '2015-2016'},
