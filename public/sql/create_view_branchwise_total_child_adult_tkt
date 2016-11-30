@@ -2,6 +2,8 @@ Bangalore Data
 ---------------
 yearly Total child tickets on peak days
 ===================================================
+create or replace view v_tkt_cnt_peak_chd_blr_yearly
+as
 select b.fin_year year,nvl(count(no_pers),0) "Total Tickets"
 from tkt_dtl a,tkt_hdr b
 where a.FIN_YEAR=b.FIN_YEAR and
@@ -34,6 +36,8 @@ and a.catg_cd in (select catg_cd from category
 
 yearly Total Adult tickets on peak days
 ====================================================
+create or replace view v_tkt_cnt_peak_chd_blr_yearly
+as
 select b.fin_year,nvl(count(no_pers),0) Tot_Tkts
 from tkt_dtl a,tkt_hdr b
 where a.FIN_YEAR=b.FIN_YEAR and
@@ -64,7 +68,9 @@ and a.catg_cd in (select catg_cd from category
               group by b.fin_year;
       
 yearly Total child tickets on week days 
-===============================================             
+=============================================== 
+create or replace view v_tkt_cnt_peak_chd_blr_yearly
+as
 select a.fin_year year,nvl(count(no_pers),0) Tot_Tkts
 from tkt_dtl a,tkt_hdr b
 where a.FIN_YEAR=b.FIN_YEAR and
@@ -96,6 +102,8 @@ and a.catg_cd in (select catg_cd from category
   
 yearly Total Adult tickets on week days
 ================================================
+create or replace view v_tkt_cnt_peak_chd_blr_yearly
+as
 select a.fin_year year,nvl(count(no_pers),0) Tot_Tkts
 from tkt_dtl a,tkt_hdr b
 where a.FIN_YEAR=b.FIN_YEAR and
@@ -129,6 +137,8 @@ Kochi Data
 ---------------
 yearly Total child tickets on peak days
 ===================================================
+create or replace view v_tkt_cnt_peak_chd_cok_yearly
+as
 select b.fin_year year,nvl(count(no_pers),0) "Total Tickets"
 from tkt_dtl a,tkt_hdr b
 where a.FIN_YEAR=b.FIN_YEAR and
@@ -161,6 +171,8 @@ and a.catg_cd in (select catg_cd from category
 
 yearly Total Adult tickets on peak days
 ====================================================
+create or replace view v_tkt_cnt_peak_chd_cok_yearly
+as
 select b.fin_year,nvl(count(no_pers),0) Tot_Tkts
 from tkt_dtl a,tkt_hdr b
 where a.FIN_YEAR=b.FIN_YEAR and
@@ -191,7 +203,9 @@ and a.catg_cd in (select catg_cd from category
               group by b.fin_year;
       
 yearly Total child tickets on week days 
-===============================================             
+=============================================== 
+create or replace view v_tkt_cnt_peak_chd_cok_yearly
+as
 select a.fin_year year,nvl(count(no_pers),0) Tot_Tkts
 from tkt_dtl a,tkt_hdr b
 where a.FIN_YEAR=b.FIN_YEAR and
@@ -223,6 +237,8 @@ and a.catg_cd in (select catg_cd from category
   
 yearly Total Adult tickets on week days
 ================================================
+create or replace view v_tkt_cnt_peak_chd_cok_yearly
+as
 select a.fin_year year,nvl(count(no_pers),0) Tot_Tkts
 from tkt_dtl a,tkt_hdr b
 where a.FIN_YEAR=b.FIN_YEAR and
@@ -257,6 +273,8 @@ Hyderabad Data
 ---------------
 yearly Total child tickets on peak days
 ===================================================
+create or replace view v_tkt_cnt_peak_chd_hyd_yearly
+as
 select b.fin_year year,nvl(count(no_pers),0) "Total Tickets"
 from tkt_dtl a,tkt_hdr b
 where a.FIN_YEAR=b.FIN_YEAR and
@@ -289,6 +307,8 @@ and a.catg_cd in (select catg_cd from category
 
 yearly Total Adult tickets on peak days
 ====================================================
+create or replace view v_tkt_cnt_peak_chd_hyd_yearly
+as
 select b.fin_year,nvl(count(no_pers),0) Tot_Tkts
 from tkt_dtl a,tkt_hdr b
 where a.FIN_YEAR=b.FIN_YEAR and
@@ -319,7 +339,9 @@ and a.catg_cd in (select catg_cd from category
               group by b.fin_year;
       
 yearly Total child tickets on week days 
-===============================================             
+=============================================== 
+create or replace view v_tkt_cnt_peak_chd_hyd_yearly
+as
 select a.fin_year year,nvl(count(no_pers),0) Tot_Tkts
 from tkt_dtl a,tkt_hdr b
 where a.FIN_YEAR=b.FIN_YEAR and
@@ -351,6 +373,8 @@ and a.catg_cd in (select catg_cd from category
   
 yearly Total Adult tickets on week days
 ================================================
+create or replace view v_tkt_cnt_peak_chd_hyd_yearly
+as
 select a.fin_year year,nvl(count(no_pers),0) Tot_Tkts
 from tkt_dtl a,tkt_hdr b
 where a.FIN_YEAR=b.FIN_YEAR and
