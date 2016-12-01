@@ -36,3 +36,82 @@ Year			Month  	Week   	day 			GroupName		TicketCount
 
 2016-2017		Jan		Week1	01/01/2017
 
+total data
+
+park name 	      total tickets
+===========       ================
+bangalore park      798798798
+hyd park            79879797
+......
+
+
+yearly data
+
+park name 	     fin year           total tickets
+===========                         ================
+bangalore park   2015-2016          798798798
+bangalore park   2014-2015          798798798
+bangalore park   2013-2014          798798798
+hyd park         2015-2016          79879797
+......
+
+monthly data
+
+park name 	     fin year   Month    total tickets
+===========                         ================
+bangalore park   2015-2016   Mar       798798798
+bangalore park   2015-2016   Apr       798798798
+bangalore park   2015-2016   May       798798798
+....
+bangalore park   2014-2015   Mar       798798798
+...
+bangalore park   2013-2014   Mar       798798798
+.....
+hyd park         2015-2016   Mar       79879797
+......
+
+weekly data
+
+park name 	     fin year   Month    weekly    total tickets
+===========                                    ================
+bangalore park   2015-2016   Mar     week1    798798798
+bangalore park   2015-2016   Mar     week2     798798798
+bangalore park   2015-2016   Mar     week3      798798798
+bangalore park   2015-2016   Mar     week4     798798798
+
+bangalore park   2015-2016   Apr               798798798
+............
+bangalore park   2015-2016   May               798798798
+....
+bangalore park   2014-2015   Mar               798798798
+...
+bangalore park   2013-2014   Mar               798798798
+.....
+hyd park         2015-2016   Mar               79879797
+......
+
+weekly data
+
+park name 	     fin year   Month    weekly    daily        total tickets
+===========                                                ================
+bangalore park   2015-2016   Mar     week1       01       798798798
+bangalore park   2015-2016   Mar     week1       02       798798798
+bangalore park   2015-2016   Mar     week1       03       798798798
+bangalore park   2015-2016   Mar     week1       04       798798798
+bangalore park   2015-2016   Mar     week1       05       798798798
+bangalore park   2015-2016   Mar     week1       06       798798798
+bangalore park   2015-2016   Mar     week1       07       798798798
+bangalore park   2015-2016   Mar     week2       01        798798798
+bangalore park   2015-2016   Mar     week3       01         798798798
+bangalore park   2015-2016   Mar     week4       01        798798798
+
+bangalore park   2015-2016   Apr                 01        798798798
+............
+bangalore park   2015-2016   May                 01        798798798
+....
+bangalore park   2014-2015   Mar                 01        798798798
+...
+bangalore park   2013-2014   Mar                 01        798798798
+.....
+hyd park         2015-2016   Mar                 01        79879797
+......
