@@ -10,7 +10,7 @@
     = stylesheet_link_tag '//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css'
     = stylesheet_link_tag '//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css'
     = javascript_include_tag 'application.js'
-    = javascript_include_tag params[:action] if params[:action] != 'index'
+    = javascript_include_tag "reports/#{params[:action]}/#{params[:action]}" if params[:action] != 'index'
   %body.nav-md
     .container.body
       .main_container

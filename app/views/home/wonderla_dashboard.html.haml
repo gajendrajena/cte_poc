@@ -1,3 +1,4 @@
+
 %div.dashboard_container
   .row.top_tiles{:style => "margin: 10px 0;"}
     .col-md-3.col-sm-3.col-xs-6.tile
@@ -20,6 +21,11 @@
       %h2 23,109
       %span.sparkline_one{:style => "height: 160px;"}
         %canvas.sparkline{:height => "60", :width => "200"}
+  .row
+    .col-xs-6.col-md-2.col-sm-3
+      = select_tag "peak_week_day_filter", options_for_select([['All', '0'], ['2016-2017', '2016-2017'], [ '2015-2016', '2015-2016'], [ '2014-2015', '2014-2015'], [ '2013-2014', '2013-2014'], [ '2012-2013', '2012-2013'] ])
+    .col-xs-6.col-md-2.col-sm-3
+      = select_tag "branch_filter", options_for_select([['All Branches', '0'], ['Bangalore', '1'], ['Kochi', '1'], [ 'Hyderabad', '2']])
   %br/
   .row.margin-top-15
     .col-md-8.col-sm-12.col-xs-12
@@ -28,8 +34,7 @@
       #yearly_pie_chart
   .row.margin-top-15
     .col-md-12.col-sm-12.col-xs-12.peakday_weekday_container
-      .col-xs-12.peakday_weekday_header
-        = select_tag "peak_week_day_filter", options_for_select([['Yearly', '0'], ['2016-2017', '2016-2017'], [ '2015-2016', '2015-2016'], [ '2014-2015', '2014-2015'], [ '2013-2014', '2013-2014'], [ '2012-2013', '2012-2013'] ])
+
       .col-md-6.col-sm-6.col-xs-12.peakday_weekday_content
       #peakday_weekday_chart
 

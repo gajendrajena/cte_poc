@@ -40,6 +40,7 @@
 //= require dashboard
 //= require exporting
 //= require funnel
+//= require chosen-jquery
 
 
 //= require poc_dashboard

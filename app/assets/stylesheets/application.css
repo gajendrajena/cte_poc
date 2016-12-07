@@ -15,11 +15,14 @@
  *= require nprogress-bootstrap
  *= require nprogress-turbolinks5
  *= require daterangepicker-bs3
- *
+
  *= require bootstrap/dist/css/bootstrap.min
  *= require nprogress/nprogress
  *= require bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min
  *= require bootstrap-daterangepicker/daterangepicker
  *= require custom
  *= require home
+
+ *= require chosen
+
 */

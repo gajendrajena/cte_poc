@@ -41,6 +41,8 @@ gem 'bootstrap-daterangepicker-rails'
 gem 'chart-js-rails'
 gem 'datejs-rails'
 gem 'seed_dump'
+gem 'chosen-rails'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
