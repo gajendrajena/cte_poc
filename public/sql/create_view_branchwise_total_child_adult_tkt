@@ -5,7 +5,7 @@ yearly Total child tickets on peak days
 ===================================================
 create or replace view v_tkt_cnt_peak_chd_blr_yearly
 as
-select b.fin_year year,nvl(count(no_pers),0) "Total Tickets"
+select decode(b.BRANCH_CD,1,'Kochi',2,'Bangalore','Hyderabad') "Branch Name",b.fin_year year,nvl(count(no_pers),0) "Total Tickets"
 from tkt_dtl a,tkt_hdr b
 where a.FIN_YEAR=b.FIN_YEAR and
 a.BRANCH_CD=b.BRANCH_CD and
@@ -18,9 +18,9 @@ and b.branch_Cd=2
 and a.catg in (select s.catg from sub_catg_mast s, catg_grp c
               where c.catg_grp=2 and
               s.catg_grp=c.catg_grp)
-              group by b.fin_year
+              GROUP BY decode(b.BRANCH_CD,1,'Kochi',2,'Bangalore','Hyderabad'), b.fin_year
 UNION
-select b.fin_year year,nvl(count(no_pers),0) "Total Tickets"
+select decode(b.BRANCH_CD,1,'Kochi',2,'Bangalore','Hyderabad') "Branch Name",b.fin_year year,nvl(count(no_pers),0) "Total Tickets"
 from tkt_dtl a,tkt_hdr b
 where a.FIN_YEAR=b.FIN_YEAR and
 a.BRANCH_CD=b.BRANCH_CD and
@@ -31,15 +31,15 @@ a.DAY_CD=b.DAY_CD and
 a.day_cd in (5,6)
 and b.branch_Cd=2
 and a.catg_cd in (select catg_cd from category 
-              where catg_grp=2)
-              group by b.fin_year;
+              WHERE CATG_GRP=2)
+              group by decode(b.BRANCH_CD,1,'Kochi',2,'Bangalore','Hyderabad'),b.fin_year;
 
 
 yearly Total Adult tickets on peak days
 ====================================================
 create or replace view v_tkt_cnt_peak_adt_blr_yearly
 as
-select b.fin_year,nvl(count(no_pers),0) Tot_Tkts
+select decode(b.BRANCH_CD,1,'Kochi',2,'Bangalore','Hyderabad') "Branch Name",b.fin_year,nvl(count(no_pers),0) Tot_Tkts
 from tkt_dtl a,tkt_hdr b
 where a.FIN_YEAR=b.FIN_YEAR and
 a.BRANCH_CD=b.BRANCH_CD and
@@ -51,10 +51,10 @@ a.day_cd=8
 and b.branch_Cd=2
 and a.catg in (select s.catg from sub_catg_mast s, catg_grp c
               where c.catg_grp=1 and
-              s.catg_grp=c.catg_grp)
-              group by b.fin_year
+              S.CATG_GRP=C.CATG_GRP)
+              group by decode(b.BRANCH_CD,1,'Kochi',2,'Bangalore','Hyderabad') ,b.fin_year
 UNION
-select b.fin_year year,nvl(count(no_pers),0) "Total Tickets"
+select decode(b.BRANCH_CD,1,'Kochi',2,'Bangalore','Hyderabad') "Branch Name",b.fin_year year,nvl(count(no_pers),0) "Total Tickets"
 from tkt_dtl a,tkt_hdr b
 where a.FIN_YEAR=b.FIN_YEAR and
 a.BRANCH_CD=b.BRANCH_CD and
@@ -65,14 +65,14 @@ a.DAY_CD=b.DAY_CD and
 a.day_cd in (5,6)
 and b.branch_Cd=2
 and a.catg_cd in (select catg_cd from category 
-              where catg_grp=1)
-              group by b.fin_year;
+              WHERE CATG_GRP=1)
+              group by decode(b.BRANCH_CD,1,'Kochi',2,'Bangalore','Hyderabad') ,b.fin_year;
       
 yearly Total child tickets on week days 
 =============================================== 
 create or replace view v_tkt_cnt_week_chd_blr_yearly
 as
-select a.fin_year year,nvl(count(no_pers),0) Tot_Tkts
+select decode(b.BRANCH_CD,1,'Kochi',2,'Bangalore','Hyderabad') "Branch Name",a.fin_year year,nvl(count(no_pers),0) Tot_Tkts
 from tkt_dtl a,tkt_hdr b
 where a.FIN_YEAR=b.FIN_YEAR and
 a.BRANCH_CD=b.BRANCH_CD and
@@ -85,9 +85,9 @@ and b.branch_Cd=2
 and a.catg in (select s.catg from sub_catg_mast s, catg_grp c
               where c.catg_grp=2 and
               s.catg_grp=c.catg_grp)
-              group by a.fin_year
+              GROUP BY decode(b.BRANCH_CD,1,'Kochi',2,'Bangalore','Hyderabad'), a.fin_year
 UNION
-select b.fin_year year,nvl(count(no_pers),0) "Total Tickets"
+select decode(b.BRANCH_CD,1,'Kochi',2,'Bangalore','Hyderabad') "Branch Name",b.fin_year year,nvl(count(no_pers),0) "Total Tickets"
 from tkt_dtl a,tkt_hdr b
 where a.FIN_YEAR=b.FIN_YEAR and
 a.BRANCH_CD=b.BRANCH_CD and
@@ -98,14 +98,14 @@ a.DAY_CD=b.DAY_CD and
 a.day_cd=1
 and b.branch_Cd=2
 and a.catg_cd in (select catg_cd from category 
-              where catg_grp=2)
-              group by b.fin_year;  
+              WHERE CATG_GRP=2)
+              group by decode(b.BRANCH_CD,1,'Kochi',2,'Bangalore','Hyderabad'),b.fin_year;  
   
 yearly Total Adult tickets on week days
 ================================================
 create or replace view v_tkt_cnt_week_adt_blr_yearly
 as
-select a.fin_year year,nvl(count(no_pers),0) Tot_Tkts
+select decode(b.BRANCH_CD,1,'Kochi',2,'Bangalore','Hyderabad') "Branch Name",a.fin_year year,nvl(count(no_pers),0) Tot_Tkts
 from tkt_dtl a,tkt_hdr b
 where a.FIN_YEAR=b.FIN_YEAR and
 a.BRANCH_CD=b.BRANCH_CD and
@@ -117,10 +117,10 @@ a.day_cd=1
 and b.branch_Cd=2
 and a.catg in (select s.catg from sub_catg_mast s, catg_grp c
               where c.catg_grp=1 and
-              s.catg_grp=c.catg_grp)
-              group by a.fin_year
+              S.CATG_GRP=C.CATG_GRP)
+              group by decode(b.BRANCH_CD,1,'Kochi',2,'Bangalore','Hyderabad'),a.fin_year
 UNION
-select b.fin_year year,nvl(count(no_pers),0) "Total Tickets"
+select decode(b.BRANCH_CD,1,'Kochi',2,'Bangalore','Hyderabad') "Branch Name",b.fin_year year,nvl(count(no_pers),0) "Total Tickets"
 from tkt_dtl a,tkt_hdr b
 where a.FIN_YEAR=b.FIN_YEAR and
 a.BRANCH_CD=b.BRANCH_CD and
@@ -131,8 +131,8 @@ a.DAY_CD=b.DAY_CD and
 a.day_cd=1
 and b.branch_Cd=2
 and a.catg_cd in (select catg_cd from category 
-              where catg_grp=1)
-              group by b.fin_year;
+              WHERE CATG_GRP=1)
+              group by decode(b.BRANCH_CD,1,'Kochi',2,'Bangalore','Hyderabad') ,b.fin_year;
               
 Kochi Data
 ---------------
@@ -140,7 +140,7 @@ yearly Total child tickets on peak days
 ===================================================
 create or replace view v_tkt_cnt_peak_chd_cok_yearly
 as
-select b.fin_year year,nvl(count(no_pers),0) "Total Tickets"
+select decode(b.BRANCH_CD,1,'Kochi',2,'Bangalore','Hyderabad') "Branch Name",b.fin_year year,nvl(count(no_pers),0) "Total Tickets"
 from tkt_dtl a,tkt_hdr b
 where a.FIN_YEAR=b.FIN_YEAR and
 a.BRANCH_CD=b.BRANCH_CD and
@@ -153,9 +153,9 @@ and b.branch_Cd=1
 and a.catg in (select s.catg from sub_catg_mast s, catg_grp c
               where c.catg_grp=2 and
               s.catg_grp=c.catg_grp)
-              group by b.fin_year
+              GROUP BY decode(b.BRANCH_CD,1,'Kochi',2,'Bangalore','Hyderabad'), b.fin_year
 UNION
-select b.fin_year year,nvl(count(no_pers),0) "Total Tickets"
+select decode(b.BRANCH_CD,1,'Kochi',2,'Bangalore','Hyderabad') "Branch Name",b.fin_year year,nvl(count(no_pers),0) "Total Tickets"
 from tkt_dtl a,tkt_hdr b
 where a.FIN_YEAR=b.FIN_YEAR and
 a.BRANCH_CD=b.BRANCH_CD and
@@ -166,15 +166,15 @@ a.DAY_CD=b.DAY_CD and
 a.day_cd in (5,6)
 and b.branch_Cd=1
 and a.catg_cd in (select catg_cd from category 
-              where catg_grp=2)
-              group by b.fin_year;
+              WHERE CATG_GRP=2)
+              group by decode(b.BRANCH_CD,1,'Kochi',2,'Bangalore','Hyderabad') ,b.fin_year;
 
 
 yearly Total Adult tickets on peak days
 ====================================================
 create or replace view v_tkt_cnt_peak_adt_cok_yearly
 as
-select b.fin_year,nvl(count(no_pers),0) Tot_Tkts
+select decode(b.BRANCH_CD,1,'Kochi',2,'Bangalore','Hyderabad') "Branch Name",b.fin_year,nvl(count(no_pers),0) Tot_Tkts
 from tkt_dtl a,tkt_hdr b
 where a.FIN_YEAR=b.FIN_YEAR and
 a.BRANCH_CD=b.BRANCH_CD and
@@ -186,10 +186,10 @@ a.day_cd=8
 and b.branch_Cd=1
 and a.catg in (select s.catg from sub_catg_mast s, catg_grp c
               where c.catg_grp=1 and
-              s.catg_grp=c.catg_grp)
-              group by b.fin_year
+              S.CATG_GRP=C.CATG_GRP)
+              group by decode(b.BRANCH_CD,1,'Kochi',2,'Bangalore','Hyderabad') ,b.fin_year
 UNION
-select b.fin_year year,nvl(count(no_pers),0) "Total Tickets"
+select decode(b.BRANCH_CD,1,'Kochi',2,'Bangalore','Hyderabad') "Branch Name",b.fin_year year,nvl(count(no_pers),0) "Total Tickets"
 from tkt_dtl a,tkt_hdr b
 where a.FIN_YEAR=b.FIN_YEAR and
 a.BRANCH_CD=b.BRANCH_CD and
@@ -201,13 +201,13 @@ a.day_cd in (5,6)
 and b.branch_Cd=1
 and a.catg_cd in (select catg_cd from category 
               where catg_grp=1)
-              group by b.fin_year;
+              group by decode(b.BRANCH_CD,1,'Kochi',2,'Bangalore','Hyderabad') ,b.fin_year;
       
 yearly Total child tickets on week days 
 =============================================== 
 create or replace view v_tkt_cnt_week_chd_cok_yearly
 as
-select a.fin_year year,nvl(count(no_pers),0) Tot_Tkts
+select decode(b.BRANCH_CD,1,'Kochi',2,'Bangalore','Hyderabad') "Branch Name",a.fin_year year,nvl(count(no_pers),0) Tot_Tkts
 from tkt_dtl a,tkt_hdr b
 where a.FIN_YEAR=b.FIN_YEAR and
 a.BRANCH_CD=b.BRANCH_CD and
@@ -220,9 +220,9 @@ and b.branch_Cd=1
 and a.catg in (select s.catg from sub_catg_mast s, catg_grp c
               where c.catg_grp=2 and
               s.catg_grp=c.catg_grp)
-              group by a.fin_year
+              GROUP BY decode(b.BRANCH_CD,1,'Kochi',2,'Bangalore','Hyderabad'), a.fin_year
 UNION
-select b.fin_year year,nvl(count(no_pers),0) "Total Tickets"
+select decode(b.BRANCH_CD,1,'Kochi',2,'Bangalore','Hyderabad') "Branch Name",b.fin_year year,nvl(count(no_pers),0) "Total Tickets"
 from tkt_dtl a,tkt_hdr b
 where a.FIN_YEAR=b.FIN_YEAR and
 a.BRANCH_CD=b.BRANCH_CD and
@@ -233,14 +233,14 @@ a.DAY_CD=b.DAY_CD and
 a.day_cd=1
 and b.branch_Cd=1
 and a.catg_cd in (select catg_cd from category 
-              where catg_grp=2)
-              group by b.fin_year;  
+              WHERE CATG_GRP=2)
+              group by decode(b.BRANCH_CD,1,'Kochi',2,'Bangalore','Hyderabad') ,b.fin_year;  
   
 yearly Total Adult tickets on week days
 ================================================
 create or replace view v_tkt_cnt_week_adt_cok_yearly
 as
-select a.fin_year year,nvl(count(no_pers),0) Tot_Tkts
+select decode(b.BRANCH_CD,1,'Kochi',2,'Bangalore','Hyderabad') "Branch Name",a.fin_year year,nvl(count(no_pers),0) Tot_Tkts
 from tkt_dtl a,tkt_hdr b
 where a.FIN_YEAR=b.FIN_YEAR and
 a.BRANCH_CD=b.BRANCH_CD and
@@ -252,10 +252,10 @@ a.day_cd=1
 and b.branch_Cd=1
 and a.catg in (select s.catg from sub_catg_mast s, catg_grp c
               where c.catg_grp=1 and
-              s.catg_grp=c.catg_grp)
-              group by a.fin_year
+              S.CATG_GRP=C.CATG_GRP)
+              group by decode(b.BRANCH_CD,1,'Kochi',2,'Bangalore','Hyderabad') ,a.fin_year
 UNION
-select b.fin_year year,nvl(count(no_pers),0) "Total Tickets"
+select decode(b.BRANCH_CD,1,'Kochi',2,'Bangalore','Hyderabad') "Branch Name",b.fin_year year,nvl(count(no_pers),0) "Total Tickets"
 from tkt_dtl a,tkt_hdr b
 where a.FIN_YEAR=b.FIN_YEAR and
 a.BRANCH_CD=b.BRANCH_CD and
@@ -266,8 +266,8 @@ a.DAY_CD=b.DAY_CD and
 a.day_cd=1
 and b.branch_Cd=1
 and a.catg_cd in (select catg_cd from category 
-              where catg_grp=1)
-              group by b.fin_year;  
+              WHERE CATG_GRP=1)
+              group by decode(b.BRANCH_CD,1,'Kochi',2,'Bangalore','Hyderabad') ,b.fin_year;  
               
 
 Hyderabad Data
@@ -276,7 +276,7 @@ yearly Total child tickets on peak days
 ===================================================
 create or replace view v_tkt_cnt_peak_chd_hyd_yearly
 as
-select b.fin_year year,nvl(count(no_pers),0) "Total Tickets"
+select decode(b.BRANCH_CD,1,'Kochi',2,'Bangalore','Hyderabad') "Branch Name",b.fin_year year,nvl(count(no_pers),0) "Total Tickets"
 from tkt_dtl a,tkt_hdr b
 where a.FIN_YEAR=b.FIN_YEAR and
 a.BRANCH_CD=b.BRANCH_CD and
@@ -289,9 +289,9 @@ and b.branch_Cd=4
 and a.catg in (select s.catg from sub_catg_mast s, catg_grp c
               where c.catg_grp=2 and
               s.catg_grp=c.catg_grp)
-              group by b.fin_year
+              GROUP BY decode(b.BRANCH_CD,1,'Kochi',2,'Bangalore','Hyderabad'), b.fin_year
 UNION
-select b.fin_year year,nvl(count(no_pers),0) "Total Tickets"
+select decode(b.BRANCH_CD,1,'Kochi',2,'Bangalore','Hyderabad') "Branch Name",b.fin_year year,nvl(count(no_pers),0) "Total Tickets"
 from tkt_dtl a,tkt_hdr b
 where a.FIN_YEAR=b.FIN_YEAR and
 a.BRANCH_CD=b.BRANCH_CD and
@@ -302,15 +302,15 @@ a.DAY_CD=b.DAY_CD and
 a.day_cd in (5,6)
 and b.branch_Cd=4
 and a.catg_cd in (select catg_cd from category 
-              where catg_grp=2)
-              group by b.fin_year;
+              WHERE CATG_GRP=2)
+              group by decode(b.BRANCH_CD,1,'Kochi',2,'Bangalore','Hyderabad') ,b.fin_year;
 
 
 yearly Total Adult tickets on peak days
 ====================================================
 create or replace view v_tkt_cnt_peak_adt_hyd_yearly
 as
-select b.fin_year,nvl(count(no_pers),0) Tot_Tkts
+select decode(b.BRANCH_CD,1,'Kochi',2,'Bangalore','Hyderabad') "Branch Name",b.fin_year,nvl(count(no_pers),0) Tot_Tkts
 from tkt_dtl a,tkt_hdr b
 where a.FIN_YEAR=b.FIN_YEAR and
 a.BRANCH_CD=b.BRANCH_CD and
@@ -322,10 +322,10 @@ a.day_cd=8
 and b.branch_Cd=4
 and a.catg in (select s.catg from sub_catg_mast s, catg_grp c
               where c.catg_grp=1 and
-              s.catg_grp=c.catg_grp)
-              group by b.fin_year
+              S.CATG_GRP=C.CATG_GRP)
+              group by decode(b.BRANCH_CD,1,'Kochi',2,'Bangalore','Hyderabad') ,b.fin_year
 UNION
-select b.fin_year year,nvl(count(no_pers),0) "Total Tickets"
+select decode(b.BRANCH_CD,1,'Kochi',2,'Bangalore','Hyderabad') "Branch Name",b.fin_year year,nvl(count(no_pers),0) "Total Tickets"
 from tkt_dtl a,tkt_hdr b
 where a.FIN_YEAR=b.FIN_YEAR and
 a.BRANCH_CD=b.BRANCH_CD and
@@ -336,14 +336,14 @@ a.DAY_CD=b.DAY_CD and
 a.day_cd in (5,6)
 and b.branch_Cd=4
 and a.catg_cd in (select catg_cd from category 
-              where catg_grp=1)
-              group by b.fin_year;
+              WHERE CATG_GRP=1)
+              group by decode(b.BRANCH_CD,1,'Kochi',2,'Bangalore','Hyderabad') ,b.fin_year;
       
 yearly Total child tickets on week days 
 =============================================== 
 create or replace view v_tkt_cnt_week_chd_hyd_yearly
 as
-select a.fin_year year,nvl(count(no_pers),0) Tot_Tkts
+select decode(b.BRANCH_CD,1,'Kochi',2,'Bangalore','Hyderabad') "Branch Name",a.fin_year year,nvl(count(no_pers),0) Tot_Tkts
 from tkt_dtl a,tkt_hdr b
 where a.FIN_YEAR=b.FIN_YEAR and
 a.BRANCH_CD=b.BRANCH_CD and
@@ -356,9 +356,9 @@ and b.branch_Cd=4
 and a.catg in (select s.catg from sub_catg_mast s, catg_grp c
               where c.catg_grp=2 and
               s.catg_grp=c.catg_grp)
-              group by a.fin_year
+              GROUP BY decode(b.BRANCH_CD,1,'Kochi',2,'Bangalore','Hyderabad'), a.fin_year
 UNION
-select b.fin_year year,nvl(count(no_pers),0) "Total Tickets"
+select decode(b.BRANCH_CD,1,'Kochi',2,'Bangalore','Hyderabad') "Branch Name",b.fin_year year,nvl(count(no_pers),0) "Total Tickets"
 from tkt_dtl a,tkt_hdr b
 where a.FIN_YEAR=b.FIN_YEAR and
 a.BRANCH_CD=b.BRANCH_CD and
@@ -369,14 +369,14 @@ a.DAY_CD=b.DAY_CD and
 a.day_cd=1
 and b.branch_Cd=4
 and a.catg_cd in (select catg_cd from category 
-              where catg_grp=2)
-              group by b.fin_year;  
+              WHERE CATG_GRP=2)
+              group by decode(b.BRANCH_CD,1,'Kochi',2,'Bangalore','Hyderabad') ,b.fin_year;  
   
 yearly Total Adult tickets on week days
 ================================================
 create or replace view v_tkt_cnt_week_adt_hyd_yearly
 as
-select a.fin_year year,nvl(count(no_pers),0) Tot_Tkts
+select decode(b.BRANCH_CD,1,'Kochi',2,'Bangalore','Hyderabad') "Branch Name",a.fin_year year,nvl(count(no_pers),0) Tot_Tkts
 from tkt_dtl a,tkt_hdr b
 where a.FIN_YEAR=b.FIN_YEAR and
 a.BRANCH_CD=b.BRANCH_CD and
@@ -388,10 +388,10 @@ a.day_cd=1
 and b.branch_Cd=4
 and a.catg in (select s.catg from sub_catg_mast s, catg_grp c
               where c.catg_grp=1 and
-              s.catg_grp=c.catg_grp)
-              group by a.fin_year
+              S.CATG_GRP=C.CATG_GRP)
+              group by decode(b.BRANCH_CD,1,'Kochi',2,'Bangalore','Hyderabad') ,a.fin_year
 UNION
-select b.fin_year year,nvl(count(no_pers),0) "Total Tickets"
+select decode(b.BRANCH_CD,1,'Kochi',2,'Bangalore','Hyderabad') "Branch Name",b.fin_year year,nvl(count(no_pers),0) "Total Tickets"
 from tkt_dtl a,tkt_hdr b
 where a.FIN_YEAR=b.FIN_YEAR and
 a.BRANCH_CD=b.BRANCH_CD and
@@ -402,8 +402,8 @@ a.DAY_CD=b.DAY_CD and
 a.day_cd=1
 and b.branch_Cd=4
 and a.catg_cd in (select catg_cd from category 
-              where catg_grp=1)
-              group by b.fin_year;  
+              WHERE CATG_GRP=1)
+              group by decode(b.BRANCH_CD,1,'Kochi',2,'Bangalore','Hyderabad') ,b.fin_year;  
               
               
 
@@ -415,7 +415,7 @@ Monthly Total child tickets on peak days
 ===================================================
 create or replace view v_tkt_cnt_peak_chd_blr_monthly
 as
-select b.fin_year year,to_char(b.trans_dt,'MON') MONTH,nvl(count(no_pers),0) TOT_TKTS 
+select decode(b.BRANCH_CD,1,'Kochi',2,'Bangalore','Hyderabad') "Branch Name",b.fin_year year,to_char(b.trans_dt,'MON') MONTH,nvl(count(no_pers),0) TOT_TKTS 
 from tkt_dtl a,tkt_hdr b
 where a.FIN_YEAR=b.FIN_YEAR and
 a.BRANCH_CD=b.BRANCH_CD and
@@ -428,9 +428,9 @@ and b.branch_Cd=2
 and a.catg in (select s.catg from sub_catg_mast s, catg_grp c
               where c.catg_grp=2 and
               s.catg_grp=c.catg_grp)
-              group by b.fin_year, to_char(b.trans_dt,'MON')
+              group by decode(b.BRANCH_CD,1,'Kochi',2,'Bangalore','Hyderabad') ,b.fin_year, to_char(b.trans_dt,'MON')
 UNION
-select b.fin_year year,to_char(b.trans_dt,'MON') MONTH,nvl(count(no_pers),0) TOT_TKTS 
+select decode(b.BRANCH_CD,1,'Kochi',2,'Bangalore','Hyderabad') "Branch Name",b.fin_year year,to_char(b.trans_dt,'MON') MONTH,nvl(count(no_pers),0) TOT_TKTS 
 from tkt_dtl a,tkt_hdr b
 where a.FIN_YEAR=b.FIN_YEAR and
 a.BRANCH_CD=b.BRANCH_CD and
@@ -442,7 +442,7 @@ a.day_cd in (5,6)
 and b.branch_Cd=2
 and a.catg_cd in (select catg_cd from category 
               where catg_grp=2)
-              group by b.fin_year, to_char(b.trans_dt,'MON')
+              group by decode(b.BRANCH_CD,1,'Kochi',2,'Bangalore','Hyderabad') ,b.fin_year, to_char(b.trans_dt,'MON')
               order by year;
 
 
@@ -450,7 +450,7 @@ Monthly Total Adult tickets on peak days
 =============================================
 create or replace view v_tkt_cnt_peak_adt_blr_monthly
 as
-select a.fin_year year,to_char(b.trans_dt,'MON') MONTH,nvl(count(no_pers),0) TOT_TKTS 
+select decode(b.BRANCH_CD,1,'Kochi',2,'Bangalore','Hyderabad') "Branch Name",a.fin_year year,to_char(b.trans_dt,'MON') MONTH,nvl(count(no_pers),0) TOT_TKTS 
 from tkt_dtl a,tkt_hdr b
 where a.FIN_YEAR=b.FIN_YEAR and
 a.BRANCH_CD=b.BRANCH_CD and
@@ -463,9 +463,9 @@ and b.branch_Cd=2
 and a.catg in (select s.catg from sub_catg_mast s, catg_grp c
               where c.catg_grp=1 and
               s.catg_grp=c.catg_grp)
-              group by a.fin_year,to_char(b.trans_dt,'MON')
+              group by decode(b.BRANCH_CD,1,'Kochi',2,'Bangalore','Hyderabad') ,a.fin_year,to_char(b.trans_dt,'MON')
 UNION
-select b.fin_year year,to_char(b.trans_dt,'MON') MONTH,nvl(count(no_pers),0) TOT_TKTS 
+select decode(b.BRANCH_CD,1,'Kochi',2,'Bangalore','Hyderabad') "Branch Name",b.fin_year year,to_char(b.trans_dt,'MON') MONTH,nvl(count(no_pers),0) TOT_TKTS 
 from tkt_dtl a,tkt_hdr b
 where a.FIN_YEAR=b.FIN_YEAR and
 a.BRANCH_CD=b.BRANCH_CD and
@@ -477,7 +477,7 @@ a.day_cd in (5,6)
 and b.branch_Cd=2
 and a.catg_cd in (select catg_cd from category 
               where catg_grp=1)
-              group by b.fin_year, to_char(b.trans_dt,'MON')
+              group by decode(b.BRANCH_CD,1,'Kochi',2,'Bangalore','Hyderabad') ,b.fin_year, to_char(b.trans_dt,'MON')
               order by year;
 
 
@@ -485,7 +485,7 @@ Monthly Total child tickets on week days
 ================================================= 
 create or replace view v_tkt_cnt_week_chd_blr_monthly
 as
-select b.fin_year year,to_char(b.trans_dt,'MON') MONTH,nvl(count(no_pers),0) TOT_TKTS 
+select decode(b.BRANCH_CD,1,'Kochi',2,'Bangalore','Hyderabad') "Branch Name",b.fin_year year,to_char(b.trans_dt,'MON') MONTH,nvl(count(no_pers),0) TOT_TKTS 
 from tkt_dtl a,tkt_hdr b
 where a.FIN_YEAR=b.FIN_YEAR and
 a.BRANCH_CD=b.BRANCH_CD and
@@ -498,9 +498,9 @@ and b.branch_Cd=2
 and a.catg in (select s.catg from sub_catg_mast s, catg_grp c
               where c.catg_grp=2 and
               s.catg_grp=c.catg_grp)
-              group by b.fin_year, to_char(b.trans_dt,'MON')
+              group by decode(b.BRANCH_CD,1,'Kochi',2,'Bangalore','Hyderabad') ,b.fin_year, to_char(b.trans_dt,'MON')
 UNION
-select b.fin_year year,to_char(b.trans_dt,'MON') MONTH,nvl(count(no_pers),0) TOT_TKTS 
+select decode(b.BRANCH_CD,1,'Kochi',2,'Bangalore','Hyderabad') "Branch Name",b.fin_year year,to_char(b.trans_dt,'MON') MONTH,nvl(count(no_pers),0) TOT_TKTS 
 from tkt_dtl a,tkt_hdr b
 where a.FIN_YEAR=b.FIN_YEAR and
 a.BRANCH_CD=b.BRANCH_CD and
@@ -512,7 +512,7 @@ a.day_cd=1
 and b.branch_Cd=2
 and a.catg_cd in (select catg_cd from category 
               where catg_grp=2)
-              group by b.fin_year, to_char(b.trans_dt,'MON')
+              group by decode(b.BRANCH_CD,1,'Kochi',2,'Bangalore','Hyderabad') ,b.fin_year, to_char(b.trans_dt,'MON')
               order by year; 
 
   
@@ -520,7 +520,7 @@ Monthly Total Adult tickets on week days
 ======================================================
 create or replace view v_tkt_cnt_adt_week_blr_monthly
 as
-select a.fin_year year,to_char(b.trans_dt,'MON') MONTH,nvl(count(no_pers),0) TOT_TKTS 
+select decode(b.BRANCH_CD,1,'Kochi',2,'Bangalore','Hyderabad') "Branch Name",a.fin_year year,to_char(b.trans_dt,'MON') MONTH,nvl(count(no_pers),0) TOT_TKTS 
 from tkt_dtl a,tkt_hdr b
 where a.FIN_YEAR=b.FIN_YEAR and
 a.BRANCH_CD=b.BRANCH_CD and
@@ -533,9 +533,9 @@ and b.branch_Cd=2
 and a.catg in (select s.catg from sub_catg_mast s, catg_grp c
               where c.catg_grp=1 and
               s.catg_grp=c.catg_grp)
-              group by a.fin_year, to_char(b.trans_dt,'MON')
+              group by decode(b.BRANCH_CD,1,'Kochi',2,'Bangalore','Hyderabad') ,a.fin_year, to_char(b.trans_dt,'MON')
 UNION
-select b.fin_year year,to_char(b.trans_dt,'MON') MONTH,nvl(count(no_pers),0) TOT_TKTS 
+select decode(b.BRANCH_CD,1,'Kochi',2,'Bangalore','Hyderabad') "Branch Name",b.fin_year year,to_char(b.trans_dt,'MON') MONTH,nvl(count(no_pers),0) TOT_TKTS 
 from tkt_dtl a,tkt_hdr b
 where a.FIN_YEAR=b.FIN_YEAR and
 a.BRANCH_CD=b.BRANCH_CD and
@@ -547,7 +547,7 @@ a.day_cd=1
 and b.branch_Cd=2
 and a.catg_cd in (select catg_cd from category 
               where catg_grp=1)
-              group by b.fin_year, to_char(b.trans_dt,'MON')
+              group by decode(b.BRANCH_CD,1,'Kochi',2,'Bangalore','Hyderabad') ,b.fin_year, to_char(b.trans_dt,'MON')
               order by year;
               
 
@@ -557,7 +557,7 @@ Monthly Total child tickets on peak days
 ===================================================
 create or replace view v_tkt_cnt_chd_peak_cok_monthly
 as
-select b.fin_year year,to_char(b.trans_dt,'MON') MONTH,nvl(count(no_pers),0) TOT_TKTS 
+select decode(b.BRANCH_CD,1,'Kochi',2,'Bangalore','Hyderabad') "Branch Name",b.fin_year year,to_char(b.trans_dt,'MON') MONTH,nvl(count(no_pers),0) TOT_TKTS 
 from tkt_dtl a,tkt_hdr b
 where a.FIN_YEAR=b.FIN_YEAR and
 a.BRANCH_CD=b.BRANCH_CD and
@@ -570,9 +570,9 @@ and b.branch_Cd=1
 and a.catg in (select s.catg from sub_catg_mast s, catg_grp c
               where c.catg_grp=2 and
               s.catg_grp=c.catg_grp)
-              group by b.fin_year, to_char(b.trans_dt,'MON')
+              group by decode(b.BRANCH_CD,1,'Kochi',2,'Bangalore','Hyderabad') ,b.fin_year, to_char(b.trans_dt,'MON')
 UNION
-select b.fin_year year,to_char(b.trans_dt,'MON') MONTH,nvl(count(no_pers),0) TOT_TKTS 
+select decode(b.BRANCH_CD,1,'Kochi',2,'Bangalore','Hyderabad') "Branch Name",b.fin_year year,to_char(b.trans_dt,'MON') MONTH,nvl(count(no_pers),0) TOT_TKTS 
 from tkt_dtl a,tkt_hdr b
 where a.FIN_YEAR=b.FIN_YEAR and
 a.BRANCH_CD=b.BRANCH_CD and
@@ -584,7 +584,7 @@ a.day_cd in (5,6)
 and b.branch_Cd=1
 and a.catg_cd in (select catg_cd from category 
               where catg_grp=2)
-              group by b.fin_year, to_char(b.trans_dt,'MON')
+              group by decode(b.BRANCH_CD,1,'Kochi',2,'Bangalore','Hyderabad') ,b.fin_year, to_char(b.trans_dt,'MON')
               order by year;
 
 
@@ -592,7 +592,7 @@ Monthly Total Adult tickets on peak days
 =============================================
 create or replace view v_tkt_cnt_adt_peak_cok_monthly
 as
-select a.fin_year year,to_char(b.trans_dt,'MON') MONTH,nvl(count(no_pers),0) TOT_TKTS 
+select decode(b.BRANCH_CD,1,'Kochi',2,'Bangalore','Hyderabad') "Branch Name",a.fin_year year,to_char(b.trans_dt,'MON') MONTH,nvl(count(no_pers),0) TOT_TKTS 
 from tkt_dtl a,tkt_hdr b
 where a.FIN_YEAR=b.FIN_YEAR and
 a.BRANCH_CD=b.BRANCH_CD and
@@ -605,9 +605,9 @@ and b.branch_Cd=1
 and a.catg in (select s.catg from sub_catg_mast s, catg_grp c
               where c.catg_grp=1 and
               s.catg_grp=c.catg_grp)
-              group by a.fin_year,to_char(b.trans_dt,'MON')
+              group by decode(b.BRANCH_CD,1,'Kochi',2,'Bangalore','Hyderabad') ,a.fin_year,to_char(b.trans_dt,'MON')
 UNION
-select b.fin_year year,to_char(b.trans_dt,'MON') MONTH,nvl(count(no_pers),0) TOT_TKTS 
+select decode(b.BRANCH_CD,1,'Kochi',2,'Bangalore','Hyderabad') "Branch Name",b.fin_year year,to_char(b.trans_dt,'MON') MONTH,nvl(count(no_pers),0) TOT_TKTS 
 from tkt_dtl a,tkt_hdr b
 where a.FIN_YEAR=b.FIN_YEAR and
 a.BRANCH_CD=b.BRANCH_CD and
@@ -619,7 +619,7 @@ a.day_cd in (5,6)
 and b.branch_Cd=1
 and a.catg_cd in (select catg_cd from category 
               where catg_grp=1)
-              group by b.fin_year, to_char(b.trans_dt,'MON')
+              group by decode(b.BRANCH_CD,1,'Kochi',2,'Bangalore','Hyderabad') ,b.fin_year, to_char(b.trans_dt,'MON')
               order by year;
 
 
@@ -627,7 +627,7 @@ Monthly Total child tickets on week days
 ================================================= 
 create or replace view v_tkt_cnt_chd_week_cok_monthly
 as
-select b.fin_year year,to_char(b.trans_dt,'MON') MONTH,nvl(count(no_pers),0) TOT_TKTS 
+select decode(b.BRANCH_CD,1,'Kochi',2,'Bangalore','Hyderabad') "Branch Name",b.fin_year year,to_char(b.trans_dt,'MON') MONTH,nvl(count(no_pers),0) TOT_TKTS 
 from tkt_dtl a,tkt_hdr b
 where a.FIN_YEAR=b.FIN_YEAR and
 a.BRANCH_CD=b.BRANCH_CD and
@@ -640,9 +640,9 @@ and b.branch_Cd=1
 and a.catg in (select s.catg from sub_catg_mast s, catg_grp c
               where c.catg_grp=2 and
               s.catg_grp=c.catg_grp)
-              group by b.fin_year, to_char(b.trans_dt,'MON')
+              group by decode(b.BRANCH_CD,1,'Kochi',2,'Bangalore','Hyderabad') ,b.fin_year, to_char(b.trans_dt,'MON')
 UNION
-select b.fin_year year,to_char(b.trans_dt,'MON') MONTH,nvl(count(no_pers),0) TOT_TKTS 
+select decode(b.BRANCH_CD,1,'Kochi',2,'Bangalore','Hyderabad') "Branch Name",b.fin_year year,to_char(b.trans_dt,'MON') MONTH,nvl(count(no_pers),0) TOT_TKTS 
 from tkt_dtl a,tkt_hdr b
 where a.FIN_YEAR=b.FIN_YEAR and
 a.BRANCH_CD=b.BRANCH_CD and
@@ -654,7 +654,7 @@ a.day_cd=1
 and b.branch_Cd=1
 and a.catg_cd in (select catg_cd from category 
               where catg_grp=2)
-              group by b.fin_year, to_char(b.trans_dt,'MON')
+              group by decode(b.BRANCH_CD,1,'Kochi',2,'Bangalore','Hyderabad') ,b.fin_year, to_char(b.trans_dt,'MON')
               order by year; 
 
   
@@ -662,7 +662,7 @@ Monthly Total Adult tickets on week days
 ======================================================
 create or replace view v_tkt_cnt_adt_week_cok_monthly
 as
-select a.fin_year year,to_char(b.trans_dt,'MON') MONTH,nvl(count(no_pers),0) TOT_TKTS 
+select decode(b.BRANCH_CD,1,'Kochi',2,'Bangalore','Hyderabad') "Branch Name",a.fin_year year,to_char(b.trans_dt,'MON') MONTH,nvl(count(no_pers),0) TOT_TKTS 
 from tkt_dtl a,tkt_hdr b
 where a.FIN_YEAR=b.FIN_YEAR and
 a.BRANCH_CD=b.BRANCH_CD and
@@ -675,9 +675,9 @@ and b.branch_Cd=1
 and a.catg in (select s.catg from sub_catg_mast s, catg_grp c
               where c.catg_grp=1 and
               s.catg_grp=c.catg_grp)
-              group by a.fin_year, to_char(b.trans_dt,'MON')
+              group by decode(b.BRANCH_CD,1,'Kochi',2,'Bangalore','Hyderabad') ,a.fin_year, to_char(b.trans_dt,'MON')
 UNION
-select b.fin_year year,to_char(b.trans_dt,'MON') MONTH,nvl(count(no_pers),0) TOT_TKTS 
+select decode(b.BRANCH_CD,1,'Kochi',2,'Bangalore','Hyderabad') "Branch Name",b.fin_year year,to_char(b.trans_dt,'MON') MONTH,nvl(count(no_pers),0) TOT_TKTS 
 from tkt_dtl a,tkt_hdr b
 where a.FIN_YEAR=b.FIN_YEAR and
 a.BRANCH_CD=b.BRANCH_CD and
@@ -689,7 +689,7 @@ a.day_cd=1
 and b.branch_Cd=1
 and a.catg_cd in (select catg_cd from category 
               where catg_grp=1)
-              group by b.fin_year, to_char(b.trans_dt,'MON')
+              group by decode(b.BRANCH_CD,1,'Kochi',2,'Bangalore','Hyderabad') ,b.fin_year, to_char(b.trans_dt,'MON')
               order by year;
               
  
@@ -699,7 +699,7 @@ Monthly Total child tickets on peak days
 ===================================================
 create or replace view v_tkt_cnt_adt_peak_hyd_monthly
 as
-select b.fin_year year,to_char(b.trans_dt,'MON') MONTH,nvl(count(no_pers),0) TOT_TKTS 
+select decode(b.BRANCH_CD,1,'Kochi',2,'Bangalore','Hyderabad') "Branch Name",b.fin_year year,to_char(b.trans_dt,'MON') MONTH,nvl(count(no_pers),0) TOT_TKTS 
 from tkt_dtl a,tkt_hdr b
 where a.FIN_YEAR=b.FIN_YEAR and
 a.BRANCH_CD=b.BRANCH_CD and
@@ -712,9 +712,9 @@ and b.branch_Cd=4
 and a.catg in (select s.catg from sub_catg_mast s, catg_grp c
               where c.catg_grp=2 and
               s.catg_grp=c.catg_grp)
-              group by b.fin_year, to_char(b.trans_dt,'MON')
+              group by decode(b.BRANCH_CD,1,'Kochi',2,'Bangalore','Hyderabad') ,b.fin_year, to_char(b.trans_dt,'MON')
 UNION
-select b.fin_year year,to_char(b.trans_dt,'MON') MONTH,nvl(count(no_pers),0) TOT_TKTS 
+select decode(b.BRANCH_CD,1,'Kochi',2,'Bangalore','Hyderabad') "Branch Name",b.fin_year year,to_char(b.trans_dt,'MON') MONTH,nvl(count(no_pers),0) TOT_TKTS 
 from tkt_dtl a,tkt_hdr b
 where a.FIN_YEAR=b.FIN_YEAR and
 a.BRANCH_CD=b.BRANCH_CD and
@@ -726,7 +726,7 @@ a.day_cd in (5,6)
 and b.branch_Cd=4
 and a.catg_cd in (select catg_cd from category 
               where catg_grp=2)
-              group by b.fin_year, to_char(b.trans_dt,'MON')
+              group by decode(b.BRANCH_CD,1,'Kochi',2,'Bangalore','Hyderabad') ,b.fin_year, to_char(b.trans_dt,'MON')
               order by year;
 
 
@@ -734,7 +734,7 @@ Monthly Total Adult tickets on peak days
 =============================================
 create or replace view v_tkt_cnt_adt_peak_hyd_monthly
 as
-select a.fin_year year,to_char(b.trans_dt,'MON') MONTH,nvl(count(no_pers),0) TOT_TKTS 
+select decode(b.BRANCH_CD,1,'Kochi',2,'Bangalore','Hyderabad') "Branch Name",a.fin_year year,to_char(b.trans_dt,'MON') MONTH,nvl(count(no_pers),0) TOT_TKTS 
 from tkt_dtl a,tkt_hdr b
 where a.FIN_YEAR=b.FIN_YEAR and
 a.BRANCH_CD=b.BRANCH_CD and
@@ -747,9 +747,9 @@ and b.branch_Cd=4
 and a.catg in (select s.catg from sub_catg_mast s, catg_grp c
               where c.catg_grp=1 and
               s.catg_grp=c.catg_grp)
-              group by a.fin_year,to_char(b.trans_dt,'MON')
+              group by decode(b.BRANCH_CD,1,'Kochi',2,'Bangalore','Hyderabad') ,a.fin_year,to_char(b.trans_dt,'MON')
 UNION
-select b.fin_year year,to_char(b.trans_dt,'MON') MONTH,nvl(count(no_pers),0) TOT_TKTS 
+select decode(b.BRANCH_CD,1,'Kochi',2,'Bangalore','Hyderabad') "Branch Name",b.fin_year year,to_char(b.trans_dt,'MON') MONTH,nvl(count(no_pers),0) TOT_TKTS 
 from tkt_dtl a,tkt_hdr b
 where a.FIN_YEAR=b.FIN_YEAR and
 a.BRANCH_CD=b.BRANCH_CD and
@@ -761,7 +761,7 @@ a.day_cd in (5,6)
 and b.branch_Cd=4
 and a.catg_cd in (select catg_cd from category 
               where catg_grp=1)
-              group by b.fin_year, to_char(b.trans_dt,'MON')
+              group by decode(b.BRANCH_CD,1,'Kochi',2,'Bangalore','Hyderabad') ,b.fin_year, to_char(b.trans_dt,'MON')
               order by year;
 
 
@@ -769,7 +769,7 @@ Monthly Total child tickets on week days
 ================================================= 
 create or replace view v_tkt_cnt_chd_week_hyd_monthly
 as
-select b.fin_year year,to_char(b.trans_dt,'MON') MONTH,nvl(count(no_pers),0) TOT_TKTS 
+select decode(b.BRANCH_CD,1,'Kochi',2,'Bangalore','Hyderabad') "Branch Name",b.fin_year year,to_char(b.trans_dt,'MON') MONTH,nvl(count(no_pers),0) TOT_TKTS 
 from tkt_dtl a,tkt_hdr b
 where a.FIN_YEAR=b.FIN_YEAR and
 a.BRANCH_CD=b.BRANCH_CD and
@@ -782,9 +782,9 @@ and b.branch_Cd=4
 and a.catg in (select s.catg from sub_catg_mast s, catg_grp c
               where c.catg_grp=2 and
               s.catg_grp=c.catg_grp)
-              group by b.fin_year, to_char(b.trans_dt,'MON')
+              group by decode(b.BRANCH_CD,1,'Kochi',2,'Bangalore','Hyderabad') ,b.fin_year, to_char(b.trans_dt,'MON')
 UNION
-select b.fin_year year,to_char(b.trans_dt,'MON') MONTH,nvl(count(no_pers),0) TOT_TKTS 
+select decode(b.BRANCH_CD,1,'Kochi',2,'Bangalore','Hyderabad') "Branch Name",b.fin_year year,to_char(b.trans_dt,'MON') MONTH,nvl(count(no_pers),0) TOT_TKTS 
 from tkt_dtl a,tkt_hdr b
 where a.FIN_YEAR=b.FIN_YEAR and
 a.BRANCH_CD=b.BRANCH_CD and
@@ -796,7 +796,7 @@ a.day_cd=1
 and b.branch_Cd=4
 and a.catg_cd in (select catg_cd from category 
               where catg_grp=2)
-              group by b.fin_year, to_char(b.trans_dt,'MON')
+              group by decode(b.BRANCH_CD,1,'Kochi',2,'Bangalore','Hyderabad') ,b.fin_year, to_char(b.trans_dt,'MON')
               order by year; 
 
   
@@ -804,7 +804,7 @@ Monthly Total Adult tickets on week days
 ======================================================
 create or replace view v_tkt_cnt_adt_week_hyd_monthly
 as
-select a.fin_year year,to_char(b.trans_dt,'MON') MONTH,nvl(count(no_pers),0) TOT_TKTS 
+select decode(b.BRANCH_CD,1,'Kochi',2,'Bangalore','Hyderabad') "Branch Name",a.fin_year year,to_char(b.trans_dt,'MON') MONTH,nvl(count(no_pers),0) TOT_TKTS 
 from tkt_dtl a,tkt_hdr b
 where a.FIN_YEAR=b.FIN_YEAR and
 a.BRANCH_CD=b.BRANCH_CD and
@@ -817,9 +817,9 @@ and b.branch_Cd=4
 and a.catg in (select s.catg from sub_catg_mast s, catg_grp c
               where c.catg_grp=1 and
               s.catg_grp=c.catg_grp)
-              group by a.fin_year, to_char(b.trans_dt,'MON')
+              group by decode(b.BRANCH_CD,1,'Kochi',2,'Bangalore','Hyderabad') ,a.fin_year, to_char(b.trans_dt,'MON')
 UNION
-select b.fin_year year,to_char(b.trans_dt,'MON') MONTH,nvl(count(no_pers),0) TOT_TKTS 
+select decode(b.BRANCH_CD,1,'Kochi',2,'Bangalore','Hyderabad') "Branch Name",b.fin_year year,to_char(b.trans_dt,'MON') MONTH,nvl(count(no_pers),0) TOT_TKTS 
 from tkt_dtl a,tkt_hdr b
 where a.FIN_YEAR=b.FIN_YEAR and
 a.BRANCH_CD=b.BRANCH_CD and
@@ -831,7 +831,7 @@ a.day_cd=1
 and b.branch_Cd=4
 and a.catg_cd in (select catg_cd from category 
               where catg_grp=1)
-              group by b.fin_year, to_char(b.trans_dt,'MON')
+              group by decode(b.BRANCH_CD,1,'Kochi',2,'Bangalore','Hyderabad') ,b.fin_year, to_char(b.trans_dt,'MON')
               order by year;
               
               
