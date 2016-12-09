@@ -36,6 +36,7 @@
     $("#peak_week_day_filter, #branch_filter").chosen({ width: '100%' });
     window.charts.get('tickets_vs_time').init();
     window.charts.get('group_wise_users_chart').init();
+    window.charts.get('peakday_weekday_chart').init();
   });
 
 }(window, document, jQuery));
