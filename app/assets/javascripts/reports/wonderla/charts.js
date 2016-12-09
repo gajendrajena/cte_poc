@@ -31,11 +31,15 @@
     };
   };
 
+  $('#total-tickets').html(_.reduce(yearly_data, function(memo, num){ return memo + num.y; }, 0));
+  $('#cur-yr-total-tickets').html('' + yearly_data[0].y);
+
   window.charts = new Charts();
   $(d).ready(function(){
     $("#peak_week_day_filter, #branch_filter").chosen({ width: '100%' });
     window.charts.get('tickets_vs_time').init();
     window.charts.get('group_wise_users_chart').init();
+    window.charts.get('peakday_weekday_chart').init();
   });
 
 }(window, document, jQuery));
@@ -55,8 +59,7 @@ window.yearly_data = [
 {name: '2006-2007', y:  278601, drilldown: '2006-2007'},
 {name: '2005-2006', y:  101983, drilldown: '2005-2006'}
 ];
-$('#total-tickets').html(_.reduce(yearly_data, function(memo, num){ return memo + num.y; }, 0));
-$('#cur-yr-total-tickets').html('' + yearly_data[0].y);
+
 
 var monthly_data = [
 {fy: '2005-2006', m: 'DEC', t:  '18691'},
