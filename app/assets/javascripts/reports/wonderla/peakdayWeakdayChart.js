@@ -26,10 +26,10 @@
         }
       }
 
-    $('#peak_week_day_filter').change(function(e){
-      var year = this.value;
+    $('.dashboard_container .standard-header select').change(function(e){
+      var year = $('#peak_week_day_filter').val();
       var branch = $('#branch_filter').val();
-      if (year === '0') {
+      if (year === '0' && branch === '0') {
         peakday_weekday_chart.peakday_weekday_chart(yearly_data, category_names);
       } else {
         var filtered_data = [], peakday_adult_data = [], weekday_child_data = [], weekday_adult_data = [], peakday_child_data = [];
@@ -44,7 +44,7 @@
           peakday_adult_data = empty_list;
         }
 
-        filtered_data = _.where(peak_week_day_data.weekday.child, { financial_year: year});
+        filtered_data = _.where(peak_week_day_data.weekday.child, { financial_year: year, branch: branch});
         if(filtered_data.length > 0){
           weekday_child_data = _.map(months_array, function(mon){
             var final_data = _.where(filtered_data, {month: mon});
@@ -54,7 +54,7 @@
           weekday_child_data = empty_list;
         }
 
-        filtered_data = _.where(peak_week_day_data.weekday.adult, { financial_year: year});
+        filtered_data = _.where(peak_week_day_data.weekday.adult, { financial_year: year, branch: branch});
         if(filtered_data.length > 0){
           weekday_adult_data = _.map(months_array, function(mon){
             var final_data = _.where(filtered_data, {month: mon});
@@ -64,7 +64,7 @@
           weekday_adult_data = empty_list;
         }
 
-        filtered_data = _.where(peak_week_day_data.peakday.child, { financial_year: year});
+        filtered_data = _.where(peak_week_day_data.peakday.child, { financial_year: year, branch: branch});
         if(filtered_data.length > 0){
           peakday_child_data = _.map(months_array, function(mon){
             var final_data = _.where(filtered_data, {month: mon});
@@ -73,7 +73,6 @@
         } else{
           peakday_child_data = empty_list;
         }
-
         var updatedData = [ {name: 'Child (Peakday)',data: peakday_child_data,stack: 'Peakday'}, {name: 'Adult (Peakday)',data: peakday_adult_data,stack: 'Peakday'}, {name: 'Child (Weekday)',data: weekday_child_data,stack: 'Weekday'}, {name: 'Adult (Weekday)',data: weekday_adult_data,stack: 'Weekday'} ];
         peakday_weekday_chart.peakday_weekday_chart(updatedData, months_array);
       }
