@@ -18,9 +18,9 @@
         return _.last(_.map(arr_hash, function(e){return _.last(_.values(e))}))
       }
 
-      var getTickets = function(month_data){
-        if(hashValues( month_data)) {
-          return hashValues( month_data)
+      var getTickets = function(final_data){
+        if(hashValues( final_data)) {
+          return hashValues( final_data)
         } else {
           return 0
         }
@@ -28,46 +28,47 @@
 
     $('#peak_week_day_filter').change(function(e){
       var year = this.value;
+      var branch = $('#branch_filter').val();
       if (year === '0') {
-        peakday_weekday_chart(yearly_data, category_names);
+        peakday_weekday_chart.peakday_weekday_chart(yearly_data, category_names);
       } else {
-        var monthwise_data = [], peakday_adult_data = [], weekday_child_data = [], weekday_adult_data = [], peakday_child_data = [];
+        var filtered_data = [], peakday_adult_data = [], weekday_child_data = [], weekday_adult_data = [], peakday_child_data = [];
 
-        monthwise_data = _.where(peak_week_day_data.peakday.adult, { financial_year: year});
-        if(monthwise_data.length > 0){
+        filtered_data = _.where(peak_week_day_data.peakday.adult, { financial_year: year, branch: branch});
+        if(filtered_data.length > 0){
           peakday_adult_data = _.map(months_array, function(mon){
-            var month_data = _.where(monthwise_data, {month: mon});
-            return getTickets(month_data);
+            var final_data = _.where(filtered_data, {month: mon});
+            return getTickets(final_data);
           });
         } else{
           peakday_adult_data = empty_list;
         }
 
-        monthwise_data = _.where(peak_week_day_data.weekday.child, { financial_year: year});
-        if(monthwise_data.length > 0){
+        filtered_data = _.where(peak_week_day_data.weekday.child, { financial_year: year});
+        if(filtered_data.length > 0){
           weekday_child_data = _.map(months_array, function(mon){
-            var month_data = _.where(monthwise_data, {month: mon});
-            return getTickets(month_data);
+            var final_data = _.where(filtered_data, {month: mon});
+            return getTickets(final_data);
           });
         } else{
           weekday_child_data = empty_list;
         }
 
-        monthwise_data = _.where(peak_week_day_data.weekday.adult, { financial_year: year});
-        if(monthwise_data.length > 0){
+        filtered_data = _.where(peak_week_day_data.weekday.adult, { financial_year: year});
+        if(filtered_data.length > 0){
           weekday_adult_data = _.map(months_array, function(mon){
-            var month_data = _.where(monthwise_data, {month: mon});
-            return getTickets(month_data);
+            var final_data = _.where(filtered_data, {month: mon});
+            return getTickets(final_data);
           });
         } else{
           weekday_adult_data = empty_list;
         }
 
-        monthwise_data = _.where(peak_week_day_data.peakday.child, { financial_year: year});
-        if(monthwise_data.length > 0){
+        filtered_data = _.where(peak_week_day_data.peakday.child, { financial_year: year});
+        if(filtered_data.length > 0){
           peakday_child_data = _.map(months_array, function(mon){
-            var month_data = _.where(monthwise_data, {month: mon});
-            return getTickets(month_data);
+            var final_data = _.where(filtered_data, {month: mon});
+            return getTickets(final_data);
           });
         } else{
           peakday_child_data = empty_list;
