@@ -1,0 +1,45 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  booking_id: 1
+  package_id: MyString
+  agent_id: 1
+  packagename: MyString
+  cities: MyString
+  ratings: MyString
+  stay_days: 1
+  pkg_start_date: 2016-11-12
+  pkg_end_date: 2016-11-12
+  noofrooms: 1
+  noofadults: 1
+  noofchild: 1
+  create_date: 2016-11-12 15:55:42
+  total_rate: 1.5
+  original_rate: 1.5
+  discount: MyString
+  sel_service: MyString
+  package_type: MyString
+  final_rate: 1.5
+  agency_name: MyString
+
+two:
+  booking_id: 1
+  package_id: MyString
+  agent_id: 1
+  packagename: MyString
+  cities: MyString
+  ratings: MyString
+  stay_days: 1
+  pkg_start_date: 2016-11-12
+  pkg_end_date: 2016-11-12
+  noofrooms: 1
+  noofadults: 1
+  noofchild: 1
+  create_date: 2016-11-12 15:55:42
+  total_rate: 1.5
+  original_rate: 1.5
+  discount: MyString
+  sel_service: MyString
+  package_type: MyString
+  final_rate: 1.5
+  agency_name: MyString

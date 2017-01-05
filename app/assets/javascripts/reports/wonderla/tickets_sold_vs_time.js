@@ -3,7 +3,6 @@
 
   String.prototype.toProperCase = function () {
     return this.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
-
   };
 
   var tickets_vs_time = {
@@ -11,26 +10,26 @@
       var month_names = [ 'JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC' ];
       var fy_month_names = [ 'APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC', 'JAN','FEB','MAR'];
 
-      var data_for_bar_chart = _.map(['bangalore_park','kochi_park','hyderabad_park'], function(e){
+      window.data_for_bar_chart = _.map(['Bangalore','Kochi','Hyderabad'], function(e){
         return {
-          name: e.split('_').join(' ').toProperCase(),
-          data: _.map(financial_years, function(fy){
-            var pd = _.findWhere(yearly_data[e], {fy: fy})
-            return pd ? pd.t : 0 ;
-          })
+          name: e,
+          data: _.pluck(_.where(yearly_data, {branch: e}), 't')
         }
       });
 
-      var data_for_pie_chart = _.map(data_for_bar_chart, function(e){
+      var pie_chart_data = _.map(data_for_bar_chart, function(bd){
+        console.log(bd.data);
+        var sum = 0;
+        _.each(bd.data, function(n){ sum += n }, 0);
         return {
-          name: e.name,
-          y: _.reduce(e.data, function(m, n){ return m + n; }, 0)
-        }
+          name: bd.name,
+          y: sum
+        };
       });
-      console.log(data_for_pie_chart);
+      // console.log(pie_chart_data);
 
       this.yearly_chart(financial_years, data_for_bar_chart);
-      this.yearly_pie_chart(data_for_pie_chart);
+      this.yearly_pie_chart(pie_chart_data);
 
     },
 

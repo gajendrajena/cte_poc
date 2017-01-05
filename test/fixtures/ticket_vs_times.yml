@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  branch_name: MyString
+  fin_year: MyString
+  month: MyString
+  week: 1
+  day: 1
+  tickets_booked: 1
+
+two:
+  branch_name: MyString
+  fin_year: MyString
+  month: MyString
+  week: 1
+  day: 1
+  tickets_booked: 1

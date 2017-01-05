@@ -12,4 +12,11 @@ class HomeController < ApplicationController
   def red_apple
     render 'red_apple_dashboard'
   end
+
+  def wonderla_data
+    @yearly_data = TicketVsTime.get_data(time: params[:time], branch: params[:branch])
+
+    render json: @yearly_data
+  end
+
 end

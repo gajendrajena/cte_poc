@@ -1,0 +1,2 @@
+class YearwisePeekdayWeekday < ApplicationRecord
+end

@@ -1,0 +1,2 @@
+class YearwiseBookingSource < ApplicationRecord
+end

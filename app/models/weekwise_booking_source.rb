@@ -1,0 +1,2 @@
+class WeekwiseBookingSource < ApplicationRecord
+end

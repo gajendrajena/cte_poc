@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  branch_id: 1
+  fin_year: 1
+  month: MyString
+  week: MyString
+  day: MyString
+  booking_src_id: 1
+  tkt_count: 1
+
+two:
+  branch_id: 1
+  fin_year: 1
+  month: MyString
+  week: MyString
+  day: MyString
+  booking_src_id: 1
+  tkt_count: 1

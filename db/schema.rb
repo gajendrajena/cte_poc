@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161114064128) do
+ActiveRecord::Schema.define(version: 20170105121702) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -113,6 +113,106 @@ ActiveRecord::Schema.define(version: 20161114064128) do
     t.string  "package_type"
     t.float   "final_rate"
     t.string  "agency_name"
+  end
+
+  create_table "daywise_booking_sources", force: :cascade do |t|
+    t.integer "branch_id"
+    t.integer "fin_year"
+    t.string  "month"
+    t.string  "week"
+    t.string  "day"
+    t.integer "booking_src_id"
+    t.integer "tkt_count"
+  end
+
+  create_table "monthwise_booking_sources", force: :cascade do |t|
+    t.integer "branch_id"
+    t.integer "fin_year"
+    t.string  "month"
+    t.integer "booking_src_id"
+    t.integer "tkt_count"
+  end
+
+  create_table "monthwise_peekday_weekdays", force: :cascade do |t|
+    t.integer "branch_id"
+    t.integer "fin_year"
+    t.string  "month"
+    t.string  "day"
+    t.integer "category_id"
+    t.integer "tkt_count"
+  end
+
+  create_table "ticket_vs_times", force: :cascade do |t|
+    t.string  "branch_name"
+    t.string  "fin_year"
+    t.string  "month"
+    t.integer "week"
+    t.integer "day"
+    t.integer "tickets_booked"
+  end
+
+  create_table "tkt_cnt_daywises", force: :cascade do |t|
+    t.integer "branch_id"
+    t.integer "fin_year"
+    t.string  "month"
+    t.string  "week"
+    t.string  "day"
+    t.integer "tkt_count"
+  end
+
+  create_table "tkt_cnt_monthwises", force: :cascade do |t|
+    t.integer "branch_id"
+    t.integer "fin_year"
+    t.string  "month"
+    t.integer "tkt_count"
+  end
+
+  create_table "tkt_cnt_weekwises", force: :cascade do |t|
+    t.integer "branch_id"
+    t.integer "fin_year"
+    t.string  "month"
+    t.string  "week"
+    t.integer "tkt_count"
+  end
+
+  create_table "tkt_cnt_yearwises", force: :cascade do |t|
+    t.integer "branch_id"
+    t.integer "fin_year"
+    t.integer "tkt_count"
+  end
+
+  create_table "weekwise_booking_sources", force: :cascade do |t|
+    t.integer "branch_id"
+    t.integer "fin_year"
+    t.string  "month"
+    t.string  "week"
+    t.integer "booking_src_id"
+    t.integer "tkt_count"
+  end
+
+  create_table "weekwise_peekday_weekdays", force: :cascade do |t|
+    t.integer "branch_id"
+    t.integer "fin_year"
+    t.string  "month"
+    t.string  "week"
+    t.string  "day"
+    t.integer "category_id"
+    t.integer "tkt_count"
+  end
+
+  create_table "yearwise_booking_sources", force: :cascade do |t|
+    t.integer "branch_id"
+    t.integer "fin_year"
+    t.integer "booking_src_id"
+    t.integer "tkt_count"
+  end
+
+  create_table "yearwise_peekday_weekdays", force: :cascade do |t|
+    t.integer "branch_id"
+    t.integer "fin_year"
+    t.integer "category_id"
+    t.string  "day"
+    t.integer "tkt_count"
   end
 
 end

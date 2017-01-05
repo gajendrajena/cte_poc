@@ -1,0 +1,2 @@
+class TktCntWeekwise < ApplicationRecord
+end

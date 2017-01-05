@@ -23,9 +23,9 @@
         %canvas.sparkline{:height => "60", :width => "200"}
   .row.standard-header
     .col-xs-6.col-md-2.col-sm-3
-      = select_tag "peak_week_day_filter", options_for_select([['All', '0'], ['2016-2017', '2016-2017'], [ '2015-2016', '2015-2016'], [ '2014-2015', '2014-2015'], [ '2013-2014', '2013-2014'], [ '2012-2013', '2012-2013'] ])
+      = select_tag "time_filter", options_for_select([['All', 'all'], ['2016-2017', '2016-2017'], [ '2015-2016', '2015-2016'], [ '2014-2015', '2014-2015'], [ '2013-2014', '2013-2014'], [ '2012-2013', '2012-2013'] ])
     .col-xs-6.col-md-2.col-sm-3
-      = select_tag "branch_filter", options_for_select([['All Branches', '0'], ['Bangalore', 'Bangalore'], ['Kochi', 'Kochi'], [ 'Hyderabad', 'Hyderabad']])
+      = select_tag "branch_filter", options_for_select([['All Branches', 'all'], ['Bangalore', 'Bangalore'], ['Kochi', 'Kochi'], [ 'Hyderabad', 'Hyderabad']])
   %br/
   .row.margin-top-15
     .col-md-8.col-sm-12.col-xs-12

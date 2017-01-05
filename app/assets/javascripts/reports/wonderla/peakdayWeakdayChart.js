@@ -27,7 +27,7 @@
       }
 
     $('.dashboard_container .standard-header select').change(function(e){
-      var year = $('#peak_week_day_filter').val();
+      var year = $('#time_filter').val();
       var branch = $('#branch_filter').val();
       if (year === '0' && branch === '0') {
         peakday_weekday_chart.peakday_weekday_chart(yearly_data, category_names);
