@@ -15,13 +15,19 @@ class HomeController < ApplicationController
   end
 
   def wonderla_tkt_vs_time
-    @data, categories = if params[:time].blank?
-      [TktCntYearwise.yearly_data, TktCntYearwise.fin_years.collect{|v| v[0]}]
+    @data, categories, title = if params[:time].blank?
+      [TktCntYearwise.yearly_data(params[:branch]), TktCntYearwise.fin_years.collect{|v| v[0]}, '']
     elsif params[:time]
-      [TktCntMonthwise.monthly_data(params[:time]), TktCntMonthwise.month(params[:time])]
+      [TktCntMonthwise.monthly_data(params[:time], params[:branch]), MONTHS, format_year(params[:time])]
     end
 
-    render json: {chart_data: @data.to_json, categories: categories}, status: 200
+    render json: {chart_data: @data.to_json, categories: categories, title: title}, status: 200
+  end
+
+  private
+
+  def format_year(year)
+    " : " + year.to_s.slice(0,4) + '-' + year.to_s.slice(4,4)
   end
 
 end

@@ -9,8 +9,12 @@ class TktCntYearwise < ApplicationRecord
 		self.fin_year.to_s.slice(0,4) + '-' + self.fin_year.to_s.slice(4,4)
 	end
 
-	def self.yearly_data
-		all.group_by(&:branch_id).collect{ |k,v| {name: branch_name(k), data: v.collect{|tcy| tcy.tkt_count}}}
+	def self.yearly_data(branch_id)
+		if branch_id.present?
+			where(branch_id: branch_id).group_by(&:branch_id).collect{ |k,v| {name: branch_name(k), data: v.collect{|tcy| tcy.tkt_count}}}
+		else
+			all.group_by(&:branch_id).collect{ |k,v| {name: branch_name(k), data: v.collect{|tcy| tcy.tkt_count}}}
+		end
 	end
 
 	def self.branch_name(id)

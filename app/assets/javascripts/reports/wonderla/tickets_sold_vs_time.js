@@ -51,13 +51,11 @@
         data: {time: $('#time_filter').val(), branch: $('#branch_filter').val() },
         dataType: 'json',
         success: function(data, textStatus, jqXHR){
-          // console.log(data.chart_data);
-          // console.log(data.categories);
           tickets_vs_time.chart_hash.series = JSON.parse(data.chart_data);
           tickets_vs_time.chart_hash.xAxis.categories = data.categories;
+          tickets_vs_time.chart_hash.title.text += data.title;
         },
         complete: function() {
-          console.log(tickets_vs_time.chart_hash)
           Highcharts.chart('yearly_chart', tickets_vs_time.chart_hash);
         }
       });

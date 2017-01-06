@@ -23,9 +23,9 @@
         %canvas.sparkline{:height => "60", :width => "200"}
   .row.standard-header
     .col-xs-6.col-md-2.col-sm-3
-      = select_tag "time_filter", options_for_select(@years), {prompt: "Select Financial Year"}
+      = select_tag "time_filter", options_for_select(@years), {prompt: "All"}
     .col-xs-6.col-md-2.col-sm-3
-      = select_tag "branch_filter", options_for_select(BRANCHES.collect{|b| [b[:name], b[:id]]}), {prompt: "Select Branch Name"}
+      = select_tag "branch_filter", options_for_select(BRANCHES.collect{|b| [b[:name], b[:id]]}), {prompt: "All"}
   %br/
   %h2#financial_years{data: {fin_years: @years.collect{|v| v[0]}}} Tickets Sold Vs Time
   .row.margin-top-15
