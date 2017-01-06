@@ -32,4 +32,20 @@ class HomeController < ApplicationController
     render json: yearly_data.to_json, status: 200
   end
 
+  def wonderla_tkt_vs_source
+    @data, categories, title = if params[:time].blank?
+      [YearwiseBookingSource.yearly_data(params[:branch]), YearwiseBookingSource.fin_years.collect{|v| v[0]}, '']
+    elsif params[:time]
+      [MonthwiseBookingSource.monthly_data(params[:time], params[:branch]), MONTHS, format_year(params[:time])]
+    end
+
+    render json: {chart_data: @data.to_json, categories: categories, title: title}, status: 200
+  end  
+
+  private
+
+  def format_year(year)
+    " : " + year.to_s.slice(0,4) + '-' + year.to_s.slice(4,4)
+  end
+
 end
