@@ -14,7 +14,7 @@ class TktCntYearwise < ApplicationRecord
 	end
 
 	def self.branch_name(id)
-		BRANCHES.detect{|b| b[:id] == id}[:name]
+		# BRANCHES.detect{|b| b[:id] == id}[:name]
 	end
 
 end

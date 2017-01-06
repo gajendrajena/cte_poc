@@ -18,8 +18,12 @@ class HomeController < ApplicationController
     if params[:time].blank?
       @yearly_data = TktCntYearwise.yearly_data
     end
-
     render json: @yearly_data.to_json, status: 200
+  end
+
+  def peakday_weekday
+    
+    render json: [].to_json, status: 200
   end
 
 end
