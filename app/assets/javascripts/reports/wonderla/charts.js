@@ -31,23 +31,10 @@
     };
   };
 
-  Highcharts.setOptions({
-    lang: {
-        thousandsSep: ','
-    }
-  });
-
+  Highcharts.setOptions({ lang: { thousandsSep: ','}});
 
   window.charts = new Charts();
   $(d).ready(function(){
-    $.ajax({
-    url: '/wonderla_data',
-    data: {time: $('#time_filter').val(), branch: $('#branch_filter').val() },
-    dataType: 'json',
-    success: function(data, textStatus, jqXHR){
-      console.log(data);
-    }
-  });
     $("#time_filter, #branch_filter").chosen({ width: '100%' });
     window.charts.get('tickets_vs_time').init();
     window.charts.get('group_wise_users_chart').init();

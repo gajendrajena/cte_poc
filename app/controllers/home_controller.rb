@@ -6,6 +6,7 @@ class HomeController < ApplicationController
   end
 
   def wonderla
+    @years = TktCntYearwise.fin_years
     render 'wonderla_dashboard'
   end
 
@@ -13,11 +14,12 @@ class HomeController < ApplicationController
     render 'red_apple_dashboard'
   end
 
-  def wonderla_data
-    params[:time] |= 'yearly'
-    @yearly_data = TicketVsTime.get_data(time: params[:time], branch: params[:branch])
+  def wonderla_tkt_vs_time
+    if params[:time].blank?
+      @yearly_data = TktCntYearwise.yearly_data
+    end
 
-    render json: @yearly_data
+    render json: @yearly_data.to_json, status: 200
   end
 
 end

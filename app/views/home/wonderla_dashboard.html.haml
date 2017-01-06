@@ -23,13 +23,14 @@
         %canvas.sparkline{:height => "60", :width => "200"}
   .row.standard-header
     .col-xs-6.col-md-2.col-sm-3
-      = select_tag "time_filter", options_for_select([['All', 'all'], ['2016-2017', '2016-2017'], [ '2015-2016', '2015-2016'], [ '2014-2015', '2014-2015'], [ '2013-2014', '2013-2014'], [ '2012-2013', '2012-2013'] ])
+      = select_tag "time_filter", options_for_select(@years), {prompt: "Select Financial Year"}
     .col-xs-6.col-md-2.col-sm-3
-      = select_tag "branch_filter", options_for_select([['All Branches', 'all'], ['Bangalore', 'Bangalore'], ['Kochi', 'Kochi'], [ 'Hyderabad', 'Hyderabad']])
+      = select_tag "branch_filter", options_for_select(BRANCHES.collect{|b| [b[:name], b[:id]]}), {prompt: "Select Branch Name"}
   %br/
+  %h2#financial_years{data: {fin_years: @years.collect{|v| v[0]}}} Tickets Sold Vs Time
   .row.margin-top-15
     .col-md-8.col-sm-12.col-xs-12
-      #yearly_chart
+      #yearly_chart Loading Chart
     .col-md-4.col-sm-12.col-xs-12
       #yearly_pie_chart
   .row.margin-top-15

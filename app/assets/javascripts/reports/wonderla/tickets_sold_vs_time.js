@@ -6,39 +6,10 @@
   };
 
   var tickets_vs_time = {
+    chart_hash: {name: 'hello'},
+
     init: function() {
-
-      var month_names = [ 'JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC' ];
-      var fy_month_names = [ 'APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC', 'JAN','FEB','MAR'];
-
-      window.data_for_bar_chart = _.map(['Bangalore','Kochi','Hyderabad'], function(e){
-        return {
-          name: e,
-          data: _.pluck(_.where(yearly_data, {branch: e}), 't')
-        }
-      });
-
-      var pie_chart_data = _.map(data_for_bar_chart, function(bd){
-        // console.log(bd.data);
-        var sum = 0;
-        _.each(bd.data, function(n){ sum += n }, 0);
-        return {
-          name: bd.name,
-          y: sum
-        };
-      });
-      // console.log(pie_chart_data);
-
-      this.yearly_chart(financial_years, data_for_bar_chart);
-      console.log('data_for_bar_chart');
-      console.log(data_for_bar_chart);
-      console.log('data_for_bar_chart');
-      // this.yearly_pie_chart(pie_chart_data);
-
-    },
-
-    yearly_chart: function(financial_years, data){
-      Highcharts.chart('yearly_chart', {
+      this.chart_hash = {
         chart: {
           type: 'column'
         },
@@ -46,7 +17,7 @@
           text: 'Yearly Tickets Sold'
         },
         xAxis: {
-          categories: financial_years,
+          categories: $('#financial_years').data('fin-years'),
           crosshair: true
         },
         yAxis: {
@@ -69,7 +40,22 @@
             borderWidth: 0
           }
         },
-        series: data
+        series: []
+      };
+      this.setDataAndRenderChart();
+    },
+
+    setDataAndRenderChart: function(){
+      $.ajax({
+        url: '/wonderla_tkt_vs_time',
+        data: {time: $('#time_filter').val(), branch: $('#branch_filter').val() },
+        dataType: 'json',
+        success: function(data, textStatus, jqXHR){
+          tickets_vs_time.chart_hash.series = data;
+        },
+        complete: function() {
+          Highcharts.chart('yearly_chart', tickets_vs_time.chart_hash);
+        }
       });
     },
 

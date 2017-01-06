@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get 'home/index'
   get 'wonderla' => "home#wonderla"
   get 'red_apple' => "home#red_apple"
-  get 'wonderla_data' => "home#wonderla_data"
+  get 'wonderla_tkt_vs_time' => "home#wonderla_tkt_vs_time"
   get 'home/show'
   root to: 'home#index'
 
