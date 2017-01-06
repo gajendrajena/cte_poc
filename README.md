@@ -46,3 +46,8 @@ rails g model daywise_booking_source branch_id:integer fin_year:integer month:st
 rails g model monthwise_booking_source branch_id:integer fin_year:integer month:string booking_src_id:integer tkt_count:integer
 rails g model weekwise_booking_source branch_id:integer fin_year:integer month:string week:string booking_src_id:integer tkt_count:integer
 rails g model yearwise_booking_source branch_id:integer fin_year:integer booking_src_id:integer tkt_count:integer
+
+rake db:seed MODELS=WeekwisePeekdayWeekday FILE=db/seeds/wonderla/weekwise_peekday_weekdays.rb
+rake db:seed MODELS=YearwisePeekdayWeekday FILE=db/seeds/wonderla/yearwise_peekday_weekdays.rb
+
+heroku run rake db:seed MODELS='DaywiseBookingSource, MonthwiseBookingSource, WeekwiseBookingSource, YearwiseBookingSource, WeekwisePeekdayWeekday, MonthwisePeekdayWeekday, YearwisePeekdayWeekday, TktCntDaywise, TktCntMonthwise, TktCntWeekwise, TktCntYearwise'

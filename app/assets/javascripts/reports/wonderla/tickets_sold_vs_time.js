@@ -10,22 +10,10 @@
 
     init: function() {
       this.chart_hash = {
-        chart: {
-          type: 'column'
-        },
-        title: {
-          text: 'Yearly Tickets Sold'
-        },
-        xAxis: {
-          categories: [],
-          crosshair: true
-        },
-        yAxis: {
-          min: 0,
-          title: {
-            text: 'Tickets Sold'
-          }
-        },
+        chart: { type: 'column'},
+        title: { text: 'Yearly Tickets Sold'},
+        xAxis: { categories: [], crosshair: true},
+        yAxis: { min: 0, title: { text: 'Tickets Sold'}},
         tooltip: {
           headerFormat: '<span style="font-size:13px">{point.key}</span><table>',
           pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
@@ -34,47 +22,13 @@
           shared: true,
           useHTML: true
         },
-        plotOptions: {
-          column: {
-            pointPadding: 0.1,
-            borderWidth: 0
-          }
-        },
+        plotOptions: { column: { pointPadding: 0.1, borderWidth: 0 } },
         series: []
       };
-      this.setDataAndRenderChart();
-    },
-
-    setDataAndRenderChart: function(){
-      $.ajax({
-        url: '/wonderla_tkt_vs_time',
-        data: {time: $('#time_filter').val(), branch: $('#branch_filter').val() },
-        dataType: 'json',
-        success: function(data, textStatus, jqXHR){
-          // console.log(data.chart_data);
-          // console.log(data.categories);
-          tickets_vs_time.chart_hash.series = [];
-          tickets_vs_time.chart_hash.xAxis.categories = data.categories;
-        },
-        complete: function() {
-          console.log(tickets_vs_time.chart_hash)
-          Highcharts.chart('yearly_chart', tickets_vs_time.chart_hash);
-        }
-      });
-    },
-
-    yearly_pie_chart: function(data){
-      Highcharts.chart('yearly_pie_chart', {
-        chart: {
-          plotShadow: false,
-          type: 'pie'
-        },
-        title: {
-          text: 'Tickets Sold vs Branch'
-        },
-        tooltip: {
-          pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-        },
+      this.pie_hash = {
+        chart: { plotShadow: false, type: 'pie'},
+        title: { text: 'Tickets Sold vs Time'},
+        tooltip: { pointFormat: '{series.name}: <b>{point.y}</b>'},
         plotOptions: {
           pie: {
             allowPointSelect: true,
@@ -88,8 +42,31 @@
             }
           }
         },
-        series: data
+        series: []
+      };
+      this.setDataAndRenderChart();
+    },
+
+    setDataAndRenderChart: function(){
+      $.ajax({
+        url: '/wonderla_tkt_vs_time',
+        data: {time: $('#time_filter').val(), branch: $('#branch_filter').val() },
+        dataType: 'json',
+        success: function(data, textStatus, jqXHR){
+          tickets_vs_time.chart_hash.series = data.chart_data;
+          tickets_vs_time.chart_hash.xAxis.categories = data.categories;
+          tickets_vs_time.chart_hash.title.text += data.title;
+          tickets_vs_time.pie_hash.series =[{ name: 'Tickets Sold', colorByPoint: true, data: data.pie.data }];
+        },
+        complete: function() {
+          Highcharts.chart('yearly_chart', tickets_vs_time.chart_hash);
+          Highcharts.chart('yearly_pie_chart', tickets_vs_time.pie_hash);
+        }
       });
+    },
+
+    yearly_pie_chart: function(data){
+      Highcharts.chart('yearly_pie_chart', tickets_vs_time.pie_hash);
     }
   };
 
