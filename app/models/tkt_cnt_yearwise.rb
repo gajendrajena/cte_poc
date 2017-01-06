@@ -6,7 +6,7 @@ class TktCntYearwise < ApplicationRecord
 	end
 
 	def fin_year_text
-		self.fin_year.to_s.slice(0,4) + '-' + self.fin_year.to_s.slice(0,4)
+		self.fin_year.to_s.slice(0,4) + '-' + self.fin_year.to_s.slice(4,4)
 	end
 
 	def self.yearly_data

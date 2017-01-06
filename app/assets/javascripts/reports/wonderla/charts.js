@@ -32,7 +32,6 @@
       },
 
       drawChart: function(){
-        console.log('Kochioiuiouoiuoiuiouiouoiu')
         window.charts.get('tickets_vs_time').init();
         window.charts.get('group_wise_users_chart').init();
         window.charts.get('peakday_weekday_chart').init();
