@@ -17,6 +17,8 @@ class HomeController < ApplicationController
   def wonderla_tkt_vs_time
     if params[:time].blank?
       @yearly_data = TktCntYearwise.yearly_data
+    elsif params[:time]
+      @yearly_data = TktCntYearwise.where(fin_year: params[:time]).yearly_data
     end
 
     render json: @yearly_data.to_json, status: 200
