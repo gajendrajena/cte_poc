@@ -25,7 +25,7 @@
           text: 'Stack 1: Peakday , Stack 2:  Weekday'
         },
         xAxis: {
-          categories: category_names
+          categories: []
         },
         yAxis: {
           allowDecimals: false,
@@ -58,20 +58,16 @@
         data: {time: $('#time_filter').val(), branch: $('#branch_filter').val() },
         dataType: 'json',
         success: function(data, textStatus, jqXHR){
-          peakday_weekday_chart.chart_hash.series = data;
+          peakday_weekday_chart.chart_hash.series = data.chart_data;
+          peakday_weekday_chart.chart_hash.xAxis.categories = data.categories;
+          peakday_weekday_chart.chart_hash.title.text += data.title;
         },
         complete: function() {
           Highcharts.chart('peakday_weekday_chart', peakday_weekday_chart.chart_hash);
         }
       });
-      // peakday_weekday_chart.chart_hash.series = yearly_data;
-      // Highcharts.chart('peakday_weekday_chart', peakday_weekday_chart.chart_hash);
+     
     },
-
-    // peakday_weekday_chart: function(chart_hash, category_names) {
-    //     $('#peakday_weekday_chart').html('');
-    //     $('#peakday_weekday_chart').highcharts(chart_hash);
-    //   }
   }
 
   window.charts.add('peakday_weekday_chart', peakday_weekday_chart);

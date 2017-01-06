@@ -25,11 +25,11 @@ class HomeController < ApplicationController
 
   def peakday_weekday
     if params[:time].blank?
-      yearly_data = YearwisePeekdayWeekday.yearwise(params[:branch])
+      data = YearwisePeekdayWeekday.yearwise(params[:branch])
     elsif params[:time]
-      MonthwisePeekdayWeekday.monthly_data(params[:time], params[:branch])
+      data = MonthwisePeekdayWeekday.monthly_data(params[:time], params[:branch])
     end
-    render json: yearly_data.to_json, status: 200
+    render json: data.to_json, status: 200
   end
 
 end
