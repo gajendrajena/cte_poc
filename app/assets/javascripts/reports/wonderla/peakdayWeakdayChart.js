@@ -1,7 +1,7 @@
 (function (w, d, $, undefined) {
   'use strict';
 
-  var category_names = ["2016-2017", "2015-2016", "2014-2015", "2013-2014", "2012-2013", "2011-2012", "2010-2011", "2009-2010", "2008-2009", "2007-2008", "2006-2007", "2005-2006"];
+  var category_names = ["2001-2002", "2002-2003", "2003-2004", "2004-2005", "2005-2006", "2006-2007", "2007-2008", "2008-2009", "2009-2010", "2010-2011", "2011-2012", "2012-2013", "2013-2014", "2014-2015", "2015-2016", "2016-2017"];
   var months_array = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN','JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
   var empty_list = [0, 0, 0, 0, 0, 0,0, 0, 0, 0, 0, 0];
   var peakday_child_data = [52856, 63247, 83854, 77846, 79526, 65364, 0, 0, 0, 0, 0, 0];
@@ -53,19 +53,19 @@
     },
 
     setDataAndRenderChart: function(){
-      // $.ajax({
-      //   url: '/peakday_weekday',
-      //   data: {time: $('#time_filter').val(), branch: $('#branch_filter').val() },
-      //   dataType: 'json',
-      //   success: function(data, textStatus, jqXHR){
-      //     peakday_weekday_chart.chart_hash.series = data;
-      //   },
-      //   complete: function() {
-      //     Highcharts.chart('peakday_weekday_chart', peakday_weekday_chart.chart_hash);
-      //   }
-      // });
-      peakday_weekday_chart.chart_hash.series = yearly_data;
-      Highcharts.chart('peakday_weekday_chart', peakday_weekday_chart.chart_hash);
+      $.ajax({
+        url: '/peakday_weekday',
+        data: {time: $('#time_filter').val(), branch: $('#branch_filter').val() },
+        dataType: 'json',
+        success: function(data, textStatus, jqXHR){
+          peakday_weekday_chart.chart_hash.series = data;
+        },
+        complete: function() {
+          Highcharts.chart('peakday_weekday_chart', peakday_weekday_chart.chart_hash);
+        }
+      });
+      // peakday_weekday_chart.chart_hash.series = yearly_data;
+      // Highcharts.chart('peakday_weekday_chart', peakday_weekday_chart.chart_hash);
     },
 
     // peakday_weekday_chart: function(chart_hash, category_names) {

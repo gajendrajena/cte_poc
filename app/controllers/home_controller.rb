@@ -22,8 +22,8 @@ class HomeController < ApplicationController
   end
 
   def peakday_weekday
-    
-    render json: [].to_json, status: 200
+    yearly_data = YearwisePeekdayWeekday.yearwise
+    render json: yearly_data.to_json, status: 200
   end
 
 end

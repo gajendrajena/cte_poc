@@ -12,6 +12,7 @@
           console.error("Chart exists: " + name);
         }
       },
+
       get: function(name) {
         if(charts[name]) {
           var chart = charts[name];
@@ -25,9 +26,17 @@
           console.error("Undefined chart: " + name);
         }
       },
+
       exists: function(name) {
         return !!charts[name];
+      },
+
+      drawChart: function(){
+        window.charts.get('tickets_vs_time').init();
+        window.charts.get('group_wise_users_chart').init();
+        window.charts.get('peakday_weekday_chart').init();
       }
+
     };
   };
 
@@ -36,10 +45,10 @@
   window.charts = new Charts();
   $(d).ready(function(){
     $("#time_filter, #branch_filter").chosen({ width: '100%' });
-    window.charts.get('tickets_vs_time').init();
-    window.charts.get('group_wise_users_chart').init();
-    window.charts.get('peakday_weekday_chart').init();
+    charts.drawChart();
+    $("#time_filter, #branch_filter").on('change', charts.drawChart);
   });
+
 
 }(window, document, jQuery));
 

@@ -6,7 +6,7 @@
   };
 
   var tickets_vs_time = {
-    chart_hash: {name: 'hello'},
+    chart_hash: {},
 
     init: function() {
       this.chart_hash = {
@@ -17,7 +17,7 @@
           text: 'Yearly Tickets Sold'
         },
         xAxis: {
-          categories: $('#financial_years').data('fin-years'),
+          categories: [],
           crosshair: true
         },
         yAxis: {
@@ -51,9 +51,13 @@
         data: {time: $('#time_filter').val(), branch: $('#branch_filter').val() },
         dataType: 'json',
         success: function(data, textStatus, jqXHR){
-          tickets_vs_time.chart_hash.series = data;
+          // console.log(data.chart_data);
+          // console.log(data.categories);
+          tickets_vs_time.chart_hash.series = [];
+          tickets_vs_time.chart_hash.xAxis.categories = data.categories;
         },
         complete: function() {
+          console.log(tickets_vs_time.chart_hash)
           Highcharts.chart('yearly_chart', tickets_vs_time.chart_hash);
         }
       });
