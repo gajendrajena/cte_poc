@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'red_apple' => "home#red_apple"
   get 'wonderla_tkt_vs_time' => "home#wonderla_tkt_vs_time"
   get 'peakday_weekday' => "home#peakday_weekday"
+  get 'wonderla_tkt_vs_source' => "home#wonderla_tkt_vs_source"
   get 'home/show'
   root to: 'home#index'
 
