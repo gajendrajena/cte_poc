@@ -1,2 +1,3 @@
 class TktCntYearwise < ApplicationRecord
+
 end

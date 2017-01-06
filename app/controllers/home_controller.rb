@@ -14,6 +14,7 @@ class HomeController < ApplicationController
   end
 
   def wonderla_data
+    params[:time] |= 'yearly'
     @yearly_data = TicketVsTime.get_data(time: params[:time], branch: params[:branch])
 
     render json: @yearly_data

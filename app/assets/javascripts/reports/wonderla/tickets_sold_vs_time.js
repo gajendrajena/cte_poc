@@ -6,7 +6,8 @@
   };
 
   var tickets_vs_time = {
-    init: function(){
+    init: function() {
+
       var month_names = [ 'JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC' ];
       var fy_month_names = [ 'APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC', 'JAN','FEB','MAR'];
 
@@ -18,7 +19,7 @@
       });
 
       var pie_chart_data = _.map(data_for_bar_chart, function(bd){
-        console.log(bd.data);
+        // console.log(bd.data);
         var sum = 0;
         _.each(bd.data, function(n){ sum += n }, 0);
         return {
@@ -29,7 +30,10 @@
       // console.log(pie_chart_data);
 
       this.yearly_chart(financial_years, data_for_bar_chart);
-      this.yearly_pie_chart(pie_chart_data);
+      console.log('data_for_bar_chart');
+      console.log(data_for_bar_chart);
+      console.log('data_for_bar_chart');
+      // this.yearly_pie_chart(pie_chart_data);
 
     },
 
