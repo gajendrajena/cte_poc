@@ -66,6 +66,9 @@ ActiveRecord::Schema.define(version: 20170109104601) do
     t.integer "fin_year"
     t.integer "group_id"
     t.integer "tkt_count"
+    t.index ["branch_id"], name: "index_groupwise_yearwise_tkt_cnts_on_branch_id", using: :btree
+    t.index ["fin_year"], name: "index_groupwise_yearwise_tkt_cnts_on_fin_year", using: :btree
+    t.index ["group_id"], name: "index_groupwise_yearwise_tkt_cnts_on_group_id", using: :btree
   end
 
   create_table "monthwise_booking_sources", force: :cascade do |t|
@@ -74,6 +77,7 @@ ActiveRecord::Schema.define(version: 20170109104601) do
     t.string  "month"
     t.integer "booking_src_id"
     t.integer "tkt_count"
+    t.index ["booking_src_id"], name: "index_monthwise_booking_sources_on_booking_src_id", using: :btree
   end
 
   create_table "monthwise_peekday_weekdays", force: :cascade do |t|
