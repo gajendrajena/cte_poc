@@ -1,0 +1,2 @@
+class GroupwiseMonthwiseTktCnt < ApplicationRecord
+end

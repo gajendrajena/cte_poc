@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170109075224) do
+ActiveRecord::Schema.define(version: 20170109104601) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,13 +25,55 @@ ActiveRecord::Schema.define(version: 20170109075224) do
     t.integer "tkt_count"
   end
 
+  create_table "groupwise_daywise_tkt_cnts", force: :cascade do |t|
+    t.integer "branch_id"
+    t.integer "fin_year"
+    t.integer "group_id"
+    t.string  "month"
+    t.string  "week"
+    t.string  "day"
+    t.integer "tkt_count"
+    t.index ["branch_id"], name: "index_groupwise_daywise_tkt_cnts_on_branch_id", using: :btree
+    t.index ["fin_year"], name: "index_groupwise_daywise_tkt_cnts_on_fin_year", using: :btree
+    t.index ["group_id"], name: "index_groupwise_daywise_tkt_cnts_on_group_id", using: :btree
+  end
+
+  create_table "groupwise_monthwise_tkt_cnts", force: :cascade do |t|
+    t.integer "branch_id"
+    t.integer "fin_year"
+    t.integer "group_id"
+    t.string  "month"
+    t.integer "tkt_count"
+    t.index ["branch_id"], name: "index_groupwise_monthwise_tkt_cnts_on_branch_id", using: :btree
+    t.index ["fin_year"], name: "index_groupwise_monthwise_tkt_cnts_on_fin_year", using: :btree
+    t.index ["group_id"], name: "index_groupwise_monthwise_tkt_cnts_on_group_id", using: :btree
+  end
+
+  create_table "groupwise_weekwise_tkt_cnts", force: :cascade do |t|
+    t.integer "branch_id"
+    t.integer "fin_year"
+    t.integer "group_id"
+    t.string  "month"
+    t.string  "week"
+    t.integer "tkt_count"
+    t.index ["branch_id"], name: "index_groupwise_weekwise_tkt_cnts_on_branch_id", using: :btree
+    t.index ["fin_year"], name: "index_groupwise_weekwise_tkt_cnts_on_fin_year", using: :btree
+    t.index ["group_id"], name: "index_groupwise_weekwise_tkt_cnts_on_group_id", using: :btree
+  end
+
+  create_table "groupwise_yearwise_tkt_cnts", force: :cascade do |t|
+    t.integer "branch_id"
+    t.integer "fin_year"
+    t.integer "group_id"
+    t.integer "tkt_count"
+  end
+
   create_table "monthwise_booking_sources", force: :cascade do |t|
     t.integer "branch_id"
     t.integer "fin_year"
     t.string  "month"
     t.integer "booking_src_id"
     t.integer "tkt_count"
-    t.index ["booking_src_id"], name: "index_monthwise_booking_sources_on_booking_src_id", using: :btree
   end
 
   create_table "monthwise_peekday_weekdays", force: :cascade do |t|

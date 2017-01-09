@@ -1,0 +1,2 @@
+class GroupwiseDaywiseTktCnt < ApplicationRecord
+end
