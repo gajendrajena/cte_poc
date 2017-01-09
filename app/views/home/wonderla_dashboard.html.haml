@@ -27,30 +27,25 @@
     .col-xs-6.col-md-2.col-sm-3
       = select_tag "branch_filter", options_for_select(BRANCHES.collect{|b| [b[:name], b[:id]]}), {prompt: "All"}
   %br/
-  %h2#financial_years{data: {fin_years: @years.collect{|v| v[0]}}} Tickets Sold Vs Time
+  %h2#tkt_vs_time{data: {fin_years: @years.collect{|v| v[0]}}} Tickets Sold Vs Time
   .row.margin-top-15
     .col-md-8.col-sm-12.col-xs-12
       #yearly_chart Loading Chart
     .col-md-4.col-sm-12.col-xs-12
       #yearly_pie_chart
+  %h2#peakday_vs_weekday Peakday and Weekday
   .row.margin-top-15
     .col-md-12.col-sm-12.col-xs-12.peakday_weekday_container
-
       .col-md-6.col-sm-6.col-xs-12.peakday_weekday_content
       #peakday_weekday_chart
-
+  %h2#tkt_group_wise_users User Groups
   .row.margin-top-15
     .col-md-8.col-sm-8.col-xs-12
       #group_wise_users
     .col-md-4.col-sm-12.col-xs-12
       #group_wise_users_pie_chart
 
-  %h2 Bookings vs Booking Sources
+  %h2#tkt_vs_boocking_src Booking Sources
   .row.margin-top-15
     .col-md-12.col-sm-12.col-xs-12
       #booking_source_chart Hello
-
-  %h2 Bookings Percentage vs Booking Sources
-  .row.margin-top-15
-    .col-md-12.col-sm-12.col-xs-12
-      #stacked_source Hello

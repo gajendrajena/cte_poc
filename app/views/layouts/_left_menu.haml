@@ -2,12 +2,13 @@
 #sidebar-menu.main_menu_side.hidden-print.main_menu
   .menu_section
     %h3 Dashboard
+    %hr
     %ul.nav.side-menu
       %li
-        %a
-          %i.fa.fa-home
+        %a{href: '#tkt_vs_time'}
+          -# %i.fa.fa-home
           Tickets
-          %span.fa.fa-chevron-down
+          -# %span.fa.fa-chevron-down
         %ul.nav.child_menu
           %li
             %a{:href => "/#"} Yearly
@@ -20,27 +21,27 @@
           %li
             %a{:href => "/#"} Peak Days and Week Days
       %li
-        %a
-          %i.fa.fa-edit
-          F & B
-          %span.fa.fa-chevron-down
+        %a{href: '#peakday_vs_weekday'}
+          -# %i.fa.fa-edit
+          Peakday and Weekday
+          -# %span.fa.fa-chevron-down
         %ul.nav.child_menu
           %li
-            %a{:href => "/#"} F & B
+            %a{:href => "/#"} Peakday and Weekday
       %li
-        %a
-          %i.fa.fa-desktop
-          Retail Shop
-          %span.fa.fa-chevron-down
+        %a{href: '#tkt_group_wise_users'}
+          -# %i.fa.fa-desktop
+          Booking Source Chart
+          -# %span.fa.fa-chevron-down
         %ul.nav.child_menu
           %li
-            %a{:href => "/#"} Retail Shop Wise
+            %a{:href => "/#"} Booking Source
 
       %li
-        %a
-          %i.fa.fa-table
+        %a{href: '#tkt_vs_boocking_src'}
+          -# %i.fa.fa-table
           Group wise
-          %span.fa.fa-chevron-down
+          -# %span.fa.fa-chevron-down
         %ul.nav.child_menu
           %li
             %a{:href => "/#"} Child
