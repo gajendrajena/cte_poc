@@ -20,6 +20,7 @@ class AddIndexToAll < ActiveRecord::Migration[5.0]
 
     add_index :weekwise_booking_sources, :booking_src_id
     add_index :yearwise_booking_sources, :booking_src_id
+    add_index :monthwise_booking_sources, :booking_src_id
 
   end
 end
