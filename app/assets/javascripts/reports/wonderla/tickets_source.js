@@ -46,8 +46,6 @@
         data: {time: $('#time_filter').val(), branch: $('#branch_filter').val() },
         dataType: 'json',
         success: function(data, textStatus, jqXHR){
-          console.log(data.categories)
-          console.log(data.chart_data)
           tickets_vs_source.chart_hash.series = JSON.parse(data.chart_data);
           tickets_vs_source.chart_hash.xAxis.categories = data.categories;
           tickets_vs_source.chart_hash.title.text += data.title;

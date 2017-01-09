@@ -18,20 +18,14 @@
           .left_col.scroll-view
             .navbar.nav_title{:style => ""}
               %a.site_title{:href => "/"}
-                -# %i.fa.fa-paw
-                -# %span CTE POC
             .clearfix
             %br/
             = render 'layouts/left_menu'
         = render 'layouts/top_nav'
-        / page content
-        .right_col{:role => "main"}
-          = yield
-        / /page content
-        / footer content
+
+        .right_col{:role => "main"}= yield
         %footer
           .pull-right
             CTE
             %a{:href => "/"} POC
           .clearfix
-        / /footer content
