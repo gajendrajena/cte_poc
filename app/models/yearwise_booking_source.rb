@@ -9,11 +9,10 @@ class YearwiseBookingSource < ApplicationRecord
 	end
 
 	def self.yearly_data(branch_id)
-		if branch_id.present?
-			where(branch_id: branch_id).group_by(&:booking_src_id).collect{ |k,v| {name: BOOKING_SRC[k.to_s], data: v.collect{|tcy| tcy.tkt_count}}}
-		else
-			all.group_by(&:booking_src_id).collect{ |k,v| {name: BOOKING_SRC[k.to_s], data: v.collect{|tcy| tcy.tkt_count}}}
-		end
+		data = []
+		query_data = branch_id.present? ? where(branch_id: branch_id) : all
+		data = query_data.group_by(&:booking_src_id).collect{ |k,v| {name: BOOKING_SRC[k.to_s], data: v.group_by(&:fin_year).collect{|k,v| v.map(&:tkt_count).sum}}}
+		{ chart_data: data.to_json, categories: fin_years.collect{|v| v[0]}, title: ''}
 	end
 
 end
