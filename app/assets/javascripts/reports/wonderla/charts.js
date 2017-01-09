@@ -44,12 +44,24 @@
   Highcharts.setOptions({ lang: { thousandsSep: ','}});
 
   window.charts = new Charts();
+
   $(d).ready(function(){
     $("#time_filter, #branch_filter").chosen({ width: '100%' });
     charts.drawChart();
     $("#time_filter, #branch_filter").on('change', charts.drawChart);
-  });
 
+    var fixmeTop = $('.fixme').offset().top;       // get initial position of the element
+
+    $(window).scroll(function() {                  // assign scroll event listener
+      var currentScroll = $(window).scrollTop(); // get current position
+
+      if (currentScroll >= fixmeTop) {           // apply position: fixed if you
+        $('.fixme').addClass('fixed');
+      } else {                                   // apply position: static
+        $('.fixme').removeClass('fixed');
+      }
+    });
+  });
 
 }(window, document, jQuery));
 

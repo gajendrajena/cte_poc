@@ -21,7 +21,7 @@
       %h2 23,109
       %span.sparkline_one{:style => "height: 160px;"}
         %canvas.sparkline{:height => "60", :width => "200"}
-  .row.standard-header
+  .row.standard-header.fixme
     .col-xs-6.col-md-2.col-sm-3
       = select_tag "time_filter", options_for_select(@years), {prompt: "All"}
     .col-xs-6.col-md-2.col-sm-3

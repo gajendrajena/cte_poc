@@ -12,3 +12,15 @@
 .margin-top-15 {
   margin-top: 15px;
 }
+.fixme{
+	position: static;
+	&.fixed{
+		position: fixed;
+    top: 0px;
+    left: 261px;
+    width: calc(100% - 261px);
+    z-index: 2;
+    background: #F7F7F7;
+    padding: 10px;
+	}
+}
