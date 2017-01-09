@@ -9,7 +9,7 @@
           type: 'line'
         },
         title: {
-          text: 'Tickets Booked for different user groups for financial year 2016-2017'
+          text: 'Tickets Booked for different user groups'
         },
         subtitle: {
           text: 'Source: CTE'
@@ -37,7 +37,7 @@
 
     setDataAndRenderChart: function(){
       $.ajax({
-        url: '/wonderla_tkt_vs_source',
+        url: '/grpup_wise',
         data: {time: $('#time_filter').val(), branch: $('#branch_filter').val() },
         dataType: 'json',
         success: function(data, textStatus, jqXHR){

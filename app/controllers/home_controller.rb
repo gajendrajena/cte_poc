@@ -41,6 +41,15 @@ class HomeController < ApplicationController
     render json: @data, status: 200
   end
 
+  def grpup_wise
+    @data = if params[:time].blank?
+      GroupwiseYearwiseTktCnt.yearly_data(params[:branch])
+    elsif params[:time]
+      GroupwiseMonthwiseTktCnt.monthly_data(params[:time], params[:branch])
+    end
+    render json: @data, status: 200
+  end
+
   private
 
   def format_year(year)
