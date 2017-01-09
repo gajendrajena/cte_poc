@@ -7,8 +7,8 @@ class CreateGroupwiseYearwiseTktCnts < ActiveRecord::Migration[5.0]
       t.integer :tkt_count
     end
 
-    # add_index :groupwise_yearwise_tkt_cnts, :branch_id
-    # add_index :groupwise_yearwise_tkt_cnts, :fin_year
-    # add_index :groupwise_yearwise_tkt_cnts, :group_id
+    add_index :groupwise_yearwise_tkt_cnts, :branch_id
+    add_index :groupwise_yearwise_tkt_cnts, :fin_year
+    add_index :groupwise_yearwise_tkt_cnts, :group_id
   end
 end
