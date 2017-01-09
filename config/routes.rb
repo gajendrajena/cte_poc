@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get 'peakday_weekday' => "home#peakday_weekday"
   get 'wonderla_tkt_vs_source' => "home#wonderla_tkt_vs_source"
   get 'home/show'
-  root to: 'home#index'
+  root to: 'home#wonderla'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

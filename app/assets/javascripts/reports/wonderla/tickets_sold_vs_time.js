@@ -25,6 +25,7 @@
         plotOptions: { column: { pointPadding: 0.1, borderWidth: 0 } },
         series: []
       };
+
       this.pie_hash = {
         chart: { plotShadow: false, type: 'pie'},
         title: { text: 'Tickets Sold vs Time'},

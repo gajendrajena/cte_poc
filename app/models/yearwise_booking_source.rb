@@ -1,7 +1,7 @@
 class YearwiseBookingSource < ApplicationRecord
-    
-    def self.fin_years
-		select('id,fin_year').where(branch_id: 1).collect{|tyw| [ tyw.fin_year_text, tyw.fin_year]}
+
+  def self.fin_years
+		select('id, fin_year').where(branch_id: 1).collect{|tyw| tyw.fin_year_text}
 	end
 
 	def fin_year_text
