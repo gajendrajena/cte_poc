@@ -2,31 +2,9 @@
   'use strict';
 
   var group_wise_users_chart = {
-    init: function(){
-      var months = _.uniq(_.map(current_year_tikets_group_wise, function(e){ return e.month; }));
-      var groups = _.uniq(_.map(current_year_tikets_group_wise, function(e){ return e.group; }));
 
-      var series_data = _.map(groups, function(group){
-        var data = _.map(_.where(current_year_tikets_group_wise, {group: group}), function(e){ return e.tickets});
-        return {name: group, data: data};
-      });
-
-      var series_pie_data = _.map(groups, function(group){
-        var data = _.map(_.where(current_year_tikets_group_wise, {group: group}), function(e){ return e.tickets});
-        var sum = _.reduce(data, function(memo, num){ return memo + num; }, 0)
-          if(group === 'General'){
-            return {name: group, y: sum, sliced: true, selected: true};
-          } else {
-            return {name: group, y: sum};
-          }
-      });
-      var series_pie = [{ type: 'pie', name: 'Browser share', data: series_pie_data}];
-      this.render_pie_chart(series_pie);
-      this.render_line_chart(months, series_data);
-    },
-
-    render_line_chart: function(months, series_data){
-      $('#group_wise_users').highcharts({
+    init: function() {
+      this.chart_hash = {
         chart: {
           type: 'line'
         },
@@ -37,7 +15,7 @@
           text: 'Source: CTE'
         },
         xAxis: {
-          categories: months
+          categories: []
         },
         yAxis: {
           title: {
@@ -52,40 +30,26 @@
             enableMouseTracking: false
           }
         },
-        series: series_data
-      });
+        series: []
+      };
+      this.setDataAndRenderChart();
     },
 
-    render_pie_chart: function(series_pie){
-      $('#group_wise_users_pie_chart').highcharts({
-        chart: {
-          type: 'pie',
-          options3d: {
-            enabled: true,
-            alpha: 45,
-            beta: 0
-          }
+    setDataAndRenderChart: function(){
+      $.ajax({
+        url: '/wonderla_tkt_vs_source',
+        data: {time: $('#time_filter').val(), branch: $('#branch_filter').val() },
+        dataType: 'json',
+        success: function(data, textStatus, jqXHR){
+          group_wise_users_chart.chart_hash.series = JSON.parse(data.chart_data);
+          group_wise_users_chart.chart_hash.xAxis.categories = data.categories;
+          group_wise_users_chart.chart_hash.title.text += data.title;
         },
-        title: {
-          text: 'Tickets Booked for different user groups for financial year 2016-2017'
-        },
-        tooltip: {
-          pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-        },
-        plotOptions: {
-          pie: {
-            allowPointSelect: true,
-            cursor: 'pointer',
-            depth: 35,
-            dataLabels: {
-              enabled: true,
-              format: '{point.name}'
-            }
-          }
-        },
-        series: series_pie
+        complete: function() {
+          Highcharts.chart('group_wise_users', group_wise_users_chart.chart_hash);
+        }
       });
-    }
+    },
   };
 
   window.charts.add('group_wise_users_chart', group_wise_users_chart);
