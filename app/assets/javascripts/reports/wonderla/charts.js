@@ -36,6 +36,10 @@
         window.charts.get('group_wise_users_chart').init();
         window.charts.get('peakday_weekday_chart').init();
         window.charts.get('tickets_vs_source').init();
+        if($('#time_filter').val().length > 0 || $('#branch_filter').val()){
+            var newurl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?time='+$('#time_filter').val()+"&branch="+$('#branch_filter').val() ;
+            window.history.pushState({path:newurl},'',newurl);
+        }
       }
 
     };
@@ -47,6 +51,7 @@
 
   $(d).ready(function(){
     $("#time_filter, #branch_filter").chosen({ width: '100%' });
+    UpdateSearchFilter();
     charts.drawChart();
     $("#time_filter, #branch_filter").on('change', charts.drawChart);
 
@@ -63,4 +68,21 @@
     });
   });
 
+  var UpdateSearchFilter = function(){
+    var sPageURL = window.location.search.substring(1);
+    if(sPageURL.length == 0) {return;}
+    var sURLVariables = sPageURL.split('&');
+    for (var i = 0; i < sURLVariables.length; i++)
+    {
+      var sParameterName = sURLVariables[i].split('=');
+      if(sParameterName[1].length > 0){
+        if (jQuery.inArray(sParameterName[0], ["time","branch"]) != -1) {
+          $('#'+sParameterName[0]+'_filter').val(sParameterName[1]);
+          $('#'+sParameterName[0]+'_filter').trigger('chosen:updated');
+        }
+      }
+    }
+  }
+
 }(window, document, jQuery));
+
