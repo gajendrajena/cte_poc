@@ -10,11 +10,12 @@ class TktCntMonthwise < ApplicationRecord
     end
     pie_data = query_data.group_by(&:month).collect{ |k,v| {name: k, y: v.sum{|tcy| tcy.tkt_count}}}
 
-    { chart_data: data, categories: MONTHS, title: format_year(year), pie: { data: pie_data}}
+    { chart_data: data, categories: MONTHS, title: format_year(year, branch_id), pie: { data: pie_data}}
   end
 
-  def self.format_year(year)
-    " : " + year.to_s.slice(0,4) + '-' + year.to_s.slice(4,4)
+  def self.format_year(year, branch_id)
+    title = " : " + year.to_s.slice(0,4) + '-' + year.to_s.slice(4,4)
+    title += (', ' + self.branch_name(branch_id.to_i)) if branch_id.present?
   end
 
   def self.branch_name(id)
