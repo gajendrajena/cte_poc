@@ -13,7 +13,7 @@ class TktCntMonthwise < ApplicationRecord
     { chart_data: data, categories: MONTHS, title: format_year(year, branch_id), pie: { data: pie_data}}
   end
 
-  def self.format_year(year, branch_id)
+  def self.format_year(year, branch_id='')
     title = " : " + year.to_s.slice(0,4) + '-' + year.to_s.slice(4,4)
     title += (', ' + self.branch_name(branch_id.to_i)) if branch_id.present?
   end
