@@ -51,3 +51,22 @@ rake db:seed MODELS=WeekwisePeekdayWeekday FILE=db/seeds/wonderla/weekwise_peekd
 rake db:seed MODELS=YearwisePeekdayWeekday FILE=db/seeds/wonderla/yearwise_peekday_weekdays.rb
 
 heroku run rake db:seed MODELS='DaywiseBookingSource, MonthwiseBookingSource, WeekwiseBookingSource, YearwiseBookingSource, WeekwisePeekdayWeekday, MonthwisePeekdayWeekday, YearwisePeekdayWeekday, TktCntDaywise, TktCntMonthwise, TktCntWeekwise, TktCntYearwise'
+
+
+
+heroku run rake db:seed RAILS_ENV=production MODELS="DaywiseBookingSource"
+
+heroku run rake db:seed RAILS_ENV=production MODELS="TktCntYearwise"
+heroku run rake db:seed RAILS_ENV=production MODELS="TktCntMonthwise"
+heroku run rake db:seed RAILS_ENV=production MODELS="YearwiseBookingSource"
+heroku run rake db:seed RAILS_ENV=production MODELS="YearwisePeekdayWeekday"
+heroku run rake db:seed RAILS_ENV=production MODELS="GroupwiseYearwiseTktCnt"
+heroku run rake db:seed RAILS_ENV=production MODELS="GroupwiseMonthwiseTktCnt"
+heroku run rake db:seed RAILS_ENV=production MODELS="GroupwiseDaywiseTktCnt"
+heroku run rake db:seed RAILS_ENV=production MODELS="GroupwiseWeekwiseTktCnt"
+heroku run rake db:seed RAILS_ENV=production MODELS="MonthwiseBookingSource"
+heroku run rake db:seed RAILS_ENV=production MODELS="MonthwisePeekdayWeekday"
+heroku run rake db:seed RAILS_ENV=production MODELS="TktCntDaywise"
+heroku run rake db:seed RAILS_ENV=production MODELS="TktCntWeekwise"
+heroku run rake db:seed RAILS_ENV=production MODELS="WeekwiseBookingSource"
+heroku run rake db:seed RAILS_ENV=production MODELS="WeekwisePeekdayWeekday"
