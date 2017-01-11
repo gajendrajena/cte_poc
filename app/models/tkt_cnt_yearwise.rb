@@ -2,7 +2,7 @@ class TktCntYearwise < ApplicationRecord
 
   attr_accessor :text
   def self.fin_years
-    select('id,fin_year').where(branch_id: 1).collect{|tyw| [ tyw.fin_year_text, tyw.fin_year]}
+    @@all_years ||= select('id,fin_year').where(branch_id: 1).collect{|tyw| [ tyw.fin_year_text, tyw.fin_year]}
   end
 
   def fin_year_text
@@ -43,7 +43,7 @@ class TktCntYearwise < ApplicationRecord
   end
 
   def self.sorted_financial_years
-    fin_years.collect{|v|v[0]}.sort
+    @@all_years.collect{|v|v[0]}.sort
   end
 
 end

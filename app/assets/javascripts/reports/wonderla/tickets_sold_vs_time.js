@@ -49,9 +49,18 @@
     },
 
     setDataAndRenderChart: function(){
+      var data = {};
+
+      if ($('#time_filter').val().length) {
+        data.time = $('#time_filter').val();
+      }
+
+      if ($('#branch_filter').val().length) {
+        data.data = $('#branch').val();
+      }
       $.ajax({
         url: '/wonderla_tkt_vs_time',
-        data: {time: $('#time_filter').val(), branch: $('#branch_filter').val() },
+        data: data,
         dataType: 'json',
         success: function(data, textStatus, jqXHR){
           tickets_vs_time.chart_hash.series = data.chart_data;

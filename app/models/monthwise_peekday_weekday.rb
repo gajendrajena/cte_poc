@@ -12,7 +12,9 @@ class MonthwisePeekdayWeekday < ApplicationRecord
 				weekday_child_data = where(day: 2, category_id: 2, fin_year: year)
 				weekday_adult_data = where(day: 2, category_id: 1, fin_year: year)
 			end
-			data = [ {name: 'Child (Peakday)', data: MonthwiseBookingSource.sort_monthwise_data(peakday_child_data) , stack: 'Peakday'},
+
+			data = [
+				{name: 'Child (Peakday)', data: MonthwiseBookingSource.sort_monthwise_data(peakday_child_data) , stack: 'Peakday'},
 				{name: 'Adult (Peakday)', data: MonthwiseBookingSource.sort_monthwise_data(peakday_adult_data), stack: 'Peakday'},
 				{name: 'Child (Weekday)', data: MonthwiseBookingSource.sort_monthwise_data(weekday_child_data), stack: 'Weekday'},
 				{name: 'Adult (Weekday)', data: MonthwiseBookingSource.sort_monthwise_data(weekday_adult_data), stack: 'Weekday'}
