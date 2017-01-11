@@ -27,25 +27,24 @@
     .col-xs-6.col-md-2.col-sm-3
       = select_tag "branch_filter", options_for_select(BRANCHES.collect{|b| [b[:name], b[:id]]}), {prompt: "All branches"}
   %br/
-  %h2#tkt_vs_time{data: {fin_years: @years.collect{|v| v[0]}}} Tickets Sold Vs Time
+  %h2#tkt_vs_time.margin-top-30{data: {fin_years: @years.collect{|v| v[0]}}} Tickets Sold Vs Time
   .row.margin-top-15
     .col-md-8.col-sm-12.col-xs-12
       #yearly_chart Loading Chart
     .col-md-4.col-sm-12.col-xs-12
       #yearly_pie_chart
-  %h2#peakday_vs_weekday Peakday and Weekday
+  %h2#peakday_vs_weekday.margin-top-30 Peakday and Weekday
   .row.margin-top-15
     .col-md-12.col-sm-12.col-xs-12.peakday_weekday_container
       .col-md-6.col-sm-6.col-xs-12.peakday_weekday_content
       #peakday_weekday_chart
-  %h2#tkt_group_wise_users User Groups
+
+  %h2#tkt_group_wise_users.margin-top-30 User Groups
   .row.margin-top-15
     .col-md-12.col-sm-12.col-xs-12
-      #group_wise_users
-    / .col-md-4.col-sm-12.col-xs-12
-    /   #group_wise_users_pie_chart
+      #group_wise_users{style: "height: 500px;"}
 
-  %h2#tkt_vs_boocking_src Booking Sources
+  %h2#tkt_vs_boocking_src.margin-top-30 Booking Sources
   .row.margin-top-15
     .col-md-12.col-sm-12.col-xs-12
       #booking_source_chart Hello
