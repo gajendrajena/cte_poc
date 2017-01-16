@@ -22,6 +22,7 @@
  *= require bootstrap-daterangepicker/daterangepicker
  *= require custom
  *= require home
+ *= require login
 
  *= require chosen
 

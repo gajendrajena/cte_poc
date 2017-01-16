@@ -9,19 +9,19 @@
         %li
           %a.user-profile.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "javascript:;"}
             %img{:alt => "", :src => "/assets/img.jpg"}>/
-            John Doe
+            Default User
             %span.fa.fa-angle-down
           %ul.dropdown-menu.dropdown-usermenu.pull-right
+            -# %li
+            -#   %a{:href => "javascript:;"} Profile
+            -# %li
+            -#   %a{:href => "javascript:;"}
+            -#     %span.badge.bg-red.pull-right 50%
+            -#     %span Settings
+            -# %li
+            -#   %a{:href => "javascript:;"} Help
             %li
-              %a{:href => "javascript:;"} Profile
-            %li
-              %a{:href => "javascript:;"}
-                %span.badge.bg-red.pull-right 50%
-                %span Settings
-            %li
-              %a{:href => "javascript:;"} Help
-            %li
-              %a{:href => "login.html"}
+              %a{:href => destroy_session_path(current_user) , :method => :delete}
                 %i.fa.fa-sign-out.pull-right
                 Log Out
         %li.dropdown{:role => "presentation"}

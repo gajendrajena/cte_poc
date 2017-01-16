@@ -10,22 +10,15 @@
     = stylesheet_link_tag '//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css'
     = stylesheet_link_tag '//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css'
     = javascript_include_tag 'application.js'
-    = javascript_include_tag "reports/wonderla/wonderla"
-  %body.nav-md
-    .container.body
-      .main_container
-        .col-md-3.left_col
-          .left_col.scroll-view
-            .navbar.nav_title{:style => ""}
-              %a.site_title{:href => "/"}
-            .clearfix
-            %br/
-            = render 'layouts/left_menu'
-        = render 'layouts/top_nav'
-        .right_col{:role => "main"}
-          %p.notice= notice
-          %p.alert= alert
-          = yield
+  %body
+    .container
+      .form-signin
+        .navbar.nav_title{:style => ""}
+          %a.site_title{:href => "/"}
+        .clearfix
+        %p.notice= notice
+        %p.alert= alert
+        = yield
         %footer
           .pull-right
             CTE

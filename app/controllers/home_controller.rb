@@ -1,11 +1,8 @@
 class HomeController < ApplicationController
+  before_action :authenticate_user!
   require 'json'
 
   def index
-    render 'dashboard'
-  end
-
-  def wonderla
     @years = TktCntYearwise.fin_years
     render 'wonderla_dashboard'
   end
