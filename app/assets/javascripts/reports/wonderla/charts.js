@@ -38,7 +38,7 @@
         window.charts.get('tickets_vs_source').init();
         if($('#time_filter').val().length > 0 || $('#branch_filter').val()){
             var newurl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?time='+$('#time_filter').val()+"&branch="+$('#branch_filter').val() ;
-            window.history.pushState({path:newurl},'',newurl);
+            window.history.pushState({path:newurl}, '', newurl);
         }
       }
 
@@ -50,10 +50,10 @@
   window.charts = new Charts();
 
   $(d).ready(function(){
+    updateSearchFilter();
     $("#time_filter, #branch_filter").chosen({ width: '100%' });
-    UpdateSearchFilter();
-    charts.drawChart();
     $("#time_filter, #branch_filter").on('change', charts.drawChart);
+    charts.drawChart();
 
     var fixmeTop = $('.fixme').offset().top;       // get initial position of the element
 
@@ -68,12 +68,11 @@
     });
   });
 
-  var UpdateSearchFilter = function(){
+  var updateSearchFilter = function(){
     var sPageURL = window.location.search.substring(1);
     if(sPageURL.length == 0) {return;}
     var sURLVariables = sPageURL.split('&');
-    for (var i = 0; i < sURLVariables.length; i++)
-    {
+    for (var i = 0; i < sURLVariables.length; i++) {
       var sParameterName = sURLVariables[i].split('=');
       if(sParameterName[1].length > 0){
         if (jQuery.inArray(sParameterName[0], ["time","branch"]) != -1) {

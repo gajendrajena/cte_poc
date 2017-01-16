@@ -56,8 +56,9 @@
       }
 
       if ($('#branch_filter').val().length) {
-        data.data = $('#branch').val();
+        data.branch = $('#branch_filter').val();
       }
+
       $.ajax({
         url: '/wonderla_tkt_vs_time',
         data: data,

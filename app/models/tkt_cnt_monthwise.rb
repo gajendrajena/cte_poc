@@ -16,6 +16,7 @@ class TktCntMonthwise < ApplicationRecord
   def self.format_year(year, branch_id='')
     title = " : " + year.to_s.slice(0,4) + '-' + year.to_s.slice(4,4)
     title += (', ' + self.branch_name(branch_id.to_i)) if branch_id.present?
+    title.to_s
   end
 
   def self.branch_name(id)
