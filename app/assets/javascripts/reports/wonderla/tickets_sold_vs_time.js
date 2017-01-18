@@ -28,7 +28,7 @@
 
       this.pie_hash = {
         chart: { plotShadow: false, type: 'pie'},
-        title: { text: 'Tickets Sold vs Time'},
+        title: { text: 'Tickets sold : '},
         tooltip: { pointFormat: '{series.name}: <b>{point.y}</b>'},
         plotOptions: {
           pie: {
@@ -68,6 +68,7 @@
           tickets_vs_time.chart_hash.xAxis.categories = data.categories;
           tickets_vs_time.chart_hash.title.text += data.title;
           tickets_vs_time.pie_hash.series =[{ name: 'Tickets Sold', colorByPoint: true, data: data.pie.data }];
+          tickets_vs_time.pie_hash.title.text += data.pie.title;
         },
         complete: function() {
           Highcharts.chart('yearly_chart', tickets_vs_time.chart_hash);

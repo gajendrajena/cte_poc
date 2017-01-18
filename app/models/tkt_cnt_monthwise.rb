@@ -2,15 +2,14 @@ class TktCntMonthwise < ApplicationRecord
 
   def self.monthly_data(year, branch_id)
     data = if branch_id.present?
-      query_data = where(fin_year: year, branch_id: branch_id)
-      query_data.group_by(&:branch_id).collect{ |k,v| {name: branch_name(k), data: sort_monthwise_data(v)}}
+      where(fin_year: year, branch_id: branch_id).group_by(&:branch_id).collect{ |k,v| {name: branch_name(k), data: sort_monthwise_data(v)}}
     else
-      query_data = where(fin_year: year)
-      query_data.group_by(&:branch_id).collect{ |k,v| {name: branch_name(k), data: sort_monthwise_data(v)}}
+      where(fin_year: year).group_by(&:branch_id).collect{ |k,v| {name: branch_name(k), data: sort_monthwise_data(v)}}
     end
-    pie_data = query_data.group_by(&:month).collect{ |k,v| {name: k, y: v.sum{|tcy| tcy.tkt_count}}}
 
-    { chart_data: data, categories: MONTHS, title: format_year(year, branch_id), pie: { data: pie_data}}
+    pie_data = where(fin_year: year).group_by(&:branch_id).collect{ |k,v| {name: branch_name(k).split(',').last, y: v.sum{|tcy| tcy.tkt_count}}}
+
+    { chart_data: data, categories: MONTHS, title: format_year(year, branch_id), pie: { data: pie_data, title: pie_title(year)}}
   end
 
   def self.format_year(year, branch_id='')
@@ -19,8 +18,12 @@ class TktCntMonthwise < ApplicationRecord
     title.to_s
   end
 
+  def self.pie_title(year)
+    year.to_s.slice(0,4) + '-' + year.to_s.slice(6,2)
+  end
+
   def self.branch_name(id)
-    BRANCHES.detect{|b| b[:id] == id}[:name]
+    BRANCHES.detect{|b| b[:id] == id}[:name].gsub(',', ', ')
   end
 
   def self.month(year)

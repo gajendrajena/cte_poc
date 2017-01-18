@@ -21,12 +21,12 @@ class TktCntYearwise < ApplicationRecord
     end
     data = query_data.group_by(&:branch_id).collect{ |k,v| {name: branch_name(k), data: sort_yearwise_data(v)}}
 
-    pie_data = query_data.group_by(&:fin_year).collect{ |k,v| {name: fin_year_text(k), y: v.sum{|tcy| tcy.tkt_count}}}
+    pie_data = all.group_by(&:branch_id).collect{ |k,v| {name: branch_name(k).split(',').last, y: v.sum{|tcy| tcy.tkt_count}}}
 
     title = ' '
     title = (', ' + self.branch_name(branch_id.to_i)) if branch_id.present?
 
-    { chart_data: data, categories: sorted_financial_years, title: title, pie: { data: pie_data}}
+    { chart_data: data, categories: sorted_financial_years, title: title, pie: { data: pie_data, title: 'Till Date' }}
   end
 
   def self.branch_name(id)
