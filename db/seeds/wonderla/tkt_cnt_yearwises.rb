@@ -14,7 +14,7 @@ TktCntYearwise.create!([
   {branch_id: 1, fin_year: 20132014, tkt_count: 1172929},
   {branch_id: 1, fin_year: 20142015, tkt_count: 1162258},
   {branch_id: 1, fin_year: 20152016, tkt_count: 1063018},
-  {branch_id: 1, fin_year: 20162017, tkt_count: 708329},
+  {branch_id: 1, fin_year: 20162017, tkt_count: 777362},
   {branch_id: 2, fin_year: 20012002, tkt_count: 0},
   {branch_id: 2, fin_year: 20022003, tkt_count: 0},
   {branch_id: 2, fin_year: 20032004, tkt_count: 0},
@@ -30,7 +30,7 @@ TktCntYearwise.create!([
   {branch_id: 2, fin_year: 20132014, tkt_count: 1218778},
   {branch_id: 2, fin_year: 20142015, tkt_count: 1266047},
   {branch_id: 2, fin_year: 20152016, tkt_count: 1187152},
-  {branch_id: 2, fin_year: 20162017, tkt_count: 715856},
+  {branch_id: 2, fin_year: 20162017, tkt_count: 790776},
   {branch_id: 4, fin_year: 20012002, tkt_count: 0},
   {branch_id: 4, fin_year: 20022003, tkt_count: 0},
   {branch_id: 4, fin_year: 20032004, tkt_count: 0},
@@ -46,5 +46,5 @@ TktCntYearwise.create!([
   {branch_id: 4, fin_year: 20132014, tkt_count: 0},
   {branch_id: 4, fin_year: 20142015, tkt_count: 0},
   {branch_id: 4, fin_year: 20152016, tkt_count: 0},
-  {branch_id: 4, fin_year: 20162017, tkt_count: 376040}
+  {branch_id: 4, fin_year: 20162017, tkt_count: 451634}
 ])
