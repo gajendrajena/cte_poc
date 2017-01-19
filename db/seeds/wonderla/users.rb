@@ -1,1 +1,1 @@
-User.create :email => "gjena@ctepl.com", :password => "welcome123"
+User.create :email => "admin_user@ctepl.com", :password => "wonderla123"
