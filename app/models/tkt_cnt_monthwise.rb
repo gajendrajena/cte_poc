@@ -7,7 +7,14 @@ class TktCntMonthwise < ApplicationRecord
       where(fin_year: year).group_by(&:branch_id).collect{ |k,v| {name: branch_name(k), data: sort_monthwise_data(v)}}
     end
 
-    pie_data = where(fin_year: year).group_by(&:branch_id).collect{ |k,v| {name: branch_name(k).split(',').last, y: v.sum{|tcy| tcy.tkt_count}}}
+    pie_data = where(fin_year: year).group_by(&:branch_id).collect do |k,v|
+      chart_data = {
+        name: branch_name(k).split(',').last,
+        y: v.sum{ |tcy| tcy.tkt_count }
+      }
+      chart_data.merge!({sliced: true, selected: true}) if(branch_id && branch_id.to_i == k)
+      chart_data
+    end
 
     { chart_data: data, categories: MONTHS, title: format_year(year, branch_id), pie: { data: pie_data, title: pie_title(year)}}
   end
