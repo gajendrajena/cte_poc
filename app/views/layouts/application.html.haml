@@ -5,7 +5,7 @@
     %meta{:charset => "utf-8"}/
     %meta{:content => "IE=edge", "http-equiv" => "X-UA-Compatible"}/
     %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}/
-    %title CTE POC
+    %title Wonderla BI Tool : CTE POC
     = stylesheet_link_tag 'application.css'
     = stylesheet_link_tag '//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css'
     = stylesheet_link_tag '//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css'
@@ -23,8 +23,10 @@
             = render 'layouts/left_menu'
         = render 'layouts/top_nav'
         .right_col{:role => "main"}
-          %p.notice= notice
-          %p.alert= alert
+          - if notice.present?
+            %p.notice= notice
+          - if alert.present?
+            %p.alert= alert
           = yield
         %footer
           .pull-right
