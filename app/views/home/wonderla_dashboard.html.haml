@@ -22,9 +22,9 @@
       %span.sparkline_one{:style => "height: 160px;"}
         %canvas.sparkline{:height => "60", :width => "200"}
   .row.standard-header.fixme
-    .col-xs-6.col-md-2.col-sm-3.pull-right
+    .col-xs-6.col-sm-6.col-md-4.col-lg-3.pull-right
       = select_tag "time_filter", options_for_select(@years), {prompt: "Till Current Year"}
-    .col-xs-6.col-md-2.col-sm-3.pull-right
+    .col-xs-6.col-sm-6.col-md-4.col-lg-3.pull-right
       = select_tag "branch_filter", options_for_select(BRANCHES.collect{|b| [b[:name], b[:id]]}), {prompt: "All branches"}
   %h2#tkt_vs_time{data: {fin_years: @years.collect{|v| v[0]}}} Tickets Sold Vs Time
   .row.margin-top-15

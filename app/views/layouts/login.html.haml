@@ -17,10 +17,10 @@
           %a.site_title{:href => "/"}
         .clearfix
         %p.notice= notice
-        %p.alert= alert
+        - if alert.present?
+          %p.alert.alert-warning= alert
         = yield
         %footer
           .pull-right
-            CTE
-            %a{:href => "/"} POC
+            %a{:href => "/"}Wonderla BI : CTE POC
           .clearfix
