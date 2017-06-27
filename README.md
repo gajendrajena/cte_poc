@@ -75,3 +75,4 @@ weekwise_booking_sources.rb
 weekwise_peekday_weekdays.rb
 
 rake db:seed:dump FILE=db/seeds/users.rb
+test
